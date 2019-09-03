@@ -1,0 +1,264 @@
+<form #us="ngForm"  *ngIf="usuaria">
+  <mat-grid-tile-header> 
+     <h5>Datos Filiatorios</h5>
+  </mat-grid-tile-header>
+  <mat-grid-list cols="4" rowHeight="50" [style.background]="red">
+    <mat-grid-tile>
+        <mat-form-field>
+            <input  matInput
+                    required
+                    name="nombre"
+                    placeholder="Nombre"
+                    [(ngModel)]="usuaria.nombre">
+            <mat-error>Debe ingresar el Nombre</mat-error>
+          </mat-form-field>
+    </mat-grid-tile>
+    <mat-grid-tile>
+        <mat-form-field >
+            <input  matInput
+                    required
+                    name="apellido"
+                    placeholder="Apellido"
+                    [(ngModel)]="usuaria.apellido">
+            <mat-error>Debe ingresar el Apellido</mat-error>
+          </mat-form-field>
+    </mat-grid-tile>
+    <mat-grid-tile>
+        <mat-form-field >
+            <input  matInput
+                    required
+                    type="number"
+                    name="edad"
+                    placeholder="Edad"
+                    [(ngModel)]="usuaria.edad">
+            <mat-error>Debe ingresar el Edad</mat-error>
+          </mat-form-field>
+    </mat-grid-tile>
+    <mat-grid-tile>
+        <mat-form-field>
+          <input matInput [matDatepicker]="picker" placeholder="Fecha Nacimiento" name="fechaNacimiento" [(ngModel)]="usuaria.fechaNacimiento">
+          <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+          <mat-datepicker #picker startView="month" [startAt]="startDate"></mat-datepicker>
+        </mat-form-field>
+    </mat-grid-tile>
+  </mat-grid-list>
+  <mat-grid-list cols="4" rowHeight="50">
+    <mat-grid-tile>
+        <mat-form-field >
+        <input  matInput
+                required
+                name="documento"
+                placeholder="Documento"
+                [(ngModel)]="usuaria.documento">
+        <mat-error>Debe ingresar el Documento</mat-error>
+        </mat-form-field>
+    </mat-grid-tile>
+</mat-grid-list>
+  <mat-grid-list cols="4" rowHeight="50">
+    <mat-grid-tile>
+        <mat-form-field  class="all-width">
+            <mat-select (selectionChange)="selectPais($event.value)"
+                placeholder="Nacionalidad"
+                [(ngModel)]="usuaria.nacionalidadId"
+                name="nacionalidadId">
+                <mat-option *ngFor="let pais of paises"
+                [value] = "pais.id">
+                {{pais.nombre}}
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
+    </mat-grid-tile>
+      <mat-grid-tile>
+        <mat-form-field  class="all-width">
+            <mat-select (selectionChange)="selectProvincia($event.value)"
+                placeholder="Provincia"
+                [(ngModel)]="usuaria.provinciaId"
+                name="provinciaId">
+                <mat-option *ngFor="let prov of provincias"
+                [value] = "prov.id">
+                {{prov.nombre}}
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
+      </mat-grid-tile>
+      <mat-grid-tile>
+            <mat-form-field  class="all-width">
+                <mat-select (selectionChange)="selectPartido($event.value)"
+                    placeholder="Debe seleccionar la Partido"
+                    [(ngModel)]="usuaria.partidoId"
+                    name="partidoId">
+                    <mat-option *ngFor="let par of partidos"
+                    [value] = "par.id">
+                        {{par.nombre}}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+        </mat-grid-tile>
+        <mat-grid-tile>
+            <mat-form-field  class="all-width">
+                <mat-select
+                    placeholder="Debe seleccionar la Localidad"
+                    [(ngModel)]="usuaria.localidadId"
+                    name="localidadId">
+                    <mat-option *ngFor="let loc of localidades"
+                    [value] = "loc.id">
+                        {{loc.nombre}}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+        </mat-grid-tile>
+  </mat-grid-list>
+  <mat-grid-list cols="4" rowHeight="50">
+    <mat-grid-tile>
+        <mat-form-field >
+            <input  matInput
+                    required
+                    name="direccion"
+                    placeholder="Direccion"
+                    [(ngModel)]="usuaria.direccion">
+            <mat-error>Debe ingresar la Direccion</mat-error>
+            </mat-form-field>
+    </mat-grid-tile>
+    
+    <mat-grid-tile>
+        <mat-form-field >
+            <input  matInput
+                    required
+                    name="telefono"
+                    placeholder="Telefono"
+                    [(ngModel)]="usuaria.telefono">
+            <mat-error>Debe ingresar el Telefono de contacto</mat-error>
+            </mat-form-field>
+        </mat-grid-tile>
+        <mat-grid-tile>
+            <mat-form-field  class="all-width">
+                <mat-select
+                    placeholder="Debe ingresar el Estado de Nivel de Instruccion"
+                    [(ngModel)]="usuaria.nivelInstruccionEstado"
+                    name="nivelInstruccionEstado">
+                    <mat-option *ngFor="let estado of estadoEstudios"
+                    [value] = "estado.id">
+                        {{estado.descripcion}}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+        </mat-grid-tile>
+        <mat-grid-tile>
+                <mat-form-field  class="all-width">
+                    <mat-select
+                        placeholder="Debe ingresar el Nivel de Instruccion"
+                        [(ngModel)]="usuaria.nivelInstruccion"
+                        name="nivelInstruccion">
+                        <mat-option *ngFor="let nin of nivelEstudios"
+                        [value] = "nin.id">
+                            {{nin.descripcion}}
+                        </mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </mat-grid-tile>
+  </mat-grid-list>
+  <mat-grid-tile-header> 
+      <h5>Como se entero de la Consejeria?</h5>
+   </mat-grid-tile-header>
+    <mat-grid-list cols="6" rowHeight="40">
+        <mat-grid-tile>
+            <mat-checkbox [(ngModel)]="usuaria.usuarioCentroSalud" name="usuarioCentroSalud" >
+                Usuario del Centro de Salud
+            </mat-checkbox>
+        </mat-grid-tile>
+        <mat-grid-tile>
+            <mat-checkbox [(ngModel)]="usuaria.parejaConViviente" name="parejaConViviente" >
+                Pareja Conviviente
+            </mat-checkbox>
+        </mat-grid-tile>
+        <mat-grid-tile>
+            <mat-checkbox [(ngModel)]="usuaria.parejaNoConViviente" name="parejaNoConViviente" >
+                Pareja No Conviviente
+            </mat-checkbox>
+        </mat-grid-tile>
+        <mat-grid-tile>
+            <mat-checkbox [(ngModel)]="usuaria.sinPareja" name="sinPareja" >
+                Sin Pareja
+            </mat-checkbox>
+        </mat-grid-tile>
+        <mat-grid-tile>
+            <mat-checkbox [(ngModel)]="usuaria.conocePorConocido" name="conocePorConocido" >
+                Conoce por Conocido
+            </mat-checkbox>
+        </mat-grid-tile>
+        <mat-grid-tile>
+            <mat-checkbox [(ngModel)]="usuaria.conocePorUS" name="conocePorUS" >
+                Conoce Por Unidad Sanitaria
+            </mat-checkbox>
+        </mat-grid-tile>
+    </mat-grid-list>
+    <mat-grid-list cols="6" rowHeight="40">
+        <mat-grid-tile>
+            <mat-checkbox [(ngModel)]="usuaria.conocePorOrganizacion" name="conocePorOrganizacion" >
+                Conoce por Organizacion
+            </mat-checkbox>
+        </mat-grid-tile>
+        <mat-grid-tile>
+            <mat-checkbox [(ngModel)]="usuaria.conocePorMedios" name="conocePorMedios" >
+                Conoce por Medios
+            </mat-checkbox>
+        </mat-grid-tile>
+        <mat-grid-tile>
+            <mat-checkbox [(ngModel)]="usuaria.conocePorUsuarioConsejeria" name="conocePorUsuarioConsejeria" >
+                Conoce por Usuario Consejeria
+            </mat-checkbox>
+        </mat-grid-tile>
+        <mat-grid-tile>
+            <mat-checkbox [(ngModel)]="usuaria.conocePorInsititucionSalud" name="conocePorInsititucionSalud" >
+                Conoce por Insititucion Salud
+            </mat-checkbox>
+        </mat-grid-tile>
+        <mat-grid-tile>
+            <mat-checkbox [(ngModel)]="usuaria.conocePorReferente" name="conocePorReferente" >
+                Conoce por Referente
+            </mat-checkbox>
+        </mat-grid-tile>
+        <mat-grid-tile>
+          <mat-checkbox [(ngModel)]="usuaria.conocePorOtro" name="conocePorOtro" >
+            Conoce por Otro
+          </mat-checkbox>
+        </mat-grid-tile>
+    </mat-grid-list>
+    <mat-grid-list cols="1" rowHeight="70">
+        <mat-grid-tile>
+            <mat-form-field class="all-width"  >
+                <textarea  matInput
+                required
+                name="conocePorInsititucionSaludObs"
+                placeholder="Otra Institucion de Salud?"
+                [(ngModel)]="usuaria.conocePorInsititucionSaludObs"></textarea>
+                <mat-error>Debe ingresar las Observaciones de como conoce por otra Institucion</mat-error>
+              </mat-form-field>
+        </mat-grid-tile>
+    </mat-grid-list>
+    <mat-grid-list cols="1" rowHeight="60">
+        <mat-grid-tile>
+            <mat-form-field class="all-width"  >
+                <textarea matInput
+                        required
+                        name="observacion"
+                        placeholder="Otra observacion"
+                        [(ngModel)]="usuaria.conocePorOtro"></textarea>
+                <mat-error>Debe ingresar las Observaciones</mat-error>
+              </mat-form-field>
+        </mat-grid-tile>
+    </mat-grid-list>
+
+    <mat-grid-tile-footer>
+        <div class="action-buttons">
+            <button  mat-button
+              type="button"
+              (click) = "cancelarEdicionUsuaria()">
+              Cancelar
+            </button>
+            <button type="button" (click) = "guardarUsuaria(us.value, us.valid)"  mat-button color="primary" [disabled]="us.invalid">
+              Guardar datos de Usuaria
+            </button>
+          </div>
+    </mat-grid-tile-footer>
+</form>

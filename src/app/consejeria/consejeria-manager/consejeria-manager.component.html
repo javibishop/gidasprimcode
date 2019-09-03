@@ -1,0 +1,11 @@
+<app-filter-box (filtrar)="filtrarConsejeria($event)"></app-filter-box>
+<button  mat-button
+      type="button"
+      (click) = "nuevoConsejeria()">
+      Nuevo
+    </button>
+<app-consejeria-list [consejerias]="consejerias"  (seleccionar)="seleccionarConsejeria($event)" >
+<!-- a profesionales list le paso la lista de alumnso que tengo en mi componente. 
+list tiene ocmo entrada una prop profesional
+-->
+</app-consejeria-list>

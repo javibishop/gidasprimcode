@@ -1,0 +1,78 @@
+
+<form #f="ngForm" 
+(ngSubmit)="guardar(f.value, f.valid)"
+*ngIf="usuarie"
+>
+  <mat-card>
+    <mat-card-title>
+        Editar Profesional
+    </mat-card-title>
+    <mat-card-content>
+
+        <mat-form-field class="all-width">
+          <input  matInput
+                  required
+                  name="nombre"
+                  placeholder="Nombre"
+                  [(ngModel)]="usuarie.nombre">
+          <mat-error>Debe ingresar el nombre</mat-error>
+        </mat-form-field>
+        <mat-form-field  class="all-width">
+          <input  matInput
+                  required
+                  name="apellido"
+                  placeholder="Apellido"
+                  [(ngModel)]="usuarie.apellido">
+          <mat-error>Debe ingresar el apellido</mat-error>
+        </mat-form-field>
+        <mat-form-field  class="all-width">
+          <input  matInput
+                  required
+                  name="userName"
+                  placeholder="Usuario"
+                  [(ngModel)]="usuarie.userName">
+          <mat-error>Debe ingresar el Usuario</mat-error>
+        </mat-form-field>
+        <mat-form-field  class="all-width" [hidden]="!passvisible">
+          <input  matInput
+                  required
+                  name="password"
+                  placeholder="Clave"
+                  [(ngModel)]="usuarie.password">
+          <mat-error>Debe ingresar la Clave</mat-error>
+        </mat-form-field>
+
+      <br>
+      <span class="mat-form-field-label">Ramo</span>
+      <mat-form-field  class="all-width">
+        <mat-select
+            placeholder="Ramo"
+            [(ngModel)]="usuarie.especialidadId"
+            name="especialidadId">
+            <mat-option *ngFor="let esp of especialidades"
+            [value] = "esp.id">
+            {{esp.nombre}}
+            </mat-option>
+          </mat-select>
+      </mat-form-field>
+      <br><br>
+      <mat-checkbox [(ngModel)]="usuarie.activo"
+                    name="activo" >
+        Activo
+      </mat-checkbox>
+</mat-card-content>
+<mat-card-footer>
+  <div class="action-buttons">
+    <button  mat-button
+      type="button"
+      (click) = "cancelarEdicion()">
+      Cancelar
+    </button>
+    <button type="submit"  mat-button color="primary" [disabled]="f.invalid">
+      Aceptar
+    </button>
+  </div>
+</mat-card-footer>
+</mat-card>
+
+</form>

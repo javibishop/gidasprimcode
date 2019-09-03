@@ -1,0 +1,27 @@
+pasos para heroku.
+hacer la parte del clone y los commit y push a heroku.
+mover el server.js(la config de node) al raiz.
+modificar el package.json de la siguiente forma:
+para correr local, hacer el ng build, que genera el dir dist donde esta los estaticos de angular. esto se configura en el server.js asi
+	// Point static path to dist
+	app.use(express.static(path.join(__dirname, 'dist')));
+	var distDir = __dirname + "/dist/";
+   app.use(express.static(distDir));
+ 
+Con esto, en el puerto del node js esta tambien la app. verificar los redirect para que apunten a la app.
+// Catch all other routes and return the index file
+app.get('*', (req, res) => {
+   res.sendFile(path.join(__dirname, 'dist/index.html'));
+ });
+
+ 
+ **Turns out Angular 6 changed angular.json's "outputPath": "dist/" into "outputPath": "dist/[PROJECTNAME]", which placed everything in the dist folder in a subfolder, which breaks ngh's functionality
+ 
+ Esto es lo que genera la carpeta cuando se hace el ng build, por eso me crea dist/myapp, lo cambie para que solo genere en dist.
+ 
+ 
+ para ver el file system en heroku
+ heroku login
+heroku run bash
+$ cd app
+ 

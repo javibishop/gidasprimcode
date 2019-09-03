@@ -1,0 +1,159 @@
+<form #ga="ngForm"  *ngIf="gestaActual">
+    <mat-grid-tile-header> 
+        <h5>Gesta Actual</h5>
+     </mat-grid-tile-header>
+     <mat-grid-list cols="3" rowHeight="50" [style.background]="red">
+        <mat-grid-tile>
+            <mat-form-field>
+                <input matInput [matDatepicker]="picker" placeholder="enteroFecha" name="Fecha que se Entero" [(ngModel)]="gestaActual.enteroFecha">
+                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                <mat-datepicker #picker startView="month" [startAt]="startDate"></mat-datepicker>
+            </mat-form-field>
+        </mat-grid-tile>
+        <mat-grid-tile>
+          <mat-form-field>
+              <input matInput [matDatepicker]="picker1" placeholder="FUM" name="fum" [(ngModel)]="gestaActual.fum">
+              <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+              <mat-datepicker #picker1 startView="month" [startAt]="startDate"></mat-datepicker>
+            </mat-form-field>
+      </mat-grid-tile>
+      <mat-grid-tile>
+          <mat-form-field>
+              <input matInput [matDatepicker]="picker2" placeholder="EGFUM" name="egfum" [(ngModel)]="gestaActual.egfum">
+              <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
+              <mat-datepicker #picker2 startView="month" [startAt]="startDate"></mat-datepicker>
+            </mat-form-field>
+        </mat-grid-tile>
+    </mat-grid-list>
+    <mat-grid-list cols="5" rowHeight="50" [style.background]="red">
+        <mat-grid-tile colspan=1>
+            <mat-checkbox [(ngModel)]="gestaActual.enteroPorTestOrina" name="enteroPorTestOrina" >Se entero por Test Orina</mat-checkbox>
+        </mat-grid-tile>
+        <mat-grid-tile colspan=4>
+            <mat-form-field>
+                <input  matInput
+                  type="text"
+                  name="enteroPorTestOrinaObservaciones"
+                  placeholder="Otros"
+                  [(ngModel)]="gestaActual.enteroPorTestOrinaObservaciones">
+                <mat-error>Otros</mat-error>
+              </mat-form-field>
+        </mat-grid-tile>
+    </mat-grid-list>
+    <mat-grid-list cols="5" rowHeight="50" [style.background]="red">
+        <mat-grid-tile colspan=1>
+            <mat-checkbox [(ngModel)]="gestaActual.intentoSuprimir" name="intentoSuprimir" >Intento Suprimir</mat-checkbox>
+        </mat-grid-tile>
+        <mat-grid-tile colspan=4>
+            <mat-form-field >
+                <input  matInput
+                  type="text"
+                  name="intentoSuprimirObservaciones"
+                  placeholder="Otros"
+                  [(ngModel)]="gestaActual.intentoSuprimirObservaciones">
+                <mat-error>Debe ingresar las Observaciones</mat-error>
+              </mat-form-field>
+        </mat-grid-tile>
+    </mat-grid-list>
+    <mat-grid-list cols="5" rowHeight="50">
+        <mat-grid-tile colspan=1>
+            <mat-checkbox [(ngModel)]="gestaActual.loComento" name="loComento" >Lo Comento?</mat-checkbox>
+        </mat-grid-tile>
+        <mat-grid-tile colspan=4>
+            <mat-form-field >
+                <input  matInput
+                  type="text"
+                  name="loComentoAQuien"
+                  placeholder="Lo Comento A Quien?"
+                  [(ngModel)]="gestaActual.loComentoAQuien">
+                <mat-error>Lo Comento A Quien?</mat-error>
+              </mat-form-field>
+        </mat-grid-tile>
+    </mat-grid-list>
+    <mat-grid-tile-header> 
+        <h5>ILE</h5>
+     </mat-grid-tile-header>
+     <mat-grid-list cols="4" rowHeight="50" [style.background]="red">
+        <mat-grid-tile>
+            <mat-checkbox [(ngModel)]="gestaActual.causaSaludIntegral" name="causaSaludIntegral" >Causal Salud Integral</mat-checkbox>
+        </mat-grid-tile>
+        <mat-grid-tile>
+            <mat-checkbox [(ngModel)]="gestaActual.causaViolacion" name="causaViolacion" >Causal Violacion</mat-checkbox>
+        </mat-grid-tile>
+        <mat-grid-tile>
+            <mat-checkbox [(ngModel)]="gestaActual.causaSinVE" name="causaSinVE" >Causal sin Viabilidad</mat-checkbox>
+        </mat-grid-tile>
+        <mat-grid-tile>
+            <mat-checkbox [(ngModel)]="gestaActual.calendarioVacunacionCompleto" name="calendarioVacunacionCompleto" >Calendario Vacunacion Completo</mat-checkbox>
+        </mat-grid-tile>
+     </mat-grid-list>
+     <mat-grid-list cols="1" rowHeight="70">
+        <mat-grid-tile>
+            <mat-form-field >
+                <textarea 
+                matInput 
+                name="calendarioVacunacionObservaciones"
+                placeholder="Vacunacion observaciones"
+                [(ngModel)]="gestaActual.calendarioVacunacionObservaciones"></textarea>
+                <mat-error>Vacunacion observaciones</mat-error>
+            </mat-form-field>
+        </mat-grid-tile>
+    </mat-grid-list>
+     <mat-grid-tile-header> 
+        <h5>Contradicciones para el uso MSP</h5>
+     </mat-grid-tile-header>
+     <mat-grid-list cols="4" rowHeight="50" [style.background]="red">
+        <mat-grid-tile>
+            <mat-checkbox [(ngModel)]="gestaActual.cUMSPACO" name="cUMSPACO" >Trastorno Cuagulacion/ACO</mat-checkbox>
+        </mat-grid-tile>
+        <mat-grid-tile>
+            <mat-checkbox [(ngModel)]="gestaActual.cUMSPDisfuncionHepaticaSevera" name="cUMSPDisfuncionHepaticaSevera" >Disfuncion Hepatica Severa</mat-checkbox>
+        </mat-grid-tile>
+        <mat-grid-tile>
+            <mat-checkbox [(ngModel)]="gestaActual.cUMSPEmbarazoEctopico" name="cUMSPEmbarazoEctopico" >Embarazo Ectopico</mat-checkbox>
+        </mat-grid-tile>
+        <mat-grid-tile>
+            <mat-checkbox [(ngModel)]="gestaActual.cUMSPAlergiaMisoDiclo" name="cUMSPAlergiaMisoDiclo" >Alergia Miso/Diclo</mat-checkbox>
+        </mat-grid-tile>
+     </mat-grid-list>
+     <mat-grid-tile-header> 
+        <h5>Factores de Riesgo para realizar el procedimiento</h5>
+     </mat-grid-tile-header>
+     <mat-grid-list cols="4" rowHeight="50" [style.background]="red">
+        <mat-grid-tile>
+            <mat-checkbox [(ngModel)]="gestaActual.factorRiesgoHb7" name="factorRiesgoHb7" >Hb menor a 7</mat-checkbox>
+        </mat-grid-tile>
+        <mat-grid-tile>
+            <mat-checkbox [(ngModel)]="gestaActual.factorRiesgoCardiovascular" name="factorRiesgoCardiovascular" >Factor de Riesgo Cardiovascular</mat-checkbox>
+        </mat-grid-tile>
+        <mat-grid-tile>
+            <mat-checkbox [(ngModel)]="gestaActual.factorRiesgoCorticoterapia" name="factorRiesgoCorticoterapia" >Corticoterapia Prolongada</mat-checkbox>
+        </mat-grid-tile>
+        <mat-grid-tile>
+            <mat-checkbox [(ngModel)]="gestaActual.factorRiesgoDIU" name="factorRiesgoDIU" >DIU</mat-checkbox>
+        </mat-grid-tile>
+     </mat-grid-list>
+     <mat-grid-list cols="1" rowHeight="70">
+        <mat-grid-tile>
+            <mat-form-field >
+                <textarea matInput
+                name="factorRiesgoOtros"
+                placeholder="Otros Factores de Riesgo"
+                [(ngModel)]="gestaActual.factorRiesgoOtros"></textarea>
+                <mat-error>Otros Factores de Riesgo</mat-error>
+            </mat-form-field>
+        </mat-grid-tile>
+    </mat-grid-list>
+     <mat-grid-tile-footer>
+        <div class="action-buttons">
+            <button  mat-button
+          type="button"
+          (click) = "cancelarEdicionGestaActual()">
+          Cancelar
+        </button>
+        <button type="button" (click)="guardarGestaActual(ga.value, ga.valid)"  mat-button color="primary" [disabled]="ga.invalid">
+            Guardar datos de Gesta Actual
+        </button>
+          </div>
+    </mat-grid-tile-footer>        
+</form>

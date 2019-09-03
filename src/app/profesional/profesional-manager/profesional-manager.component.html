@@ -1,0 +1,12 @@
+<app-filter-box (filtrar)="filtrarProfesionals($event)"></app-filter-box>
+<button  mat-button
+      type="button"
+      (click) = "nuevoProfesional()">
+      Nuevo
+    </button>
+<app-profesional-list [profesionales]="usuaries"  (seleccionar)="seleccionarProfesional($event)" >
+<!-- a profesionales list le paso la lista de alumnso que tengo en mi componente. 
+list tiene ocmo entrada una prop profesional
+-->
+</app-profesional-list>
+<!-- <app-profesional-edit *ngIf="profesionalSeleccionado" [profesional]="profesionalSeleccionado" (onCancelarEdit)="desSeleccionarProfesionalMg($event)" (onActualizarEdit)="actualizarProfesionalMg($event)"></app-profesional-edit> -->

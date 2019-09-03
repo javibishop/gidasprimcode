@@ -1,0 +1,158 @@
+<form #an="ngForm"  *ngIf="antecedente">
+    <mat-grid-tile-header> 
+        <h5>Antecedentes Personales y Ginecoobstetricos</h5>
+     </mat-grid-tile-header>
+     <mat-grid-list cols="6" rowHeight="50" [style.background]="red">
+        <mat-grid-tile>
+            <mat-form-field>
+                <input matInput [matDatepicker]="picker" placeholder="Fecha del ultimo Parto" name="fecha" [(ngModel)]="antecedente.fecha">
+                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                <mat-datepicker #picker startView="month" [startAt]="startDate"></mat-datepicker>
+              </mat-form-field>
+        </mat-grid-tile>
+      <mat-grid-tile>
+        <mat-form-field >
+            <input  matInput
+              required
+              type="number"
+              name="gestas"
+              placeholder="Gestas"
+              [(ngModel)]="antecedente.gestas">
+            <mat-error>Debe ingresar la cantidad de Gestas</mat-error>
+          </mat-form-field>
+      </mat-grid-tile>
+      <mat-grid-tile>
+        <mat-form-field >
+            <input  matInput
+                required
+                type="number"
+                name="partosVaginal"
+                placeholder="Partos Vaginales"
+                [(ngModel)]="antecedente.partosVaginal">
+            <mat-error>Debe ingresar la cantidad de Partos Vaginales</mat-error>
+        </mat-form-field>
+    </mat-grid-tile>
+      <mat-grid-tile>
+          <mat-form-field >
+              <input  matInput
+                required
+                type="number"
+                name="cesareas"
+                placeholder="Cesareas"
+                [(ngModel)]="antecedente.cesareas">
+              <mat-error>Debe ingresar la cantidad de Cesareas</mat-error>
+          </mat-form-field>
+      </mat-grid-tile>
+      <mat-grid-tile>
+        <mat-form-field >
+            <input  matInput
+              required
+              type="number"
+              name="abortoEspontaneo"
+              placeholder="Abortos Espontaneos"
+              [(ngModel)]="antecedente.abortoEspontaneo">
+            <mat-error>Debe ingresar la cantidad de Abortos Espontaneos</mat-error>
+        </mat-form-field>
+      </mat-grid-tile>
+      <mat-grid-tile>
+      <mat-form-field >
+          <input  matInput
+            required
+            type="number"
+            name="abortoVoluntario"
+            placeholder="Abortos Voluntarios"
+            [(ngModel)]="antecedente.abortoVoluntario">
+          <mat-error>Debe ingresar la cantidad de Abortos Voluntarios</mat-error>
+        </mat-form-field>
+      </mat-grid-tile>
+    </mat-grid-list>
+    <mat-grid-tile-header> 
+        <h6>MAC Habitual</h6>
+     </mat-grid-tile-header>
+    <mat-grid-list cols="6" rowHeight="50" [style.background]="red">
+      <mat-grid-tile>
+          <mat-checkbox [(ngModel)]="antecedente.macNoUsa" name="macNoUsa" >
+              MAC No Usa
+          </mat-checkbox>
+      </mat-grid-tile>
+      <mat-grid-tile>
+          <mat-checkbox [(ngModel)]="antecedente.macaco" name="macaco" >
+              MAC ACO
+          </mat-checkbox>
+      </mat-grid-tile>
+      <mat-grid-tile>
+          <mat-checkbox [(ngModel)]="antecedente.macaci" name="macaci" >
+              MAC ACI
+          </mat-checkbox>
+      </mat-grid-tile>
+      <mat-grid-tile>
+          <mat-checkbox [(ngModel)]="antecedente.macdiu" name="macdiu" >
+              MAC DIU
+          </mat-checkbox>
+      </mat-grid-tile>
+      <mat-grid-tile>
+          <mat-checkbox [(ngModel)]="antecedente.macPreservativo" name="macPreservativo" >
+              MAC Preservativo
+            </mat-checkbox>
+      </mat-grid-tile>
+      <mat-grid-tile>
+          <mat-checkbox [(ngModel)]="antecedente.macImplanteHormonal" name="macImplanteHormonal" >
+              MAC Implante Hormonal
+            </mat-checkbox>
+      </mat-grid-tile>
+    </mat-grid-list>
+    <mat-grid-tile-header> 
+        <h6>Si Fallo el MAC, cual fue la causa?</h6>
+     </mat-grid-tile-header>
+    <mat-grid-list cols="6" rowHeight="50" [style.background]="red">
+        <mat-grid-tile>
+            <mat-checkbox [(ngModel)]="antecedente.falloMAC" name="falloMAC" >
+                Fallo el MAC
+            </mat-checkbox>
+        </mat-grid-tile>
+        <mat-grid-tile>
+            <mat-checkbox [(ngModel)]="antecedente.noUsoMAC" name="noUsoMAC" >
+                No Uso MAC
+            </mat-checkbox>
+        </mat-grid-tile>
+        <mat-grid-tile>
+            <mat-checkbox [(ngModel)]="antecedente.ahemac" name="ahemac" >
+                AHE MAC
+            </mat-checkbox>
+        </mat-grid-tile>
+      </mat-grid-list>
+      <mat-grid-list cols="1" rowHeight="70">
+          <mat-grid-tile>
+              <mat-form-field >
+                  <textarea matInput required
+                  name="observaciones"
+                  placeholder="Observaciones"
+                  [(ngModel)]="antecedente.observaciones"></textarea>
+                  <mat-error>Debe ingresar las Observaciones</mat-error>
+              </mat-form-field>
+          </mat-grid-tile>
+      </mat-grid-list>
+      <mat-grid-list cols="1" rowHeight="70">
+          <mat-grid-tile>
+              <mat-form-field >
+                  <textarea matInput required
+                  name="antecedentesPersonales"
+                  placeholder="Antecedentes Personales de relevancia"
+                  [(ngModel)]="antecedente.antecedentesPersonales"></textarea>
+                  <mat-error>Antecedentes Personales de relevancia si los hay!</mat-error>
+              </mat-form-field>
+          </mat-grid-tile>
+      </mat-grid-list>
+      <mat-grid-tile-footer>
+          <div class="action-buttons">
+              <button  mat-button
+                type="button"
+                (click) = "cancelarEdicionAntecedente()">
+                Cancelar
+              </button>
+              <button type="button" (click)="guardarAntecedente(an.value, an.valid)"  mat-button color="primary" [disabled]="an.invalid">
+                Aceptar
+              </button>
+            </div>
+      </mat-grid-tile-footer>
+</form>

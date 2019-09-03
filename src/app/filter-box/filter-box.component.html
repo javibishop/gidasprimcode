@@ -1,0 +1,15 @@
+<!-- https://material.angular.io/components/card 
+  necesito agregarlos al module
+-->
+
+<mat-card class="containter">
+  <mat-icon>search</mat-icon>
+  <mat-form-field>
+      <input
+      matInput
+      #filtrar
+      placeholder="filtrar"
+      (keyup)="filtrarPor(filtrar.value)"
+      />
+  </mat-form-field>
+</mat-card>

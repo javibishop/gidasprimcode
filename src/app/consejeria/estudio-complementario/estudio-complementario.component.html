@@ -1,0 +1,221 @@
+<form #ec="ngForm"  *ngIf="estudioComplementario">
+    <mat-grid-tile-header> 
+        <h5>Estudio Complementario</h5>
+     </mat-grid-tile-header>
+     <mat-grid-tile-header> 
+        <h5>ECO 1</h5>
+    </mat-grid-tile-header>
+     <mat-grid-list cols="3" rowHeight="50">
+        <mat-grid-tile>
+          <mat-form-field>
+              <input matInput [matDatepicker]="picker" placeholder="Fecha" name="eco1Fecha" [(ngModel)]="estudioComplementario.eco1Fecha">
+              <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+              <mat-datepicker #picker startView="month" [startAt]="startDate"></mat-datepicker>
+            </mat-form-field>
+      </mat-grid-tile>
+      <mat-grid-tile>
+          <mat-form-field>
+                  <input  matInput
+                    type="text"
+                    name="eco1EG"
+                    placeholder="E.G."
+                    [(ngModel)]="estudioComplementario.eco1EG">
+                  <mat-error>E.G.</mat-error>
+          </mat-form-field>
+        </mat-grid-tile>
+        <mat-grid-tile>
+            <mat-form-field>
+                  <input  matInput
+                    type="text"
+                    name="eco1Ubicacion"
+                    placeholder="Ubicacion"
+                    [(ngModel)]="estudioComplementario.eco1Ubicacion">
+                  <mat-error>Ubicacion</mat-error>
+            </mat-form-field>
+        </mat-grid-tile>
+    </mat-grid-list>
+    <mat-grid-list cols="3" rowHeight="50" >
+        <mat-grid-tile>
+            <mat-checkbox [(ngModel)]="estudioComplementario.eco1LFC" name="eco1LFC" >LFC</mat-checkbox>
+        </mat-grid-tile>
+        <mat-grid-tile>
+            <mat-checkbox [(ngModel)]="estudioComplementario.eco1Normoincerto" name="eco1Normoincerto" >Normoinserto</mat-checkbox>
+        </mat-grid-tile>
+        <mat-grid-tile>
+                <mat-form-field >
+                    <input  matInput
+                      type="number"
+                      name="eco1Embrion"
+                      placeholder="Embrion"
+                      [(ngModel)]="estudioComplementario.eco1Embrion">
+                    <mat-error>Embrion</mat-error>
+                </mat-form-field>
+          </mat-grid-tile>
+    </mat-grid-list>
+    <mat-grid-list cols="3" rowHeight="50" >
+      <mat-grid-tile>
+          <mat-checkbox [(ngModel)]="estudioComplementario.eco1Ectopico" name="eco1Ectopico" >Ectopico</mat-checkbox>
+      </mat-grid-tile>
+      <mat-grid-tile>
+          <mat-checkbox [(ngModel)]="estudioComplementario.eco1Saco" name="eco1Saco" >Saco Gestal</mat-checkbox>
+      </mat-grid-tile>
+      <mat-grid-tile>
+          <mat-checkbox [(ngModel)]="estudioComplementario.eco1HMR" name="eco1HMR">HMR</mat-checkbox>
+      </mat-grid-tile>
+    </mat-grid-list>
+
+    <mat-grid-tile-header> 
+        <h5>ECO 2</h5>
+    </mat-grid-tile-header>
+    <mat-grid-list cols="3" rowHeight="50" [style.background]="red">
+        <mat-grid-tile>
+          <mat-form-field>
+              <input matInput [matDatepicker]="picker1" placeholder="Fecha" name="eco1Fecha" [(ngModel)]="estudioComplementario.eco2Fecha">
+              <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+              <mat-datepicker #picker1 startView="month" [startAt]="startDate"></mat-datepicker>
+            </mat-form-field>
+      </mat-grid-tile>
+      <mat-grid-tile>
+          <mat-form-field>
+                  <input  matInput
+                    type="text"
+                    name="eco2EG"
+                    placeholder="E.G."
+                    [(ngModel)]="estudioComplementario.eco2EG">
+                  <mat-error>E.G.</mat-error>
+          </mat-form-field>
+        </mat-grid-tile>
+        <mat-grid-tile>
+            <mat-form-field>
+                    <input  matInput
+                      type="text"
+                      name="eco2Ubicacion"
+                      placeholder="Ubicacion"
+                      [(ngModel)]="estudioComplementario.eco2Ubicacion">
+                    <mat-error>Ubicacion</mat-error>
+            </mat-form-field>
+          </mat-grid-tile>
+    </mat-grid-list>
+    <mat-grid-list cols="3" rowHeight="50" >
+        <mat-grid-tile>
+            <mat-checkbox [(ngModel)]="estudioComplementario.eco2LFC" name="eco2LFC" >LFC</mat-checkbox>
+        </mat-grid-tile>
+        <mat-grid-tile>
+            <mat-checkbox [(ngModel)]="estudioComplementario.eco2Normoincerto" name="eco2Normoincerto" >Normoinserto</mat-checkbox>
+        </mat-grid-tile>
+        <mat-grid-tile>
+                <mat-form-field >
+                    <input  matInput
+                      type="number"
+                      name="eco2Embrion"
+                      placeholder="Embrion"
+                      [(ngModel)]="estudioComplementario.eco2Embrion">
+                    <mat-error>Embrion</mat-error>
+                </mat-form-field>
+          </mat-grid-tile>
+    </mat-grid-list>
+    <mat-grid-list cols="3" rowHeight="50" >
+      <mat-grid-tile>
+          <mat-checkbox [(ngModel)]="estudioComplementario.eco2Ectopico" name="eco2Ectopico" >Ectopico</mat-checkbox>
+      </mat-grid-tile>
+      <mat-grid-tile>
+          <mat-checkbox [(ngModel)]="estudioComplementario.eco2Saco" name="eco2Saco" >Saco Gestal</mat-checkbox>
+      </mat-grid-tile>
+      <mat-grid-tile>
+          <mat-checkbox [(ngModel)]="estudioComplementario.eco2HMR" name="eco2HMR">HMR</mat-checkbox>
+      </mat-grid-tile>
+    </mat-grid-list>
+
+    <mat-grid-tile-header> 
+        <h5>Laboratorio</h5>
+    </mat-grid-tile-header>
+    <mat-grid-list cols="3" rowHeight="50" [style.background]="red">
+        <mat-grid-tile>
+          <mat-form-field>
+              <input matInput [matDatepicker]="picker2" placeholder="Fecha" name="labFecha" [(ngModel)]="estudioComplementario.labFecha">
+              <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
+              <mat-datepicker #picker2 startView="month" [startAt]="startDate"></mat-datepicker>
+            </mat-form-field>
+      </mat-grid-tile>
+      <mat-grid-tile>
+          <mat-form-field>
+                  <input  matInput
+                    type="text"
+                    name="labGB"
+                    placeholder="G.B."
+                    [(ngModel)]="estudioComplementario.labGB">
+                  <mat-error>G.B.</mat-error>
+          </mat-form-field>
+        </mat-grid-tile>
+        <mat-grid-tile>
+            <mat-form-field>
+                    <input  matInput
+                      type="text"
+                      name="labGR"
+                      placeholder="G.R."
+                      [(ngModel)]="estudioComplementario.labGR">
+                    <mat-error>G.R.</mat-error>
+            </mat-form-field>
+          </mat-grid-tile>
+    </mat-grid-list>
+    <mat-grid-list cols="3" rowHeight="50" >
+      <mat-grid-tile>
+          <mat-form-field>
+                <input  matInput
+                  type="number"
+                  name="labGrupo"
+                  placeholder="Grupo"
+                  [(ngModel)]="estudioComplementario.labGrupo">
+                <mat-error>Grupo</mat-error>
+        </mat-form-field>
+      </mat-grid-tile>
+      <mat-grid-tile>
+          <mat-form-field>
+                  <input  matInput
+                    type="number"
+                    name="labHb"
+                    placeholder="Hb"
+                    [(ngModel)]="estudioComplementario.labHb">
+                  <mat-error>Hb</mat-error>
+          </mat-form-field>
+        </mat-grid-tile>
+        <mat-grid-tile>
+            <mat-form-field>
+                    <input  matInput
+                      type="number"
+                      name="labHto"
+                      placeholder="Hto"
+                      [(ngModel)]="estudioComplementario.labHto">
+                    <mat-error>Hto</mat-error>
+            </mat-form-field>
+          </mat-grid-tile>
+    </mat-grid-list>
+    <mat-grid-list cols="3" rowHeight="50" >
+      <mat-grid-tile>
+        <mat-form-field>
+                <input  matInput
+                  type="number"
+                  name="labFactor"
+                  placeholder="Factor"
+                  [(ngModel)]="estudioComplementario.labFactor">
+                <mat-error>Factor</mat-error>
+        </mat-form-field>
+      </mat-grid-tile>
+      <mat-grid-tile>
+      </mat-grid-tile>
+      <mat-grid-tile>
+      </mat-grid-tile>
+    </mat-grid-list>
+    <mat-grid-tile-footer>
+        <div class="action-buttons">
+            <button  mat-button
+            type="button"
+            (click) = "cancelarEdicionEstudioComplementario()">
+            Cancelar
+          </button>
+          <button type="button" (click)="guardarEstudioComplementario(ec.value, ec.valid)"  mat-button color="primary" [disabled]="ec.invalid">
+            Guardar datos de Estudios Complementarios
+          </button>
+          </div>
+    </mat-grid-tile-footer>      
+  </form>

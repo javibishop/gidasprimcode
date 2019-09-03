@@ -1,0 +1,71 @@
+:host() {
+  margin: 16px;
+  width: 100%;
+}
+
+mat-form-field {
+  width: 95%;
+}
+
+.datemargin {
+  margin-top: 16px;
+}
+ .mat-tab-group{
+    margin: 16px;
+    width: 100%;
+  }
+  .all-width {
+      width: 100%;
+    }
+
+// :host() {
+//     margin: 16px;
+//     width: 100%;
+//   }
+//   .wrapper {
+//     display: grid;
+//     grid-template-columns: repeat(3, 1fr);
+//     grid-gap: 20px;
+//     position: relative;
+//     grid-template-rows:    24px 12px;
+//   }
+
+
+
+//   .item {
+//     align-self: auto;
+//   }
+  
+
+    
+//     mat-radio-button {
+//       margin-bottom: 8px;
+//     }
+    
+//     mat-checkbox {
+//       margin-top: 10px;
+//       margin-bottom: -10px;
+//     }
+
+//     .action-buttons {
+//       display: flex;
+//       justify-content: flex-end;
+//       align-items: center;
+//       height: 48px;
+//       width: 100%;
+    
+//     }
+    
+//     button {
+//       margin-right: 16px;
+//     }
+    
+//     .example-section {
+//       display: flex;
+//       align-content: center;
+//       align-items: center;
+//       height: 60px;
+//     }
+//     .example-margin {
+//       margin: 0 10px;
+//     }
