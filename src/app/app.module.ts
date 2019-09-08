@@ -16,7 +16,7 @@ import { MatToolbarModule, MatButtonModule, MatSidenavModule, MatIconModule,
          MatListModule, MatFormFieldModule, MatCardModule, MatInputModule,
          MatRadioModule, MatSelectModule, MatCheckboxModule, MatTableModule, MatMenuModule,
          MatTabsModule, MatDatepickerModule, MatNativeDateModule,
-         MatGridListModule, MatProgressSpinnerModule
+         MatGridListModule, MatProgressSpinnerModule,MatDialogModule
        } from '@angular/material';
 import {MatDialog, MatDialogRef}  from '@angular/material/dialog';     
 
@@ -36,6 +36,8 @@ import { EstudioComplementarioComponent } from './consejeria/estudio-complementa
 import { EntrevistaPostComponent } from './consejeria/entrevista-post/entrevista-post.component';
 import { EspecialidadListComponent } from './especialidad/especialidad-list/especialidad-list.component';
 import { EspecialidadEditComponent } from './especialidad/especialidad-edit/especialidad-edit.component';
+import { ErrorDialogComponent } from './error/errordialog.component';
+
 import { LoginComponent } from './login/login.component';
 import { HomeComponent } from './home/home.component';
 import { LoaderComponent } from './loader/loader.component';
@@ -62,10 +64,14 @@ import {AppNavComponent} from './app-nav/app-nav.component';
     EntrevistaPostComponent,
     EspecialidadListComponent,
     EspecialidadEditComponent,
+    ErrorDialogComponent,
     LoginComponent,
     HomeComponent,
     LoaderComponent,
     AppNavComponent
+  ],
+  entryComponents: [
+    ErrorDialogComponent
   ],
   imports: [
     BrowserModule,
@@ -92,6 +98,7 @@ import {AppNavComponent} from './app-nav/app-nav.component';
     MatNativeDateModule,
     MatGridListModule, 
     MatProgressSpinnerModule,
+    MatDialogModule,
     // MatDialog, 
     // MatDialogRef,
     RouterModule.forRoot([

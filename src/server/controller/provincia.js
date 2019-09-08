@@ -10,7 +10,7 @@ app.get('/provincia/:paisId?', verificaToken, (req, res)  => {
     //return res.json(req.usuarie);
 
     let desde = Number(req.query.desde || 0);
-    let hasta = Number(req.query.hasta || 50);
+   let hasta = Number(req.query.hasta || 500);
     let filtro = {paisId:1};
     if(req.params.paisId){
         filtro = {paisId:req.params.paisId};

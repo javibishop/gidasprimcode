@@ -11,12 +11,12 @@ app.post('/login', (req, res) => {
             return res.status(500).json({ok: false, err});
         }else{
             if(!usuarioDB){
-                return res.status(400).json({ok: false, err : { message:'Usuario o contraseña incorrectos.'}});
+                return res.status(501).json({ok: false, err : { message:'Usuario o contraseña incorrectos.'}});
             }
 
             //compara las claves.
             if(!bcrypt.compareSync(body.password, usuarioDB.password)){
-                return res.status(400).json({ok: false, err : { message:'Usuario o contraseña incorrectos.'}});
+                return res.status(501).json({ok: false, err : { message:'Usuario o contraseña incorrectos.'}});
             }else{
                 let token = jwt.sign({
                     usuario: usuarioDB

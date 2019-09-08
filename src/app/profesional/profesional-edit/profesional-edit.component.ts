@@ -45,22 +45,38 @@ export class ProfesionalEditComponent implements OnInit {
     this.stateService.especialidades$.subscribe(especialidades => this.especialidades = especialidades);
   }
 
+  /*https://blog.angular-university.io/angular-http/ */
+
   guardar(form: any) {
       if(this.usuarie.id  !== ''){
         this.usuarieService.update(this.usuarie).subscribe(
-          (_) => this.router.navigate(['profesionales'])
-        ); /*si aca no hago subscribe no se ejecuta el update. Ademas falta (JS tiene un solo hilo de ejecucion). Entonces
+          (val) => {
+            this.router.navigate(['profesionales']);
+          },
+          response => {
+              console.log("POST call in error", response);
+          },
+          () => {
+              console.log("The POST observable is now completed.");
+          });
+        
+          /*si aca no hago subscribe no se ejecuta el update. Ademas falta (JS tiene un solo hilo de ejecucion). Entonces
         cuando el hilo quede libre tengo que navegar a la ruta de profesionales, sino no se ve ya que es asincronico.)
         (_) es para indicar que tiene un parametro vacio*/  
       }else{
         this.usuarieService.insert(this.usuarie).subscribe(
-          (_) => this.router.navigate(['profesionales'])
-        ); /*si aca no hago subscribe no se ejecuta el update. Ademas falta (JS tiene un solo hilo de ejecucion). Entonces
+          (val) => {
+            this.router.navigate(['profesionales']);
+          },
+          response => {
+              console.log("POST call in error", response);
+          },
+          () => {
+              console.log("The POST observable is now completed.");
+          }); /*si aca no hago subscribe no se ejecuta el update. Ademas falta (JS tiene un solo hilo de ejecucion). Entonces
         cuando el hilo quede libre tengo que navegar a la ruta de profesionales, sino no se ve ya que es asincronico.)
         (_) es para indicar que tiene un parametro vacio*/
       }
-      
-      this.router.navigate(['profesionales']);
   }
 
   cancelarEdicion() {

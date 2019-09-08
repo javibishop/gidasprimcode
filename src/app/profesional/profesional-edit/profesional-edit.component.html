@@ -33,9 +33,9 @@
                   [(ngModel)]="usuarie.userName">
           <mat-error>Debe ingresar el Usuario</mat-error>
         </mat-form-field>
-        <mat-form-field  class="all-width" [hidden]="!passvisible">
+        <mat-form-field  class="all-width" *ngIf="passvisible">
           <input  matInput
-                  required
+                  required="passvisible"
                   name="password"
                   placeholder="Clave"
                   [(ngModel)]="usuarie.password">

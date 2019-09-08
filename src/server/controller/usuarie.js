@@ -12,7 +12,7 @@ app.get('/usuarie', verificaToken, (req, res)  => {
     //return res.json(req.usuarie);
 
     let desde = Number(req.query.desde || 0);
-    let hasta = Number(req.query.hasta || 5);
+    let hasta = Number(req.query.hasta || 500);
 
     //usuarie.find({google:true}) filtro por google = true
     let filtro = {estado:true};
@@ -65,7 +65,7 @@ app.post('/usuarie', verificaToken, (req, res) => {
     
     usuarie.save((err, usuarieDB) => {
         if(err){
-            return res.status(400).json({ok: false, err});
+            return res.status(500).json({ok: false, err});
         }else{
             //usuarieDB.password = null;
             return res.json({ok: true, usuarie: usuarieDB});

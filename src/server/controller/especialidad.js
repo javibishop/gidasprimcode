@@ -25,7 +25,7 @@ app.get('/especialidad', verificaToken, (req, res)  => {
     //return res.json(req.usuarie);
 
     let desde = Number(req.query.desde || 0);
-    let hasta = Number(req.query.hasta || 50);
+   let hasta = Number(req.query.hasta || 500);
 
     Especialidad.find()
     .skip(desde) /* salta los 5 registros por get */

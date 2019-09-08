@@ -1,0 +1,41 @@
+<h4 mat-dialog-title>{{data.titulo}}</h4>
+<mat-dialog-content class="mat-typography"> 
+    <div>
+        <li *ngFor="let error of data.reason; let i = index">
+            {{error}}
+          </li>
+    </div>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+    <button mat-button (click)="close()">Cerrar</button>
+ </mat-dialog-actions>
+
+<!-- 
+
+<div mat-dialog-content>
+    {{data.reason}}
+  <ul>
+    <li>
+      <span *ngIf="data.animal === 'panda'">&#10003;</span> Panda
+    </li>
+    <li>
+      <span *ngIf="data.animal === 'unicorn'">&#10003;</span> Unicorn
+    </li>
+    <li>
+      <span *ngIf="data.animal === 'lion'">&#10003;</span> Lion
+    </li>
+  </ul>
+</div> -->
+
+
+<!-- <h1 mat-dialog-title>{{data.titulo}}</h1>
+<div mat-dialog-content>
+  <p>{{data.reason}}</p>
+  <mat-form-field>
+    <input matInput [(ngModel)]="data.animal">
+  </mat-form-field>
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="cerrar()">Cerrar</button>
+  <button mat-button [mat-dialog-close]="data.animal" cdkFocusInitial>Ok</button>
+</div> -->

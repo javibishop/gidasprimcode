@@ -33,14 +33,14 @@ export class UsuarieHttpService {
   }
   
   getById(id: string) : Observable<Usuarie> {
-          //const url = this.url + '/' + id.toString();
-          const url = `${this.url}/${id}`; /*interpolacion */
-          return this.HttpClient.get<UsuarieApi>(url) 
-          .pipe(
-            map(usuarieApi =>
-              this.usuariesAdapter.adapt(usuarieApi)
-              )
+      //const url = this.url + '/' + id.toString();
+      const url = `${this.url}/${id}`; /*interpolacion */
+      return this.HttpClient.get<UsuarieApi>(url) 
+      .pipe(
+        map(usuarieApi =>
+          this.usuariesAdapter.adapt(usuarieApi)
           )
+      )
   }
   
   filterByNombreApellido(nombre: string) : Observable<Usuarie[]>{
@@ -76,6 +76,10 @@ export class UsuarieHttpService {
     // this.usuaries[index] = usuarie;
     //const url = `${this.url}/${usuarie.id}`; /*interpolacion */
     /* */
-    return this.HttpClient.post<void>(this.url, this.usuariesAdapter.adaptToApi(usuarie)).pipe(tap(() =>{return this.getAll()}));
-}
+    return this.HttpClient.post<void>(this.url, this.usuariesAdapter.adaptToApi(usuarie))
+    .pipe(tap(() =>{return this.getAll()}
+    
+    ));
+  }
+
 }

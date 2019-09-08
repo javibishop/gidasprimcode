@@ -12,7 +12,7 @@ app.get('/usuaria', verificaToken, (req, res)  => {
     //return res.json(req.usuaria);
 
     let desde = Number(req.query.desde || 0);
-    let hasta = Number(req.query.hasta || 5);
+    let hasta = Number(req.query.hasta || 500);
 
     //usuaria.find({google:true}) filtro por google = true
     let filtro = {estado:true};
