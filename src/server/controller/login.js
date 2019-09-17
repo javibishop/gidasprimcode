@@ -6,7 +6,7 @@ const app = express();
 
 app.post('/login', (req, res) => {
     let body = req.body;
-    Usuarie.findOne({email:body.userName}, (err, usuarioDB) => {
+    Usuarie.findOne({userName:body.username}, (err, usuarioDB) => {
         if(err){
             return res.status(500).json({ok: false, err});
         }else{
