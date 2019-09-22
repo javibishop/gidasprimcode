@@ -6,9 +6,6 @@ import { UsuarieHttpService } from '../../services/usuarie-http.service';
 import { ConsejeriasHttpService } from '../../services/consejerias-http.service';
 import { StateService } from '../../services/state.service';
 import { Usuarie } from '../../models/usuarie.model';
-
-
-import { EntrevistaPostAborto } from '../../models/consejeria.model';
 import { Usuaria } from 'src/app/models/usuaria.model';
 
 @Component({

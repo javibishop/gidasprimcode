@@ -6,7 +6,7 @@ import { Observable } from 'rxjs';
 
 import { Provincia } from '../models/provincia.model';
 import { environment } from '../../environments/environment.prod';
-import { ProvinciaAdapter, ProvinciaApi } from './provincia.adapter';
+import { ProvinciaAdapter, ProvinciaApi, ProvinciaApiGob } from './provincia.adapter';
 import { map, tap } from 'rxjs/operators';
 import { StateService } from './state.service';
 
@@ -24,6 +24,13 @@ export class ProvinciaHttpService {
    
    }
 
+
+   getTodas() : Observable<Provincia[]>  {
+    return this.HttpClient.get<ProvinciaApiGob[]>(`${environment.baseUrl}provincias`)
+    .pipe(
+      map(provinciasApi => provinciasApi.map(provinciaApi => this.provinciaAdapter.adaptFromGob(provinciaApi)))
+    )
+  }
 
   getPorPais(id:string) : Observable<Provincia[]>  {
     return this.HttpClient.get<ProvinciaApi[]>(`${this.url}/${id}`)

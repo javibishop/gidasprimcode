@@ -19,6 +19,7 @@ app.get('/provincia/:paisId?', verificaToken, (req, res)  => {
     Provincia.find(filtro)
     .skip(desde) /* salta los 5 registros por get */
     .limit(hasta) /* 5 registros por get */
+    .sort('nombre')
     .exec((err, provincias) => {
         
         if(err){

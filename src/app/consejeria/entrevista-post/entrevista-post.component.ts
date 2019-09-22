@@ -1,7 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { ConsejeriasHttpService } from '../../services/consejerias-http.service';
 import { EntrevistaPostAborto } from '../../models/consejeria.model';
-
+import {  Router } from '@angular/router';
 @Component({
   selector: 'app-entrevista-post',
   templateUrl: './entrevista-post.component.html',
@@ -12,7 +12,7 @@ export class EntrevistaPostComponent implements OnInit {
   @Input() consejeriaId: string;
   entrevista: EntrevistaPostAborto;
 
-  constructor(private consejeriaService: ConsejeriasHttpService) { }
+  constructor(private consejeriaService: ConsejeriasHttpService, private router: Router) { }
 
   ngOnInit() {
     if(this.consejeriaId != ''){
@@ -50,6 +50,6 @@ export class EntrevistaPostComponent implements OnInit {
    }
   }
   cancelarEdicionEntrevista() {
-
+    this.router.navigate(['consejerias']);
   }
 }

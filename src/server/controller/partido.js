@@ -19,6 +19,7 @@ app.get('/partido/:provinciaId', verificaToken, (req, res)  => {
     Partido.find(filtro)
     .skip(desde) /* salta los 5 registros por get */
     .limit(hasta) /* 5 registros por get */
+    .sort('nombre')
     .exec((err, partidos) => {
         
         if(err){

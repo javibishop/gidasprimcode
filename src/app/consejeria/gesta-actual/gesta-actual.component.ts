@@ -1,7 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { ConsejeriasHttpService } from '../../services/consejerias-http.service';
 import { GestaActual } from '../../models/consejeria.model';
-
+import {  Router } from '@angular/router';
 @Component({
   selector: 'app-gesta-actual',
   templateUrl: './gesta-actual.component.html',
@@ -12,7 +12,7 @@ export class GestaActualComponent implements OnInit {
   @Input() consejeriaId: string;
   gestaActual: GestaActual;
   
-  constructor(private consejeriaService: ConsejeriasHttpService) { }
+  constructor(private consejeriaService: ConsejeriasHttpService,private router: Router) { }
 
   ngOnInit() {
     if(this.consejeriaId != ''){
@@ -53,6 +53,6 @@ export class GestaActualComponent implements OnInit {
    }
   }
   cancelarEdicionGestaActual() {
-
+    this.router.navigate(['consejerias']);
   }
 }

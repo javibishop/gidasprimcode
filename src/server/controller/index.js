@@ -14,5 +14,5 @@ app.use(require('./antecedente'));
 app.use(require('./entrevistaPostAborto'));
 app.use(require('./estudioComplementario'));
 app.use(require('./gestaActual'));
-
+app.use(require('./apiLocalizacion'));
 module.exports = app;

@@ -4,7 +4,7 @@ import { Observable } from 'rxjs';
 
 import { Partido } from '../models/partido.model';
 import { environment } from '../../environments/environment.prod';
-import { PartidoAdapter, PartidoApi } from './partido.adapter';
+import { PartidoAdapter, PartidoApi, PartidoApiGob } from './partido.adapter';
 import { map, tap } from 'rxjs/operators';
 import { StateService } from './state.service';
 
@@ -27,6 +27,14 @@ export class PartidoHttpService {
     return this.HttpClient.get<PartidoApi[]>(url)
     .pipe(
       map(partidos => partidos.map(partido => this.partidoAdapter.adapt(partido)))
+    )
+  }
+
+  getByProvinciaGob(provinciaId: string) : Observable<Partido[]>  {
+    const url = `${environment.baseUrl}municipios/${provinciaId}`; 
+    return this.HttpClient.get<PartidoApiGob[]>(url)
+    .pipe(
+      map(partidos => partidos.map(partido => this.partidoAdapter.adaptFromGob(partido)))
     )
   }
 

@@ -4,7 +4,7 @@ import { Observable } from 'rxjs';
 
 import { Localidad } from '../models/localidad.model';
 import { environment } from '../../environments/environment.prod';
-import { LocalidadAdapter, LocalidadApi } from './localidad.adapter';
+import { LocalidadAdapter, LocalidadApi, LocalidadApiGob } from './localidad.adapter';
 import { map, tap } from 'rxjs/operators';
 import { StateService } from './state.service';
 
@@ -30,6 +30,13 @@ export class LocalidadHttpService {
     )
   }
 
+  getByPartidoGob(partidoId: string) : Observable<Localidad []>  {
+    const url = `${environment.baseUrl}localidades/${partidoId}`; 
+    return this.HttpClient.get<LocalidadApiGob[]>(url)
+    .pipe(
+      map(localidadApi => localidadApi.map(localidadApi => this.localidadAdapter.adaptFromGob(localidadApi)))
+    )
+  }
   getAll() {
     return this.HttpClient.get<LocalidadApi[]>(this.url)
     .pipe(

@@ -1,5 +1,6 @@
 import { Localidad } from '../models/localidad.model';
 import { Injectable } from '@angular/core';
+import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
 
 export class LocalidadApi {
     constructor(
@@ -7,6 +8,16 @@ export class LocalidadApi {
         public nombre: string,
         public cp: string,
         public partidoId: number,
+    ){
+    }
+}
+
+
+export class LocalidadApiGob {
+    constructor(
+        public id: number,
+        public nombre: string,
+        public municipio: any
     ){
     }
 }
@@ -22,6 +33,10 @@ export class LocalidadAdapter {
 
     adapt(localidadApi: LocalidadApi) :Localidad {
         return new Localidad(localidadApi._id, localidadApi.nombre,localidadApi.cp, localidadApi.partidoId);
+    }
+
+    adaptFromGob(locApiGob: LocalidadApiGob) :Localidad {
+        return new Localidad(locApiGob.id, locApiGob.nombre, 'sin codigo', locApiGob.municipio.id);
     }
 
     adaptToApi(localidad: Localidad) :LocalidadApi {

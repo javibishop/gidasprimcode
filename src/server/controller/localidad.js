@@ -19,6 +19,7 @@ app.get('/localidad/:partidoId', verificaToken, (req, res)  => {
     Localidad.find(filtro)
     .skip(desde) /* salta los 5 registros por get */
     .limit(hasta) /* 5 registros por get */
+    .sort('nombre')
     .exec((err, localidades) => {
         
         if(err){

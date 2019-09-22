@@ -1,7 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { ConsejeriasHttpService } from '../../services/consejerias-http.service';
 import { EstudioComplementario } from '../../models/consejeria.model';
-
+import {  Router } from '@angular/router';
 @Component({
   selector: 'app-estudio-complementario',
   templateUrl: './estudio-complementario.component.html',
@@ -12,7 +12,7 @@ export class EstudioComplementarioComponent implements OnInit {
   @Input() consejeriaId: string;
   estudioComplementario: EstudioComplementario;
   
-  constructor(private consejeriaService: ConsejeriasHttpService) { }
+  constructor(private consejeriaService: ConsejeriasHttpService, private router: Router) { }
 
   ngOnInit() {
     if(this.consejeriaId !=''){
@@ -50,6 +50,6 @@ export class EstudioComplementarioComponent implements OnInit {
    }
   }
   cancelarEdicionEstudioComplementario() {
-
+    this.router.navigate(['consejerias']);
   }
 }
