@@ -7,6 +7,8 @@ import { ConsejeriasHttpService } from '../../services/consejerias-http.service'
 import { StateService } from '../../services/state.service';
 import { Usuarie } from '../../models/usuarie.model';
 import { Usuaria } from 'src/app/models/usuaria.model';
+import { MatDialog } from '@angular/material';
+import { ConfirmComponent } from 'src/app/confirm/confirm.component';
 
 @Component({
   selector: 'app-consejeria-edit',
@@ -27,7 +29,8 @@ export class ConsejeriaEditComponent implements OnInit {
     private consejeriasData: ConsejeriasHttpService, //ConsejeriasArrayService,
     private activatedRoute: ActivatedRoute,
     private router: Router,
-    private stateService: StateService
+    private stateService: StateService,
+    public dialog: MatDialog
   ) { }
 
   ngOnInit() {
@@ -56,6 +59,13 @@ export class ConsejeriaEditComponent implements OnInit {
     this.stateService.setAppTitulo('Edicion de consejeria');
   }
 
+  openDialog(mensaje: string) {
+    this.dialog.open(ConfirmComponent, {
+      width: '450px',
+      data: {titulo: "Advertencia", mensaje: mensaje}
+    });
+  }
+
   guardar(form: any) {
     if(this.consejeria._id != ''){
        
@@ -70,10 +80,14 @@ export class ConsejeriaEditComponent implements OnInit {
         cuando el hilo quede libre tengo que navegar a la ruta de consejerias, sino no se ve ya que es asincronico.)
         (_) es para indicar que tiene un parametro vacio*/  
       }else{
-        this.consejeria.usuariaId = this.usuaria;
-        this.consejeria.usuarie1Id = this.usuaries.find((u) => u.id == this.usuarie1Id);
-        this.consejeria.usuarie2Id = this.usuaries.find((u) => u.id == this.usuarie2Id);
-        this.consejeriasData.insert(this.consejeria).subscribe((_) => this.router.navigate(['consejerias']));
+        if(this.usuaria){
+          this.consejeria.usuariaId = this.usuaria;
+          this.consejeria.usuarie1Id = this.usuaries.find((u) => u.id == this.usuarie1Id);
+          this.consejeria.usuarie2Id = this.usuaries.find((u) => u.id == this.usuarie2Id);
+          this.consejeriasData.insert(this.consejeria).subscribe((_) => this.router.navigate(['consejerias']));
+        }else{
+          this.openDialog("Primero debe grabar los datos de la Usuaria");
+        }
       }
       
       //this.router.navigate(['consejerias']);
@@ -82,6 +96,7 @@ export class ConsejeriaEditComponent implements OnInit {
   //evento que se ejecuto en el component de usuaria al hacer inserte de una usaria y devuelve el id.
   usuariaInserted(usuaria: Usuaria) {
     this.usuaria = usuaria;
+    this.openDialog("Ya puede grabar la Consejeria!.");
   }
 
   cancelarEdicion() {

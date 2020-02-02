@@ -7,17 +7,17 @@ require('./src/server/config/config');
 
 let prodserver = true;
 
-if(process.env.NODE_ENV === 'dev'){
-   prodserver = false;
-}else{
-   prodserver = true;
-}
+// if(process.env.NODE_ENV === 'dev'){
+//    prodserver = false;
+// }else{
+//    prodserver = true;
+// }
 
 app.use(function(req, res, next) {
    var allowedOrigins = ['http://localhost:4200'];
-   if(prodserver){
-      allowedOrigins = [process.env.URLFront];
-   }
+   // if(prodserver){
+   //    allowedOrigins = [process.env.URLFront];
+   // }
    var origin = req.headers.origin;
    if(allowedOrigins.indexOf(origin) > -1){
         res.setHeader('Access-Control-Allow-Origin', origin);

@@ -5,11 +5,11 @@ let Shcema = mongoose.Schema;
 let usuariaSchema = new Shcema({
     nombre:{
         type:String,
-        required: [true, 'El nombre es requerido']
+        required: [false, 'El nombre es requerido']
     },
     apellido:{
         type:String,
-        required: [true, 'El apellido es requerido']
+        required: [false, 'El apellido es requerido']
     },
     edad:{
         type:Number,
@@ -37,7 +37,7 @@ let usuariaSchema = new Shcema({
     },
     documento:{
         type:String,
-        required: [true, 'El documento es requerido']
+        required: [false, 'El documento es requerido']
     },
     telefono:{
         type:String
@@ -45,6 +45,37 @@ let usuariaSchema = new Shcema({
     direccion:{
         type:String
     },
+    conocePorParejaX:{
+        type:Boolean,
+        default:false
+    },
+    conocePorOrganizacion:{
+        type:Boolean,
+        default:false
+    },
+    conocePorMedios:{
+        type:Boolean,
+        default:false
+    },
+    conocePorInsititucionSalud:{
+        type:Boolean,
+        default:false
+    },
+    conocePorReferente:{
+        type:Boolean,
+        default:false
+    },
+    conocePorInsititucionSaludObs:{
+        type:String
+    },
+    conocePorOtro:{
+        type:String
+    },
+    conocePorUS:{
+        type:Boolean,
+        default:false
+    },
+    
     usuarioCentroSalud:{
         type:Boolean,
         default:false
@@ -65,36 +96,13 @@ let usuariaSchema = new Shcema({
         type:Boolean,
         default:false
     },
-    conocePorUS:{
-        type:Boolean,
-        default:false
-    },
-    conocePorOrganizacion:{
-        type:Boolean,
-        default:false
-    },
-    conocePorMedios:{
-        type:Boolean,
-        default:false
-    },
+    
+   
     conocePorUsuarioConsejeria:{
         type:Boolean,
         default:false
     },
-    conocePorInsititucionSalud:{
-        type:Boolean,
-        default:false
-    },
-    conocePorReferente:{
-        type:Boolean,
-        default:false
-    },
-    conocePorInsititucionSaludObs:{
-        type:String
-    },
-    conocePorOtro:{
-        type:String
-    },
+    
     nivelInstruccion:{
         type:Number
     },

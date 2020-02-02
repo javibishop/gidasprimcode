@@ -1,11 +1,11 @@
 <form #ga="ngForm"  *ngIf="gestaActual">
     <mat-grid-tile-header> 
-        <h5>Gesta Actual</h5>
+        <h5 class="hsubtitulo">Gesta Actual</h5>
      </mat-grid-tile-header>
      <mat-grid-list cols="3" rowHeight="50" [style.background]="red">
         <mat-grid-tile>
             <mat-form-field>
-                <input matInput [matDatepicker]="picker" placeholder="enteroFecha" name="Fecha que se Entero" [(ngModel)]="gestaActual.enteroFecha">
+                <input matInput [matDatepicker]="picker" placeholder="Fecha que se entero" name="Fecha que se Entero" [(ngModel)]="gestaActual.enteroFecha">
                 <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
                 <mat-datepicker #picker startView="month" [startAt]="startDate"></mat-datepicker>
             </mat-form-field>
@@ -18,11 +18,19 @@
             </mat-form-field>
       </mat-grid-tile>
       <mat-grid-tile>
-          <mat-form-field>
-              <input matInput [matDatepicker]="picker2" placeholder="EGFUM" name="egfum" [(ngModel)]="gestaActual.egfum">
+          <!-- <mat-form-field>
+              <input matInput [matDatepicker]="picker2" placeholder="EG por FUM" name="egfum" [(ngModel)]="gestaActual.egfum">
               <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
               <mat-datepicker #picker2 startView="month" [startAt]="startDate"></mat-datepicker>
-            </mat-form-field>
+            </mat-form-field> -->
+            <mat-form-field>
+                <input  matInput
+                  type="text"
+                  name="egfum"
+                  placeholder="EG por FUM"
+                  [(ngModel)]="gestaActual.egfum">
+                <mat-error>EG por FUM</mat-error>
+              </mat-form-field>
         </mat-grid-tile>
     </mat-grid-list>
     <mat-grid-list cols="5" rowHeight="50" [style.background]="red">
@@ -42,7 +50,7 @@
     </mat-grid-list>
     <mat-grid-list cols="5" rowHeight="50" [style.background]="red">
         <mat-grid-tile colspan=1>
-            <mat-checkbox [(ngModel)]="gestaActual.intentoSuprimir" name="intentoSuprimir" >Intento Suprimir</mat-checkbox>
+            <mat-checkbox [(ngModel)]="gestaActual.intentoSuprimir" name="intentoSuprimir" >Intento Interrumpir</mat-checkbox>
         </mat-grid-tile>
         <mat-grid-tile colspan=4>
             <mat-form-field >
@@ -71,7 +79,7 @@
         </mat-grid-tile>
     </mat-grid-list>
     <mat-grid-tile-header> 
-        <h5>ILE</h5>
+        <h5 class="hsubtitulo">ILE</h5>
      </mat-grid-tile-header>
      <mat-grid-list cols="4" rowHeight="50" [style.background]="red">
         <mat-grid-tile>
@@ -83,11 +91,11 @@
         <mat-grid-tile>
             <mat-checkbox [(ngModel)]="gestaActual.causaSinVE" name="causaSinVE" >Causal sin Viabilidad</mat-checkbox>
         </mat-grid-tile>
-        <mat-grid-tile>
+        <!-- <mat-grid-tile>
             <mat-checkbox [(ngModel)]="gestaActual.calendarioVacunacionCompleto" name="calendarioVacunacionCompleto" >Calendario Vacunacion Completo</mat-checkbox>
-        </mat-grid-tile>
+        </mat-grid-tile> -->
      </mat-grid-list>
-     <mat-grid-list cols="1" rowHeight="70">
+     <!-- <mat-grid-list cols="1" rowHeight="70">
         <mat-grid-tile>
             <mat-form-field >
                 <textarea 
@@ -98,11 +106,11 @@
                 <mat-error>Vacunacion observaciones</mat-error>
             </mat-form-field>
         </mat-grid-tile>
-    </mat-grid-list>
+    </mat-grid-list> -->
      <mat-grid-tile-header> 
-        <h5>Contradicciones para el uso MSP</h5>
+        <h5 class="hsubtitulo">Contradicciones para el uso MSP</h5>
      </mat-grid-tile-header>
-     <mat-grid-list cols="4" rowHeight="50" [style.background]="red">
+     <mat-grid-list cols="5" rowHeight="50" [style.background]="red">
         <mat-grid-tile>
             <mat-checkbox [(ngModel)]="gestaActual.cUMSPACO" name="cUMSPACO" >Trastorno Cuagulacion/ACO</mat-checkbox>
         </mat-grid-tile>
@@ -115,11 +123,14 @@
         <mat-grid-tile>
             <mat-checkbox [(ngModel)]="gestaActual.cUMSPAlergiaMisoDiclo" name="cUMSPAlergiaMisoDiclo" >Alergia Miso/Diclo</mat-checkbox>
         </mat-grid-tile>
+        <mat-grid-tile>
+            <mat-checkbox [(ngModel)]="gestaActual.cUMSPNinguna" name="cUMSPNinguna" >Ninguna</mat-checkbox>
+        </mat-grid-tile>
      </mat-grid-list>
      <mat-grid-tile-header> 
-        <h5>Factores de Riesgo para realizar el procedimiento</h5>
+        <h5 class="hsubtitulo">Factores de Riesgo para realizar el procedimiento</h5>
      </mat-grid-tile-header>
-     <mat-grid-list cols="4" rowHeight="50" [style.background]="red">
+     <mat-grid-list cols="5" rowHeight="50" [style.background]="red">
         <mat-grid-tile>
             <mat-checkbox [(ngModel)]="gestaActual.factorRiesgoHb7" name="factorRiesgoHb7" >Hb menor a 7</mat-checkbox>
         </mat-grid-tile>
@@ -132,6 +143,10 @@
         <mat-grid-tile>
             <mat-checkbox [(ngModel)]="gestaActual.factorRiesgoDIU" name="factorRiesgoDIU" >DIU</mat-checkbox>
         </mat-grid-tile>
+        <mat-grid-tile>
+            <mat-checkbox [(ngModel)]="gestaActual.factorRiesgoNinguno" name="factorRiesgoNinguno" >Ninguno</mat-checkbox>
+        </mat-grid-tile>
+
      </mat-grid-list>
      <mat-grid-list cols="1" rowHeight="70">
         <mat-grid-tile>

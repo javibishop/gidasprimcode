@@ -8,7 +8,7 @@ export class GestaActualApi {
         public enteroPorTestOrinaObservaciones :string,
         public enteroFecha: Date,
         public fum : Date,
-        public egfum :Date,
+        public egfum :string,
         public intentoSuprimir :boolean,
         public intentoSuprimirObservaciones :string,
         public loComento :boolean,
@@ -22,12 +22,14 @@ export class GestaActualApi {
         public cUMSPDisfuncionHepaticaSevera :boolean,
         public cUMSPEmbarazoEctopico :boolean,
         public cUMSPAlergiaMisoDiclo :boolean,
+        public cUMSPNinguna :boolean,
         public factorRiesgoHb7 :boolean,
         public factorRiesgoCardiopatia :boolean,
         public factorRiesgoDIU :boolean,
         public factorRiesgoCardiovascular :boolean,
         public factorRiesgoCorticoterapia :boolean,
         public factorRiesgoOtros :string,
+        public factorRiesgoNinguno :string,
         public consejeriaId :string
     ){
     }
@@ -45,10 +47,11 @@ export class GestaActualAdapter {
     adapt(gestaActualApi: GestaActualApi) :GestaActual {
         if(gestaActualApi){
         return new GestaActual(gestaActualApi.id, gestaActualApi.enteroPorTestOrina, gestaActualApi.enteroPorTestOrinaObservaciones, this.parseJsonDate(gestaActualApi.enteroFecha), 
-            this.parseJsonDate(gestaActualApi.fum),this.parseJsonDate(gestaActualApi.egfum), gestaActualApi.intentoSuprimir, gestaActualApi.intentoSuprimirObservaciones, gestaActualApi.loComento, gestaActualApi.loComentoAQuien,
+            this.parseJsonDate(gestaActualApi.fum),gestaActualApi.egfum, gestaActualApi.intentoSuprimir, gestaActualApi.intentoSuprimirObservaciones, gestaActualApi.loComento, gestaActualApi.loComentoAQuien,
             gestaActualApi.causaSaludIntegral, gestaActualApi.causaViolacion, gestaActualApi.causaSinVE,gestaActualApi.calendarioVacunacionCompleto, gestaActualApi.calendarioVacunacionObservaciones,
-            gestaActualApi.cUMSPACO, gestaActualApi.cUMSPDisfuncionHepaticaSevera, gestaActualApi.cUMSPEmbarazoEctopico, gestaActualApi.cUMSPAlergiaMisoDiclo, gestaActualApi.factorRiesgoHb7,
-            gestaActualApi.factorRiesgoCardiopatia, gestaActualApi.factorRiesgoDIU, gestaActualApi.factorRiesgoCardiovascular, gestaActualApi.factorRiesgoCorticoterapia,gestaActualApi.factorRiesgoOtros, gestaActualApi.consejeriaId);
+            gestaActualApi.cUMSPACO, gestaActualApi.cUMSPDisfuncionHepaticaSevera, gestaActualApi.cUMSPEmbarazoEctopico, gestaActualApi.cUMSPAlergiaMisoDiclo,gestaActualApi.cUMSPNinguna, gestaActualApi.factorRiesgoHb7,
+            gestaActualApi.factorRiesgoCardiopatia, gestaActualApi.factorRiesgoDIU, gestaActualApi.factorRiesgoCardiovascular, gestaActualApi.factorRiesgoCorticoterapia,
+            gestaActualApi.factorRiesgoOtros, gestaActualApi.factorRiesgoNinguno, gestaActualApi.consejeriaId);
         } else return null;
     }
 
@@ -56,8 +59,9 @@ export class GestaActualAdapter {
         return new GestaActualApi(gestaActual.id, gestaActual.enteroPorTestOrina, gestaActual.enteroPorTestOrinaObservaciones, gestaActual.enteroFecha, gestaActual.fum,
             gestaActual.egfum, gestaActual.intentoSuprimir, gestaActual.intentoSuprimirObservaciones, gestaActual.loComento, gestaActual.loComentoAQuien,
             gestaActual.causaSaludIntegral, gestaActual.causaViolacion, gestaActual.causaSinVE,gestaActual.calendarioVacunacionCompleto,gestaActual.calendarioVacunacionObservaciones,  gestaActual.cUMSPACO, 
-            gestaActual.cUMSPDisfuncionHepaticaSevera, gestaActual.cUMSPEmbarazoEctopico, gestaActual.cUMSPAlergiaMisoDiclo, gestaActual.factorRiesgoHb7,
-            gestaActual.factorRiesgoCardiopatia, gestaActual.factorRiesgoDIU, gestaActual.factorRiesgoCardiovascular, gestaActual.factorRiesgoCorticoterapia,gestaActual.factorRiesgoOtros, gestaActual.consejeriaId);
+            gestaActual.cUMSPDisfuncionHepaticaSevera, gestaActual.cUMSPEmbarazoEctopico, gestaActual.cUMSPAlergiaMisoDiclo, gestaActual.cUMSPNinguna, gestaActual.factorRiesgoHb7,
+            gestaActual.factorRiesgoCardiopatia, gestaActual.factorRiesgoDIU, gestaActual.factorRiesgoCardiovascular, gestaActual.factorRiesgoCorticoterapia,
+            gestaActual.factorRiesgoOtros, gestaActual.factorRiesgoNinguno, gestaActual.consejeriaId);
     }
 
     parseJsonDate(jsonDateString): Date {

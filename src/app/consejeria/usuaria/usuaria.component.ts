@@ -46,7 +46,7 @@ export class UsuariaComponent implements OnInit {
     this.stateService.provincias$.subscribe(provincias => this.provincias = provincias);
 
     if(this.usuaria == undefined){
-      this.usuaria = new Usuaria('','','',0, true, new Date(),'','','','','','', false, false, false, false, false, false, false, false, false, false, false, '','',0,0,'');
+      this.usuaria = new Usuaria('','','',0, true, new Date(),'','','','','','', false, false, false, false, false, false, false, '', '',0, 0,'');
     }
     else{
       this.selectProvincia(this.usuaria.provinciaId);

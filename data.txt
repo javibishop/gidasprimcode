@@ -24,4 +24,7 @@ app.get('*', (req, res) => {
  heroku login
 heroku run bash
 $ cd app
+
+el repo que tengo en la pc de escritorio para hacer deploy es: F:\Development\gidasprim\gidasprim
+el codigo esta en : F:\Development\gidasprimcode
  

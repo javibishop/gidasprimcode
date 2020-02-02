@@ -19,8 +19,7 @@ let gestaActualSchema = new Shcema({
         required: [true, 'La enteroFecha es requerida']
     },
     egfum:{
-        type:Date,
-        required: [true, 'La enteroFecha es requerida']
+        type:String
     },
     intentoSuprimirObservaciones:{
         type:String
@@ -72,6 +71,10 @@ let gestaActualSchema = new Shcema({
         type:Boolean,
         default:false
     },
+    cUMSPNinguna:{
+        type:Boolean,
+        default:false
+    },
     factorRiesgoHb7:{
         type:Boolean,
         default:false
@@ -89,6 +92,10 @@ let gestaActualSchema = new Shcema({
         default:false
     },
     factorRiesgoCorticoterapia:{
+        type:Boolean,
+        default:false
+    },
+    factorRiesgoNinguno:{
         type:Boolean,
         default:false
     },

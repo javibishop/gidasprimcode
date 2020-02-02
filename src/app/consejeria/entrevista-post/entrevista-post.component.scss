@@ -1,5 +1,5 @@
 
-:host() {
+:host {
   margin: 16px;
   width: 100%;
 }
@@ -18,6 +18,11 @@ mat-checkbox{
 .all-width {
     width: 95%;
     height: 40;
+  }
+
+  .hsubtitulo{
+    font-weight: 700;
+    color:darkslateblue;
   }
   // .mat-grid-list {
   //   padding: 0!important;

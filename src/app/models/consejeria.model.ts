@@ -112,7 +112,7 @@ export class GestaActual {
         public enteroPorTestOrinaObservaciones :string,
         public enteroFecha: Date,
         public fum : Date,
-        public egfum :Date,
+        public egfum :string,
         public intentoSuprimir :boolean,
         public intentoSuprimirObservaciones :string,
         public loComento :boolean,
@@ -126,12 +126,14 @@ export class GestaActual {
         public cUMSPDisfuncionHepaticaSevera :boolean,
         public cUMSPEmbarazoEctopico :boolean,
         public cUMSPAlergiaMisoDiclo :boolean,
+        public cUMSPNinguna :boolean,
         public factorRiesgoHb7 :boolean,
         public factorRiesgoCardiopatia :boolean,
         public factorRiesgoDIU :boolean,
         public factorRiesgoCardiovascular :boolean,
         public factorRiesgoCorticoterapia :boolean,
         public factorRiesgoOtros :string,
+        public factorRiesgoNinguno :string,
         public consejeriaId :string
   ) {}
 }

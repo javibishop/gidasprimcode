@@ -44,6 +44,8 @@ import { LoaderComponent } from './loader/loader.component';
 import { LoaderService } from './services/loader.service';
 import { LoaderInterceptor } from './interceptors/loader.interceptor';
 import {AppNavComponent} from './app-nav/app-nav.component';
+import { MAT_DATE_LOCALE } from '@angular/material';
+import { ConfirmComponent } from './confirm/confirm.component';
 
 @NgModule({
   declarations: [
@@ -65,13 +67,14 @@ import {AppNavComponent} from './app-nav/app-nav.component';
     EspecialidadListComponent,
     EspecialidadEditComponent,
     ErrorDialogComponent,
+    ConfirmComponent,
     LoginComponent,
     HomeComponent,
     LoaderComponent,
     AppNavComponent
   ],
   entryComponents: [
-    ErrorDialogComponent
+    ErrorDialogComponent, ConfirmComponent
   ],
   imports: [
     BrowserModule,
@@ -117,7 +120,8 @@ import {AppNavComponent} from './app-nav/app-nav.component';
     { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
     { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
     LoaderService,
-    { provide: HTTP_INTERCEPTORS, useClass: LoaderInterceptor, multi: true }
+    { provide: HTTP_INTERCEPTORS, useClass: LoaderInterceptor, multi: true },
+    { provide: MAT_DATE_LOCALE, useValue: 'es-ES'}
   ],
   bootstrap: [
     AppComponent

@@ -1,5 +1,5 @@
 
-:host() {
+:host {
     margin: 16px;
     width: 100%;
   }
@@ -20,4 +20,7 @@
         width: 95%;
         height: 40;
       }
-  
+      .hsubtitulo{
+        font-weight: 700;
+        color:darkslateblue;
+      }

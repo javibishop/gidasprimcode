@@ -1,22 +1,19 @@
 <form #en="ngForm"  *ngIf="entrevista">
   <mat-grid-tile-header> 
-      <h5>Entrevista Post Aborto</h5>
+      <h6 class="hsubtitulo">Realizo el Procedimiento?</h6>
   </mat-grid-tile-header>
-  <mat-grid-tile-header> 
-      <h6>Realizo el Procedimiento?</h6>
-  </mat-grid-tile-header>
-  <mat-grid-list cols="1" rowHeight="50">
-  <mat-grid-tile>
+  <!--<mat-grid-list cols="1" rowHeight="50">
+    <mat-grid-tile>
         <mat-form-field>
             <input matInput [matDatepicker]="picker1" placeholder="Fecha" name="fecha" [(ngModel)]="entrevista.fecha">
             <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
             <mat-datepicker #picker1 startView="month" [startAt]="startDate"></mat-datepicker>
             </mat-form-field>
-    </mat-grid-tile>
-  </mat-grid-list>
+    </mat-grid-tile> 
+  </mat-grid-list> -->
   <mat-grid-list cols="4" rowHeight="50">
       <mat-grid-tile>
-          <mat-checkbox [(ngModel)]="entrevista.procedimientoHecho" name="procedimientoHecho" >No</mat-checkbox>
+          <mat-checkbox [(ngModel)]="entrevista.procedimientoHecho" name="procedimientoHecho" >No ----></mat-checkbox>
       </mat-grid-tile>
       <mat-grid-tile>
           <mat-checkbox [(ngModel)]="entrevista.procedimientoNoContinua" name="procedimientoNoContinua">Continua Gesta</mat-checkbox>
@@ -37,7 +34,7 @@
   </mat-grid-list>
   <mat-grid-list cols="4" rowHeight="50">
       <mat-grid-tile>
-          <mat-checkbox [(ngModel)]="entrevista.procedimientoSiHecho" name="procedimientoSiHecho" >Si</mat-checkbox>
+          <mat-checkbox [(ngModel)]="entrevista.procedimientoSiHecho" name="procedimientoSiHecho" >Si -----></mat-checkbox>
       </mat-grid-tile>
       <mat-grid-tile>
         <mat-checkbox [(ngModel)]="entrevista.procedimientoSiViaV" name="procedimientoSiViaV">Via V</mat-checkbox>
@@ -69,7 +66,7 @@
       </mat-grid-tile>
   </mat-grid-list>
   <mat-grid-tile-header> 
-      <h6>Como accedio al Metodo?</h6>
+      <h6 class="hsubtitulo">Como accedio al Metodo?</h6>
   </mat-grid-tile-header>
   <mat-grid-list cols="4" rowHeight="50">
       <mat-grid-tile>
@@ -86,7 +83,7 @@
       </mat-grid-tile>
   </mat-grid-list>
   <mat-grid-tile-header> 
-      <h6>Presentacion?</h6>
+      <h6 class="hsubtitulo">Presentacion?</h6>
   </mat-grid-tile-header>
   <mat-grid-list cols="3" rowHeight="50">
       <mat-grid-tile>
@@ -100,7 +97,7 @@
       </mat-grid-tile>
   </mat-grid-list>
   <mat-grid-tile-header> 
-      <h6>Efecto Adverso MSP?</h6>
+      <h6 class="hsubtitulo">Efecto Adverso MSP?</h6>
   </mat-grid-tile-header>
   <mat-grid-list cols="5" rowHeight="50">
       <mat-grid-tile>
@@ -127,7 +124,7 @@
       </mat-grid-tile>
   </mat-grid-list>
     <mat-grid-tile-header> 
-        <h6>Complicaciones asociadas al Procedimiento</h6>
+        <h6 class="hsubtitulo">Complicaciones asociadas al Procedimiento</h6>
     </mat-grid-tile-header>
     <mat-grid-list cols="5" rowHeight="50">
         <mat-grid-tile>
@@ -151,7 +148,7 @@
         </mat-grid-tile>
     </mat-grid-list>
     <mat-grid-tile-header> 
-        <h6>Indicacion de Gammaglobulina (si RH - luego de la semana 9)</h6>
+        <h6 class="hsubtitulo">Indicacion de Gammaglobulina (si RH - luego de la semana 9)</h6>
     </mat-grid-tile-header>
     <mat-grid-list cols="1" rowHeight="50">
         <mat-grid-tile>
@@ -159,16 +156,16 @@
         </mat-grid-tile>
     </mat-grid-list>
     <mat-grid-tile-header> 
-        <h6>Ecografia Post</h6>
+        <h6 class="hsubtitulo">Ecografia Post</h6>
     </mat-grid-tile-header>
     <mat-grid-list cols="6" rowHeight="50">
-        <mat-grid-tile>
+        <!-- <mat-grid-tile>
             <mat-form-field>
                 <input matInput [matDatepicker]="picker" placeholder="Fecha" name="ecografiaPostFecha" [(ngModel)]="entrevista.ecografiaPostFecha">
                 <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
                 <mat-datepicker #picker startView="month" [startAt]="startDate"></mat-datepicker>
             </mat-form-field>
-        </mat-grid-tile>
+        </mat-grid-tile> -->
         <mat-grid-tile>
             <mat-checkbox [(ngModel)]="entrevista.ecografiaPostNoRealizo" name="ecografiaPostNoRealizo">No Realizo</mat-checkbox>
         </mat-grid-tile>
@@ -184,11 +181,11 @@
         <mat-grid-tile>
             <mat-checkbox [(ngModel)]="entrevista.ecografiaPostEmbrionViable" name="ecografiaPostEmbrionViable">Embrion Viable</mat-checkbox>
         </mat-grid-tile>
-    </mat-grid-list>
-    <mat-grid-list cols="3" rowHeight="50">
         <mat-grid-tile>
             <mat-checkbox [(ngModel)]="entrevista.ecografiaPostNuevaConsejeria" name="ecografiaPostNuevaConsejeria">Nueva Consejeria</mat-checkbox>
         </mat-grid-tile>
+    </mat-grid-list>
+    <mat-grid-list cols="6" rowHeight="50">
         <mat-grid-tile>
             <mat-checkbox [(ngModel)]="entrevista.ecografiaPostDerivacion2Nivel" name="ecografiaPostDerivacion2Nivel">Derivacion 2 Nivel</mat-checkbox>
         </mat-grid-tile>
@@ -197,7 +194,7 @@
         </mat-grid-tile>
     </mat-grid-list>
     <mat-grid-tile-header> 
-            <h6>Consejeria MAC</h6>
+            <h6 class="hsubtitulo">Consejeria MAC</h6>
         </mat-grid-tile-header>
         <mat-grid-list cols="7" rowHeight="50">
             <mat-grid-tile>

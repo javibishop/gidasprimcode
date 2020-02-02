@@ -1,0 +1,40 @@
+<h1 mat-dialog-title>{{data.titulo}}</h1>
+<div mat-dialog-content>
+  <mat-form-field class="all-width">
+    <input matInput  [(ngModel)]="data.mensaje">
+  </mat-form-field>
+</div>
+<div mat-dialog-actions>
+  <!-- <button mat-button (click)="onNoClick()">No Thanks</button> -->
+  <button mat-button [mat-dialog-close]="data.result" cdkFocusInitial>OK</button>
+</div>
+
+<!-- 
+
+<div mat-dialog-content>
+    {{data.reason}}
+  <ul>
+    <li>
+      <span *ngIf="data.animal === 'panda'">&#10003;</span> Panda
+    </li>
+    <li>
+      <span *ngIf="data.animal === 'unicorn'">&#10003;</span> Unicorn
+    </li>
+    <li>
+      <span *ngIf="data.animal === 'lion'">&#10003;</span> Lion
+    </li>
+  </ul>
+</div> -->
+
+
+<!-- <h1 mat-dialog-title>{{data.titulo}}</h1>
+<div mat-dialog-content>
+  <p>{{data.reason}}</p>
+  <mat-form-field>
+    <input matInput [(ngModel)]="data.animal">
+  </mat-form-field>
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="cerrar()">Cerrar</button>
+  <button mat-button [mat-dialog-close]="data.animal" cdkFocusInitial>Ok</button>
+</div> -->
