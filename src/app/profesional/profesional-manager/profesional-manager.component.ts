@@ -28,6 +28,7 @@ export class ProfesionalManagerComponent implements OnInit {
     this.stateService.usuaries$.subscribe(profesionales => this.usuaries = profesionales);
     //this.stateService.setAppTitulo('Administracion de profesionales');
 
+    this.stateService.setAppTitulo('Administracion de Profesionales');
     
   }
 

@@ -28,7 +28,7 @@ export class ConsejeriaManagerComponent implements OnInit {
     this.stateService.consejerias$.subscribe(consejerias => this.consejerias = consejerias);
     //this.usuarieHttpService.getAll();
 
-    this.stateService.setAppTitulo('Administracion de consejerias');
+    this.stateService.setAppTitulo('Administracion de Consejerias');
   }
 
   filtrarConsejeria(filtro: string) {

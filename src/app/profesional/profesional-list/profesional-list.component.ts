@@ -11,7 +11,7 @@ export class ProfesionalListComponent implements OnInit {
   @Input() profesionales: Usuarie[];
   profesionalSeleccionado: Usuarie = null;
   @Output() seleccionar = new EventEmitter<Usuarie> ();
-  columnas: string [] = ['Nro', 'Nombre','Activo', 'Acciones'];
+  columnas: string [] = ['Nombre', 'Acciones'];
   
   constructor() { }
 

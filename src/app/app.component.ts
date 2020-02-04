@@ -10,7 +10,7 @@ import { Router } from '@angular/router';
 })
 export class AppComponent {
   currentUser: Usuarie;
-  title = 'Curso Angular 7 del MUG!';
+  title = 'Gidas-Prim';
   constructor(
     private router: Router,
     private authenticationService: AuthenticationService

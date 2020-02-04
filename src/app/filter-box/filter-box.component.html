@@ -4,11 +4,11 @@
 
 <mat-card class="containter">
   <mat-icon>search</mat-icon>
-  <mat-form-field>
+  <mat-form-field class="all-width">
       <input
       matInput
       #filtrar
-      placeholder="filtrar"
+      placeholder="Ingrese un texto para filtrar en el listado"
       (keyup)="filtrarPor(filtrar.value)"
       />
   </mat-form-field>

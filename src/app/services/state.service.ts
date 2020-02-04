@@ -7,6 +7,7 @@ import { Provincia } from '../models/provincia.model';
 import { Localidad } from '../models/localidad.model';
 import { Partido } from '../models/partido.model';
 import { ConsejeriaList } from './conejerias.adapter';
+import { Institucion } from '../models/institucion.model';
 
 @Injectable({
   providedIn: 'root'
@@ -17,6 +18,7 @@ export class StateService {
   public usuaries$ = new BehaviorSubject<Usuarie[]>([]);
   public consejerias$ = new BehaviorSubject<ConsejeriaList[]>([]);
   public especialidades$ = new BehaviorSubject<Especialidad[]>([]);
+  public instituciones$ = new BehaviorSubject<Institucion[]>([]);
   public paises$ = new BehaviorSubject<Pais[]>([]);
   public provincias$ = new BehaviorSubject<Provincia[]>([]);
   public localidades$ = new BehaviorSubject<Localidad[]>([]);
@@ -41,6 +43,11 @@ export class StateService {
   setEspecialidades(especialidades: Especialidad[]){
     //para informar a los suscriptores.
     this.especialidades$.next(especialidades);
+  }
+
+  setInstitucion(instituciones: Institucion[]){
+    //para informar a los suscriptores.
+    this.instituciones$.next(instituciones);
   }
 
   setPaises(paises: Pais[]){

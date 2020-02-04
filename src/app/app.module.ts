@@ -46,6 +46,9 @@ import { LoaderInterceptor } from './interceptors/loader.interceptor';
 import {AppNavComponent} from './app-nav/app-nav.component';
 import { MAT_DATE_LOCALE } from '@angular/material';
 import { ConfirmComponent } from './confirm/confirm.component';
+import { InstitucionManagerComponent } from './institucion/institucion-manager/institucion-manager.component';
+import { InstitucionEditComponent } from './institucion/institucion-edit/institucion-edit.component';
+import { InstitucionListComponent } from './institucion/institucion-list/institucion-list.component';
 
 @NgModule({
   declarations: [
@@ -71,7 +74,10 @@ import { ConfirmComponent } from './confirm/confirm.component';
     LoginComponent,
     HomeComponent,
     LoaderComponent,
-    AppNavComponent
+    AppNavComponent,
+    InstitucionManagerComponent,
+    InstitucionEditComponent,
+    InstitucionListComponent
   ],
   entryComponents: [
     ErrorDialogComponent, ConfirmComponent
@@ -107,6 +113,8 @@ import { ConfirmComponent } from './confirm/confirm.component';
     RouterModule.forRoot([
       { path: 'profesionales/:id', component: ProfesionalEditComponent, canActivate: [AuthGuard] },
       { path: 'profesionales' , component: ProfesionalManagerComponent, canActivate: [AuthGuard] },
+      { path: 'instituciones/:id', component: InstitucionEditComponent, canActivate: [AuthGuard] },
+      { path: 'instituciones' , component: InstitucionManagerComponent, canActivate: [AuthGuard] },
       { path: 'consejerias/:id', component: ConsejeriaEditComponent, canActivate: [AuthGuard] },
       { path: 'consejerias' , component: ConsejeriaManagerComponent, canActivate: [AuthGuard]},
       { path: 'especialidades' , component: EspecialidadManagerComponent, canActivate: [AuthGuard] },

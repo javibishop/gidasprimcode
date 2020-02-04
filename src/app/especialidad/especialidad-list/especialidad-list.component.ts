@@ -12,7 +12,7 @@ export class EspecialidadListComponent implements OnInit {
   @Input() especialidades: Especialidad[];
   especialidadSeleccionada: Especialidad = null;
   @Output() seleccionar = new EventEmitter<Especialidad> ();
-  columnas: string [] = ['Id', 'Nombre','Acciones'];
+  columnas: string [] = ['Nombre','Acciones'];
   
   constructor() { }
 
