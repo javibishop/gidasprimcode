@@ -1,0 +1,99 @@
+
+<form #f="ngForm" (ngSubmit)="guardar(f.value, f.valid)" *ngIf="consejeria">
+  <mat-card>
+    <mat-card-title>
+        Consejeria {{consejeria.id}}
+    </mat-card-title>
+    <mat-grid-list cols="4" rowHeight="70">
+        <mat-grid-tile>
+            <mat-form-field  >
+                <mat-select
+                    placeholder="Profesional 1"
+                    [(ngModel)]="usuarie1Id"
+                    name="usuarie1Id">
+                    <mat-option *ngFor="let usuarie of usuaries"
+                      [value]="usuarie.id">
+                      {{ usuarie.nombre }}
+                    </mat-option>
+                  </mat-select>
+              </mat-form-field>
+        </mat-grid-tile>
+        <mat-grid-tile>
+            <mat-form-field  >
+                <mat-select
+                    placeholder="Profesional 2"
+                    [(ngModel)]="usuarie2Id"
+                    name="usuarie2Id">
+                    <mat-option *ngFor="let usuarie of usuaries"
+                      [value]="usuarie.id">
+                      {{ usuarie.nombre }}
+                    </mat-option>
+                  </mat-select>
+              </mat-form-field>
+        </mat-grid-tile>
+        <mat-grid-tile>
+            <mat-form-field >
+              <input  matInput
+                      required
+                      name="numero"
+                      placeholder="numero"
+                      [(ngModel)]="consejeria.numero">
+              <mat-error>Debe ingresar el numero</mat-error>
+            </mat-form-field>
+          </mat-grid-tile>
+        <mat-grid-tile>
+            <mat-form-field>
+                <input matInput [matDatepicker]="picker" placeholder="Fecha" name="fechaIngreso" [(ngModel)]="consejeria.fechaIngreso">
+                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                <mat-datepicker #picker startView="month" [startAt]="startDate"></mat-datepicker>
+              </mat-form-field>
+        </mat-grid-tile>
+      </mat-grid-list>
+
+    <mat-grid-list cols="1" rowHeight="70">
+        <mat-grid-tile>
+            <mat-form-field class="all-width"  >
+                <textarea matInput
+                        required
+                        name="observacion"
+                        placeholder="Observaciones"
+                        [(ngModel)]="consejeria.observacion"></textarea>
+                <mat-error>Debe ingresar las Observaciones</mat-error>
+              </mat-form-field>
+        </mat-grid-tile>
+    </mat-grid-list>
+    <mat-grid-list cols="1" rowHeight="1:1">
+        <mat-tab-group>
+            <mat-tab label="Usuaria"> 
+              <app-usuaria [usuaria] = "usuaria" (usuariaIdInsert)="usuariaInserted($event)" > </app-usuaria>
+            </mat-tab>
+            <mat-tab label="Antecedentes">
+              <app-antecedente [consejeriaId] = "id"></app-antecedente>
+            </mat-tab>
+            <mat-tab label="Gesta Actual">  <app-gesta-actual [consejeriaId] = "id"></app-gesta-actual>
+            </mat-tab>
+            <mat-tab label="Estudios Complementarios">  <app-estudio-complementario [consejeriaId] = "id"></app-estudio-complementario>
+            </mat-tab>
+            <mat-tab label="Entrevista Post Aborto">  <app-entrevista-post [consejeriaId] = "id"></app-entrevista-post>
+            </mat-tab>
+          </mat-tab-group>
+    </mat-grid-list>
+    <mat-grid-list cols="1" rowHeight="70">
+      <mat-grid-tile>
+        <div class="action-buttons">
+            <button  mat-button
+              type="button"
+              (click) = "cancelarEdicion()">
+              Volver al Listado
+            </button>
+            <button type="submit"  mat-button color="primary" [disabled]="f.invalid">
+              Aceptar
+            </button>
+          </div>
+        </mat-grid-tile>
+    </mat-grid-list>
+  </mat-card>
+</form>
+
+
+<!-- https://nirajsonawane.github.io/2018/10/27/Angular-Material-Tabs-with-Router/ -->

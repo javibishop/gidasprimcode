@@ -1,0 +1,23 @@
+revisar los updates si deben siembre llamar al getall, creo que no.
+updateEntrevista(entrevistaPostAborto: EntrevistaPostAborto): Observable<EntrevistaPostAborto>{
+  const url = `${this.urlEntrevista}/${entrevistaPostAborto.id}`; /*interpolacion */
+  return this.HttpClient.put<EntrevistaPostAborto>(url, entrevistaPostAborto)
+  .pipe(tap(() =>{return this.getAll()}));
+}
+
+no, solo quedo en consejeria.
+
+Mejorar el tema de los errores, manejo, retorno desde node.
+
+ver bien el tema del conxtex para el update. https://github.com/Automattic/mongoose/issues/4850
+let optionsMongoose = {
+        new: true, 
+        upsert: true,
+        runValidators: true,
+        setDefaultsOnInsert: true,
+        context: 'query'
+    }
+
+	06092019
+Ver de mejorar la info de errores al grabar, por ej grabar alta del mismo usuario.
+ver los botones en alta de consejeria, hay que hacer que sea mejor pq hay 4 botones.

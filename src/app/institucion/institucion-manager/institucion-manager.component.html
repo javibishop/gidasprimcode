@@ -1,0 +1,8 @@
+<app-filter-box (filtrar)="filtrarUS($event)"></app-filter-box>
+<button  mat-button
+      type="button"
+      (click) = "nuevaUS()">
+      Nuevo
+    </button>
+<app-institucion-list [instituciones]="instituciones"  (seleccionar)="seleccionarUS($event)" >
+</app-institucion-list>
