@@ -1,6 +1,6 @@
 {
-  "name": "myapp",
-  "version": "0.0.0",
+  "name": "SisPrim",
+  "version": "1.1.0",
   "engines": {
     "node": "10.15.3"
   },
