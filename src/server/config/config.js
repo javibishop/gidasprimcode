@@ -8,10 +8,14 @@ process.env.PORT = process.env.PORT || 3000;
 process.env.NODE_ENV = process.env.NODE_ENV || 'dev';
 
 let urlDB ;
+let URLFront ;
 if(process.env.NODE_ENV === 'dev'){
-    urlDB = 'mongodb://localhost:27017/ts';
+    //urlDB = 'mongodb://localhost:27017/ts';
+    urlDB = 'mongodb+srv://tsvarela:hQ3KjYlIx7YYHna5@cluster0-cltbj.mongodb.net/tsvarela';
+    URLFront = 'https://gidasprim.herokuapp.com'
 }else{
     urlDB = process.env.URLDB;
+    URLFront= process.env.URLFront;
 }
 
 
@@ -25,4 +29,4 @@ process.env.USER_MANAGER_ROLE = 'ADMIN_ROLE';
 
 process.env.URLDB = urlDB;
 
-process.env.URLFront = 'https://gidasprim.herokuapp.com';
+process.env.URLFront = URLFront;

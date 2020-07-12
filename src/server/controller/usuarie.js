@@ -91,7 +91,7 @@ app.put('/usuarie/:id', verificaToken,  (req, res) => {
         setDefaultsOnInsert: true,
         context: 'query'
     }
-    Usuarie.findByIdAndUpdate(id, body, optionsMongoose, (err, usuarieDB) =>{
+    Usuarie.findByIdAndUpdate(id, req.body, optionsMongoose, (err, usuarieDB) =>{
         if(err){
             return res.status(400).json({ok: false, err});
         }else{

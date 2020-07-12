@@ -76,7 +76,7 @@ app.put('/institucion/:id', [verificaToken], (req, res) => {
         setDefaultsOnInsert: true,
         context: 'query'
     }
-    Institucion.findByIdAndUpdate(id, body, optionsMongoose, (err, institucionDB) =>{
+    Institucion.findByIdAndUpdate(id, req.body, optionsMongoose, (err, institucionDB) =>{
         if(err){
             return res.status(400).json({ok: false, err});
         }else{
