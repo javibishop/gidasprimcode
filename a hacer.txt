@@ -21,3 +21,22 @@ let optionsMongoose = {
 	06092019
 Ver de mejorar la info de errores al grabar, por ej grabar alta del mismo usuario.
 ver los botones en alta de consejeria, hay que hacer que sea mejor pq hay 4 botones.
+.
+
+Sobre este git, que es el mio, tengo los dos deploys, uno es:  https://gidasprimvarela.herokuapp.com/
+el otro es https://gidasprim.herokuapp.com/.
+
+Para la db, tengo dos dbs separadas, ts y tsvarela, agregue una var en el deploy para que se tome de ahi el path.Mismo para el cors, otra var.
+https://github.com/javibishop/gidasprimcode
+databas mongodb
+https://cloud.mongodb.com/v2/59e918bfd383ad141950a8ad#metrics/replicaSet/5e9228710886600589b728e3/explorer/cafe/clientes/find
+mail y pas.
+
+uss/pass db varela
+tsvarela
+hQ3KjYlIx7YYHna5
+
+mongodb+srv://tsvarela:hQ3KjYlIx7YYHna5@cluster0-cltbj.mongodb.net/tsvarela
+uss/pass ingreso admin
+	primvarela
+	primvarela2020
