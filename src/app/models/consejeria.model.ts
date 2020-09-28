@@ -160,4 +160,27 @@ export class Antecedente{
         public fecha: Date,
         public antecedentesPersonales: string
       ){}
-} 
+}
+
+export class Otro{
+    constructor (
+        public id :string,
+        public violenciaDG :boolean,
+        public violenciaDGTipo :number,
+        public violenciaDGObservaciones: string,
+        public violenciaI :boolean,
+        public violenciaIDeQuien :string,
+        public violenciaIComo :string,
+        public acompaniamiento :boolean,
+        public acompaniamientoLugar :string,
+        public acompaniamientoDispositivo :string,
+        public abusoSexual :boolean,
+        public abusoSexualDJurada :boolean,
+        public abusoSexualDPenal :boolean,
+        public circuitoActual :boolean,
+        public circuitoAnterior :boolean,
+        public circuitoObservaciones: string,
+        public consejeriaId :string,
+        public fecha: Date,
+      ){}
+}

@@ -11,6 +11,7 @@ app.use(require('./partido'));
 app.use(require('./especialidad'));
 app.use(require('./consejeria'));
 app.use(require('./antecedente'));
+app.use(require('./otros'));
 app.use(require('./entrevistaPostAborto'));
 app.use(require('./estudioComplementario'));
 app.use(require('./gestaActual'));

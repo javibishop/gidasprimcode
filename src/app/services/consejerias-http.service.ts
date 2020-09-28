@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from "@angular/common/http";
 import { Observable } from 'rxjs';
 
-import { Consejeria, EntrevistaPostAborto, EstudioComplementario, GestaActual, Antecedente } from '../models/consejeria.model';
+import { Consejeria, EntrevistaPostAborto, EstudioComplementario, GestaActual, Antecedente, Otro } from '../models/consejeria.model';
 import { Usuaria } from '../models/usuaria.model';
 import { environment } from '../../environments/environment.prod';
 import { ConsejeriasAdapter, ConsejeriaApi, ConsejeriaList } from './conejerias.adapter';
@@ -24,6 +24,7 @@ export class ConsejeriasHttpService {
   private urlEntrevista = this.url + 'entrevistapostaborto/';
   private urlEstudio = this.url + 'estudiocomplementario/';
   private urlAntecedente = this.url + 'antecedente/';
+  private urlOtro = this.url + 'otro/';
   private urlGestas  = this.url + 'gestaactual/';
   private urlUsuaria = this.url + 'usuaria/';
   constructor(
@@ -137,6 +138,17 @@ updateAntecedente(antecedente: Antecedente): Observable<Antecedente>{
 insertAntecedente(antecedente: Antecedente): Observable<Antecedente>{
   return this.HttpClient.post<Antecedente>(this.urlAntecedente, antecedente);
 }
+
+updateOtro(otro: Otro): Observable<Otro>{
+  const url = `${this.urlOtro}${otro.id}`; /*interpolacion */
+  return this.HttpClient.put<Otro>(url, otro)
+  //.pipe(tap(() =>{return this.getAll()}));
+}
+
+insertOtro(otro: Otro): Observable<Otro>{
+return this.HttpClient.post<Otro>(this.urlOtro, otro);
+}
+
 
 updateEntrevista(entrevistaPostAborto: EntrevistaPostAborto): Observable<EntrevistaPostAborto>{
   const url = `${this.urlEntrevista}${entrevistaPostAborto.id}`; /*interpolacion */
