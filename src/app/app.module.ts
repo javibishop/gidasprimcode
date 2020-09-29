@@ -32,6 +32,7 @@ import { ConsejeriaListComponent } from './consejeria/consejeria-list/consejeria
 import { AntecedenteComponent } from './consejeria/antecedente/antecedente.component';
 import { UsuariaComponent } from './consejeria/usuaria/usuaria.component';
 import { GestaActualComponent } from './consejeria/gesta-actual/gesta-actual.component';
+import { OtrosComponent } from './consejeria/otros/otros.component';
 import { EstudioComplementarioComponent } from './consejeria/estudio-complementario/estudio-complementario.component';
 import { EntrevistaPostComponent } from './consejeria/entrevista-post/entrevista-post.component';
 import { EspecialidadListComponent } from './especialidad/especialidad-list/especialidad-list.component';
@@ -77,7 +78,8 @@ import { InstitucionListComponent } from './institucion/institucion-list/institu
     AppNavComponent,
     InstitucionManagerComponent,
     InstitucionEditComponent,
-    InstitucionListComponent
+    InstitucionListComponent,
+    OtrosComponent
   ],
   entryComponents: [
     ErrorDialogComponent, ConfirmComponent

@@ -12,8 +12,8 @@
         <span class="mat-form-field-label">Tipo</span>
         <mat-form-field  class="all-width">
             <mat-select
-                placeholder="violenciaDGTipo"
-                [(ngModel)]="usuarie.violenciaDGTipo"
+                placeholder="Tipo"
+                [(ngModel)]="otro.violenciaDGTipo"
                 name="violenciaDGTipo">
                 <mat-option *ngFor="let v of tipos"
                 [value] = "v.id">
@@ -24,7 +24,7 @@
       </mat-grid-tile>
       <mat-grid-tile>
         <mat-form-field >
-            <textarea matInput required
+            <textarea matInput
             name="violenciaDGObservaciones"
             placeholder="¿Por parte de quién? Pareja/ ex pareja/ otre:"
             [(ngModel)]="otro.violenciaDGObservaciones"></textarea>
@@ -44,7 +44,7 @@
         </mat-grid-tile>
         <mat-grid-tile>
             <mat-form-field >
-                <textarea matInput required
+                <textarea matInput 
                 name="violenciaIDeQuien"
                 placeholder="Por parte de quien"
                 [(ngModel)]="otro.violenciaIDeQuien"></textarea>
@@ -53,7 +53,7 @@
         </mat-grid-tile>
         <mat-grid-tile>
             <mat-form-field >
-                <textarea matInput required
+                <textarea matInput 
                 name="violenciaIComo"
                 placeholder="Como?"
                 [(ngModel)]="otro.violenciaIComo"></textarea>
@@ -73,7 +73,7 @@
         </mat-grid-tile>
         <mat-grid-tile>
             <mat-form-field >
-                <textarea matInput required
+                <textarea matInput 
                 name="acompaniamientoLugar"
                 placeholder="Lugar"
                 [(ngModel)]="otro.acompaniamientoLugar"></textarea>
@@ -82,7 +82,7 @@
         </mat-grid-tile>
         <mat-grid-tile>
             <mat-form-field >
-                <textarea matInput required
+                <textarea matInput 
                 name="acompaniamientoDispositivo"
                 placeholder="Dispositivo?"
                 [(ngModel)]="otro.acompaniamientoDispositivo"></textarea>
@@ -128,7 +128,7 @@
         </mat-grid-tile>
         <mat-grid-tile>
             <mat-form-field >
-                <textarea matInput required
+                <textarea matInput 
                 name="circuitoObservaciones"
                 placeholder="Como?"
                 [(ngModel)]="otro.circuitoObservaciones"></textarea>

@@ -181,6 +181,6 @@ export class Otro{
         public circuitoAnterior :boolean,
         public circuitoObservaciones: string,
         public consejeriaId :string,
-        public fecha: Date,
+        public fecha: Date
       ){}
 }

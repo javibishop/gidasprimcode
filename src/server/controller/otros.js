@@ -1,7 +1,7 @@
-const express = require('express')
-const app = express()
-const _ = require('underscore')
-const Otro = require('../models/otro')
+const express = require('express');
+const app = express();
+const _ = require('underscore');
+const Otro = require('../models/otro');
 const { verificaToken } =  require('../middlewares/authentication');
 //cada vez q hago un get, se ejecuta el middleware
 app.get('/otro/:id', verificaToken, (req, res)  => {

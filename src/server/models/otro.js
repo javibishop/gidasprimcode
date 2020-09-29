@@ -1,25 +1,6 @@
 const mongoose = require('mongoose');
 const uniqueValidator = require('mongoose-unique-validator')
 
-public id :string,
-        public violenciaDG :boolean,
-        public violenciaDGTipo :number,
-        public violenciaDGObservaciones: string,
-        public violenciaI :boolean,
-        public violenciaIDeQuien :string,
-        public violenciaIComo :string,
-        public acompaniamiento :boolean,
-        public acompaniamientoLugar :string,
-        public acompaniamientoDispositivo :string,
-        public abusoSexual :boolean,
-        public abusoSexualDJurada :boolean,
-        public abusoSexualDPenal :boolean,
-        public circuitoActual :boolean,
-        public circuitoAnterior :boolean,
-        public circuitoObservaciones: string,
-        public consejeriaId :string,
-        public fecha: Date,
-
 let Shcema = mongoose.Schema;
 let otroSchema = new Shcema({
     violenciaDGTipo:{
@@ -33,6 +14,9 @@ let otroSchema = new Shcema({
     violenciaDG:{
         type:Boolean,
         default:false
+    },
+    violenciaDGObservaciones:{
+        type:String
     },
     violenciaIDeQuien:{
         type:String

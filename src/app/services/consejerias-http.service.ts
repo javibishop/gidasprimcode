@@ -13,6 +13,7 @@ import { AntecedentesAdapter, AntecedenteApi } from './antecedente.adapter';
 import { UsuariasAdapter, UsuariaApi } from './usuarias.adapter';
 import { map, tap } from 'rxjs/operators';
 import { StateService } from './state.service';
+import { OtroApi, OtrosAdapter } from './otro.adapter'; 
 
 
 @Injectable({
@@ -36,6 +37,7 @@ export class ConsejeriasHttpService {
     private estudioComplementarioAdapter: EstudioComplementarioAdapter,
     private antecedentesAdapter: AntecedentesAdapter,
     private usuariasAdapter: UsuariasAdapter,
+    private otrosAdapter: OtrosAdapter,
   ) {}
 
   getAll() {
@@ -122,6 +124,14 @@ export class ConsejeriasHttpService {
     return this.HttpClient.get<UsuariaApi>(url)
     .pipe(
       map(usuariaApi => this.usuariasAdapter.adapt(usuariaApi))
+    )
+  }
+
+  getOtrosByConsejeriaId(idConsejeria: string) : Observable<Otro> {
+    const url = `${this.urlOtro}porconsejeria/${idConsejeria}`; /*interpolacion */
+    return this.HttpClient.get<OtroApi>(url)
+    .pipe(
+      map(otroApi => this.otrosAdapter.adapt(otroApi))
     )
   }
 

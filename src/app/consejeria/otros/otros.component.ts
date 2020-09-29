@@ -15,17 +15,17 @@ export class OtrosComponent implements OnInit {
   constructor(private consejeriaService: ConsejeriasHttpService) { }
 
   ngOnInit() {
-    this.tipos.push( { id :TipoViolencia.Economica, nombre: TipoViolencia.Economica.toString()});
-    this.tipos.push( { id :TipoViolencia.Fisica, nombre: TipoViolencia.Fisica.toString()});
-    this.tipos.push( { id :TipoViolencia.Psicologica, nombre: TipoViolencia.Psicologica.toString()});
-    this.tipos.push( { id :TipoViolencia.Sexual, nombre: TipoViolencia.Sexual.toString()});
-    this.tipos.push( { id :TipoViolencia.Simbolica, nombre: TipoViolencia.Simbolica.toString()});
+    this.tipos.push({ id :TipoViolencia.Economica, nombre: 'Economica'});
+    this.tipos.push({ id :TipoViolencia.Fisica, nombre: 'Fisica'});
+    this.tipos.push({ id :TipoViolencia.Psicologica, nombre: 'Psicologica'});
+    this.tipos.push({ id :TipoViolencia.Sexual, nombre: 'Sexual'});
+    this.tipos.push({ id :TipoViolencia.Simbolica, nombre: 'Simbolica'});
     
     if(this.consejeriaId != ''){
       let ante = null;
-      this.consejeriaService.getAntecedenteByConsejeriaId(this.consejeriaId).pipe(take(1)).subscribe(antecedenteRequest => 
+      this.consejeriaService.getOtrosByConsejeriaId(this.consejeriaId).pipe(take(1)).subscribe(otroRequest => 
         {
-          ante = antecedenteRequest;
+          ante = otroRequest;
           if(!ante){
             this.inicializar(this.consejeriaId);
           }else{
@@ -40,7 +40,7 @@ export class OtrosComponent implements OnInit {
   }
 
   inicializar(consejeriaId: string){
-    this.otro =  new Otro('',false, 0, '',false, '', '', false, '', '', false, false, false, false, false, '', '', new Date());
+    this.otro =  new Otro('',false, 0, '',false, '', '', false, '', '', false, false, false, false, false, '', consejeriaId, new Date());
   }
   guardarOtro(form: any) {
     if(this.consejeriaId != '' && this.otro.id  != ''){

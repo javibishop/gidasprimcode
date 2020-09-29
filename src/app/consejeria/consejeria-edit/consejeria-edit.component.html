@@ -54,7 +54,6 @@
         <mat-grid-tile>
             <mat-form-field class="all-width"  >
                 <textarea matInput
-                        required
                         name="observacion"
                         placeholder="Observaciones"
                         [(ngModel)]="consejeria.observacion"></textarea>
@@ -76,7 +75,7 @@
             </mat-tab>
             <mat-tab label="Entrevista Post Aborto">  <app-entrevista-post [consejeriaId] = "id"></app-entrevista-post>
             </mat-tab>
-            <mat-tab label="Otra Informacion">  <app-otros  [consejeriaId] = "id"></app-otros>
+            <mat-tab label="Otra Informacion">  <app-otros  [consejeriaId]="id"></app-otros>
             </mat-tab>
           </mat-tab-group>
     </mat-grid-list>
