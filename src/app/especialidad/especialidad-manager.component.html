@@ -1,7 +1,7 @@
 <app-filter-box (filtrar)="filtrarEspecialidad($event)"></app-filter-box>
 <app-especialidad-list [especialidades]="especialidades"  (seleccionar)="seleccionarEspecialidad($event)" >
 </app-especialidad-list>
-<button  mat-button
+<button  mat-raised-button color="primary"
       type="button"
       (click) = "nuevaEspecialidad()">
       Nuevo

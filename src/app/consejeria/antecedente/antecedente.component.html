@@ -145,12 +145,12 @@
       </mat-grid-list>
       <mat-grid-tile-footer>
           <div class="action-buttons">
-              <button  mat-button
+              <button  mat-raised-button color="primary"
                 type="button"
                 (click) = "cancelarEdicionAntecedente()">
                 Cancelar
               </button>
-              <button type="button" (click)="guardarAntecedente(an.value, an.valid)"  mat-button color="primary" [disabled]="an.invalid">
+              <button type="button" (click)="guardarAntecedente(an.value, an.valid)"   mat-raised-button color="primary" [disabled]="an.invalid">
                 Aceptar
               </button>
             </div>
