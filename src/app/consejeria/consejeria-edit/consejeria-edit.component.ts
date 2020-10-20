@@ -7,7 +7,7 @@ import { ConsejeriasHttpService } from '../../services/consejerias-http.service'
 import { StateService } from '../../services/state.service';
 import { Usuarie } from '../../models/usuarie.model';
 import { Usuaria } from 'src/app/models/usuaria.model';
-import { MatDialog } from '@angular/material';
+import { MatDialog } from '@angular/material/dialog';
 import { ConfirmComponent } from 'src/app/confirm/confirm.component';
 
 @Component({
