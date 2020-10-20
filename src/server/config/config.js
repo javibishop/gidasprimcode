@@ -13,7 +13,7 @@ let baseUrl;
 if(process.env.NODE_ENV === 'dev'){
     //urlDB = 'mongodb://localhost:27017/ts';
     urlDB = 'mongodb+srv://tsvarela:hQ3KjYlIx7YYHna5@cluster0-cltbj.mongodb.net/tsvarela';
-    URLFront = 'https://gidasprim.herokuapp.com';
+    URLFront = 'https://gidasprimvarela.herokuapp.com';
 }else{
     urlDB = process.env.URLDB;
     URLFront= process.env.URLFront;

@@ -10,7 +10,7 @@ import { Router } from '@angular/router';
 })
 export class AppComponent {
   currentUser: Usuarie;
-  title = 'Gidas-Prim';
+  title = 'Gidas - Prim Varela';
   constructor(
     private router: Router,
     private authenticationService: AuthenticationService
