@@ -16,6 +16,7 @@ export class Consejeria {
 
 export class SeguimientoConsejeria {
     constructor(
+        public _id :string,
         public fecha: Date,
         public observacion :string,
         public usuarieId:string)

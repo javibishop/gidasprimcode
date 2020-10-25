@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, OnDestroy } from '@angular/core';
 import { take } from 'rxjs/operators';
 import { Otro } from '../../models/consejeria.model';
 import { ConsejeriasHttpService } from '../../services/consejerias-http.service';
@@ -8,7 +8,8 @@ import {TipoViolencia } from '../../models/enumeradores';
   templateUrl: './otros.component.html',
   styleUrls: ['./otros.component.scss']
 })
-export class OtrosComponent implements OnInit {
+export class OtrosComponent implements OnInit , OnDestroy {
+  subscripciones = [];
   @Input() consejeriaId: string;
   otro: Otro;
   tipos = [];
@@ -23,7 +24,7 @@ export class OtrosComponent implements OnInit {
     
     if(this.consejeriaId != ''){
       let ante = null;
-      this.consejeriaService.getOtrosByConsejeriaId(this.consejeriaId).pipe(take(1)).subscribe(otroRequest => 
+      this.subscripciones.push(this.consejeriaService.getOtrosByConsejeriaId(this.consejeriaId).pipe(take(1)).subscribe(otroRequest => 
         {
           ante = otroRequest;
           if(!ante){
@@ -31,7 +32,7 @@ export class OtrosComponent implements OnInit {
           }else{
             this.otro = ante;
           }
-        });
+        }));
     }
     else{
       this.inicializar(this.consejeriaId);
@@ -44,16 +45,20 @@ export class OtrosComponent implements OnInit {
   }
   guardarOtro(form: any) {
     if(this.consejeriaId != '' && this.otro.id  != ''){
-      this.consejeriaService.updateOtro(this.otro).subscribe(
+      this.subscripciones.push(this.consejeriaService.updateOtro(this.otro).subscribe(
         (antece) => {this.otro = antece}
-      ); 
+      )); 
    }else{
-    this.consejeriaService.insertOtro(this.otro).subscribe(
+    this.subscripciones.push(this.consejeriaService.insertOtro(this.otro).subscribe(
       (antece) => {this.otro = antece}
-    ); 
+    )); 
    }
   }
   cancelarOtro() {
 
+  }
+
+  ngOnDestroy() {
+    this.subscripciones.forEach(s => s.unsubscribe())
   }
 }

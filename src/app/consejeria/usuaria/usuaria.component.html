@@ -135,7 +135,16 @@
             </mat-form-field>
         </mat-grid-tile>
     </mat-grid-list>
-
+    <mat-grid-list cols="1" rowHeight="50">
+        <mat-grid-tile>
+            <mat-form-field>
+                <input  matInput
+                name="barrio"
+                placeholder="Barrio"
+                [(ngModel)]="usuaria.barrio">
+            </mat-form-field>
+        </mat-grid-tile>
+    </mat-grid-list>
     <mat-grid-tile-header>
         <h5 class="hsubtitulo">Como se entero de la Consejeria?</h5>
     </mat-grid-tile-header>

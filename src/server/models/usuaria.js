@@ -35,6 +35,9 @@ let usuariaSchema = new Shcema({
         type:String,
         required: [true, 'La Localidad es requerida']
     },
+    barrio:{
+        type:String
+    },
     documento:{
         type:String,
         required: [false, 'El documento es requerido']

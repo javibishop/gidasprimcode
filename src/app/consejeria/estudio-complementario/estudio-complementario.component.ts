@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, OnDestroy } from '@angular/core';
 import { ConsejeriasHttpService } from '../../services/consejerias-http.service';
 import { EstudioComplementario } from '../../models/consejeria.model';
 import {  Router } from '@angular/router';
@@ -7,7 +7,8 @@ import {  Router } from '@angular/router';
   templateUrl: './estudio-complementario.component.html',
   styleUrls: ['./estudio-complementario.component.scss']
 })
-export class EstudioComplementarioComponent implements OnInit {
+export class EstudioComplementarioComponent implements OnInit , OnDestroy {
+  subscripciones = [];
 
   @Input() consejeriaId: string;
   estudioComplementario: EstudioComplementario;
@@ -17,7 +18,7 @@ export class EstudioComplementarioComponent implements OnInit {
   ngOnInit() {
     if(this.consejeriaId !=''){
       let estudio = null;
-      this.consejeriaService.getEstudioByConsejeriaId(this.consejeriaId).subscribe(estudioRequest => 
+      this.subscripciones.push(this.consejeriaService.getEstudioByConsejeriaId(this.consejeriaId).subscribe(estudioRequest => 
         {
           estudio = estudioRequest;
           if(!estudio){
@@ -25,7 +26,7 @@ export class EstudioComplementarioComponent implements OnInit {
           }else{
             this.estudioComplementario = estudio;
           }
-        });
+        }));
     }
     else{
       this.inicializar(this.consejeriaId);
@@ -40,16 +41,20 @@ export class EstudioComplementarioComponent implements OnInit {
 
   guardarEstudioComplementario(form: any) {
     if(this.consejeriaId != '' && this.estudioComplementario.id != ''){
-      this.consejeriaService.updateEstudio(this.estudioComplementario).subscribe(
+      this.subscripciones.push(this.consejeriaService.updateEstudio(this.estudioComplementario).subscribe(
         (estudio) => {this.estudioComplementario = estudio}
-      ); 
+      )); 
    }else{
-    this.consejeriaService.insertEstudio(this.estudioComplementario).subscribe(
+    this.subscripciones.push(this.consejeriaService.insertEstudio(this.estudioComplementario).subscribe(
       (estudio) => {this.estudioComplementario = estudio}
-    ); 
+    )); 
    }
   }
   cancelarEdicionEstudioComplementario() {
     this.router.navigate(['consejerias']);
+  }
+
+  ngOnDestroy() {
+    this.subscripciones.forEach(s => s.unsubscribe())
   }
 }

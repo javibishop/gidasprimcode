@@ -9,8 +9,12 @@ import { DialogData } from '../confirm/confirm.component';
 })
 export class TextboxModalComponent implements OnInit {
   texto = '';
+  titulo = '';
+  placeHolder = '';
   constructor( public dialogRef: MatDialogRef<TextboxModalComponent>, @Inject(MAT_DIALOG_DATA) public data: any) { 
-    this.texto = this.data;
+    this.texto = this.data.texto;
+    this.titulo = this.data.titulo;
+    this.placeHolder = this.data.placeHolder;
   }
 
   ngOnInit(): void {

@@ -1,7 +1,7 @@
 <form #seg="ngForm" *ngIf="consejeria">
     <div class="container">
         <div class="row">
-            <div class="form-group col-sm-6">
+            <!-- <div class="form-group col-sm-6">
                 <label for="observacion">Texto a agregar al seguimiento</label>
                 <input
                     type="text"
@@ -9,9 +9,9 @@
                     class="form-control"
                     placeholder="Texto a agregar al seguimiento"
                     [(ngModel)]="seguimiento.observacion" />
-            </div>
+            </div> -->
             <div class="col-sm-3">
-                <button mat-icon-button (click)="guardarSeguimiento()">
+                <button mat-icon-button (click)="nuevoseguimiento()">
                     <mat-icon>add</mat-icon>
                 </button>
             </div>
@@ -22,14 +22,12 @@
                     <th>Fecha</th>
                     <th>Observacion</th>
                     <th></th>
+                    <th></th>
                     <tr *ngFor = "let s of consejeria.seguimiento">
                         <td>{{s.fecha | date:'shortDate'}}</td>   
                         <td>{{s.observacion}}</td>
-                        <td> 
-                            <button mat-icon-button (click)="editarseguimiento(s)">
-                                <mat-icon>edit</mat-icon>
-                            </button>
-                        </td>
+                        <td><button mat-icon-button (click)="editarseguimiento(s)"><mat-icon>edit</mat-icon></button></td>
+                        <td><button mat-icon-button (click)="eliminarseguimiento(s)"><mat-icon>delete</mat-icon></button></td>
                     </tr>
                 </table>
             </div>
