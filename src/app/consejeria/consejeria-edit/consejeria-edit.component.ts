@@ -31,7 +31,11 @@ export class ConsejeriaEditComponent implements OnInit {
     private router: Router,
     private stateService: StateService,
     public dialog: MatDialog
-  ) { }
+  ) { 
+
+    this.stateService.setAppTitulo('Edicion de consejeria');
+    
+  }
 
   ngOnInit() {
     this.stateService.usuaries$.subscribe(usuaries => this.usuaries = usuaries);
@@ -51,12 +55,12 @@ export class ConsejeriaEditComponent implements OnInit {
       
     }
     else{
-      this.consejeria = new Consejeria('',0 ,new Date(),'' , null, null, null);
+      this.consejeria = new Consejeria('',0 ,new Date(),'' , null, null, null, []);
     }
     /*aca puede que sea nul cuando se muestra la pantalla y da un error , entonces en el html se pone el *ngIf="consejeria" para que se muestre cuando el valor esta
     asignado al alumnno */
 
-    this.stateService.setAppTitulo('Edicion de consejeria');
+    
   }
 
   openDialog(mensaje: string) {

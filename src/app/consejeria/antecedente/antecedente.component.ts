@@ -33,7 +33,7 @@ export class AntecedenteComponent implements OnInit {
   }
 
   inicializar(consejeriaId: string){
-    this.antecedente =  new Antecedente('',0,0,0,0,0,false,false,false,false,false,false,false,false,0,'',consejeriaId, new Date(), '');
+    this.antecedente =  new Antecedente('',0,0,0,0,0,false,false,false,false,false,false,false,false,0,'',consejeriaId, null, '');
   }
 
   guardarAntecedente(form: any) {

@@ -9,10 +9,20 @@ export class Consejeria {
         public observacion :string,
         public usuariaId :Usuaria,
         public usuarie1Id :Usuarie,
-        public usuarie2Id :Usuarie
-        )
+        public usuarie2Id :Usuarie,
+        public seguimiento: SeguimientoConsejeria [])
         {}
 }
+
+export class SeguimientoConsejeria {
+    constructor(
+        public fecha: Date,
+        public observacion :string,
+        public usuarieId:string)
+    {}
+}
+
+
 export class EntrevistaPostAborto {
     constructor(
 
@@ -33,6 +43,7 @@ export class EntrevistaPostAborto {
         public accedioPorConocido :boolean,
         public accedioPorInternet :boolean,
         public pccedioPorOrgSocial :boolean,
+        public pccedioPorSecretariaSalud :boolean,
         public presentacionSuelto :boolean,
         public presentacionCaja20 :boolean,
         public presentacionCaja16 :boolean,
@@ -166,7 +177,7 @@ export class Otro{
     constructor (
         public id :string,
         public violenciaDG :boolean,
-        public violenciaDGTipo :number,
+        public violenciaDGTipo : [number],
         public violenciaDGObservaciones: string,
         public violenciaI :boolean,
         public violenciaIDeQuien :string,

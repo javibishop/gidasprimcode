@@ -40,7 +40,7 @@ export class OtrosComponent implements OnInit {
   }
 
   inicializar(consejeriaId: string){
-    this.otro =  new Otro('',false, 0, '',false, '', '', false, '', '', false, false, false, false, false, '', consejeriaId, new Date());
+    this.otro =  new Otro('',false, [0], '',false, '', '', false, '', '', false, false, false, false, false, '', consejeriaId, new Date());
   }
   guardarOtro(form: any) {
     if(this.consejeriaId != '' && this.otro.id  != ''){

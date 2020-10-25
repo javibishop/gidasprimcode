@@ -1,8 +1,8 @@
-<form #en="ngForm"  *ngIf="entrevista">
-  <mat-grid-tile-header> 
-      <h6 class="hsubtitulo">Realizo el Procedimiento?</h6>
-  </mat-grid-tile-header>
-  <!--<mat-grid-list cols="1" rowHeight="50">
+<form #en="ngForm" *ngIf="entrevista">
+    <mat-grid-tile-header>
+        <h6 class="hsubtitulo">Realizo el Procedimiento?</h6>
+    </mat-grid-tile-header>
+    <!--<mat-grid-list cols="1" rowHeight="50">
     <mat-grid-tile>
         <mat-form-field>
             <input matInput [matDatepicker]="picker1" placeholder="Fecha" name="fecha" [(ngModel)]="entrevista.fecha">
@@ -11,119 +11,122 @@
             </mat-form-field>
     </mat-grid-tile> 
   </mat-grid-list> -->
-  <mat-grid-list cols="4" rowHeight="50">
-      <mat-grid-tile>
-          <mat-checkbox [(ngModel)]="entrevista.procedimientoHecho" name="procedimientoHecho" >No ----></mat-checkbox>
-      </mat-grid-tile>
-      <mat-grid-tile>
-          <mat-checkbox [(ngModel)]="entrevista.procedimientoNoContinua" name="procedimientoNoContinua">Continua Gesta</mat-checkbox>
-      </mat-grid-tile>
-      <mat-grid-tile>
-          <mat-checkbox [(ngModel)]="entrevista.procedimientoNoAbortoEspontaneo" name="procedimientoNoAbortoEspontaneo">Ab. Espontaneo</mat-checkbox>
-      </mat-grid-tile>
-      <mat-grid-tile>
-          <mat-form-field >
-              <input  matInput
-                type="text"
-                name="procedimientoNoOtro"
-                placeholder="No Otro"
-                [(ngModel)]="entrevista.procedimientoNoOtro">
-              <mat-error>Otro</mat-error>
-          </mat-form-field>
-      </mat-grid-tile>
-  </mat-grid-list>
-  <mat-grid-list cols="4" rowHeight="50">
-      <mat-grid-tile>
-          <mat-checkbox [(ngModel)]="entrevista.procedimientoSiHecho" name="procedimientoSiHecho" >Si -----></mat-checkbox>
-      </mat-grid-tile>
-      <mat-grid-tile>
-        <mat-checkbox [(ngModel)]="entrevista.procedimientoSiViaV" name="procedimientoSiViaV">Via V</mat-checkbox>
-      </mat-grid-tile>
-      <mat-grid-tile>
-          <mat-checkbox [(ngModel)]="entrevista.procedimientoSiViaSL" name="procedimientoSiViaSL">Via SL</mat-checkbox>
-      </mat-grid-tile>
-      <mat-grid-tile>
-        <mat-form-field >
-            <input  matInput
-                type="text"
-                name="procedimientoSiOtra"
-                placeholder="Si Otro"
-                [(ngModel)]="entrevista.procedimientoSiOtra">
-            <mat-error>Otro</mat-error>
-        </mat-form-field>
-    </mat-grid-tile>
-    
-  </mat-grid-list>
-  <mat-grid-list cols="1" rowHeight="60">
-      <mat-grid-tile>
-          <mat-form-field class="all-width"  >
-              <textarea matInput
-                      name="procedimientoObservaciones"
-                      placeholder="Observaciones"
-                      [(ngModel)]="entrevista.procedimientoObservaciones"></textarea>
-              <mat-error>Debe ingresar las Observaciones</mat-error>
+    <mat-grid-list cols="4" rowHeight="50">
+        <mat-grid-tile>
+            <mat-checkbox [(ngModel)]="entrevista.procedimientoHecho" name="procedimientoHecho">No ----></mat-checkbox>
+        </mat-grid-tile>
+        <mat-grid-tile>
+            <mat-checkbox [(ngModel)]="entrevista.procedimientoNoContinua" name="procedimientoNoContinua">Continua Gesta
+            </mat-checkbox>
+        </mat-grid-tile>
+        <mat-grid-tile>
+            <mat-checkbox [(ngModel)]="entrevista.procedimientoNoAbortoEspontaneo"
+                name="procedimientoNoAbortoEspontaneo">Ab. Espontaneo</mat-checkbox>
+        </mat-grid-tile>
+        <mat-grid-tile>
+            <mat-form-field>
+                <input matInput type="text" name="procedimientoNoOtro" placeholder="No Otro"
+                    [(ngModel)]="entrevista.procedimientoNoOtro">
+                <mat-error>Otro</mat-error>
             </mat-form-field>
-      </mat-grid-tile>
-  </mat-grid-list>
-  <mat-grid-tile-header> 
-      <h6 class="hsubtitulo">Como accedio al Metodo?</h6>
-  </mat-grid-tile-header>
-  <mat-grid-list cols="4" rowHeight="50">
-      <mat-grid-tile>
-          <mat-checkbox [(ngModel)]="entrevista.accedioPorFarmacia" name="accedioPorFarmacia" >Farmacia</mat-checkbox>
-      </mat-grid-tile>
-      <mat-grid-tile>
-          <mat-checkbox [(ngModel)]="entrevista.accedioPorConocido" name="accedioPorConocido">Por Conocido</mat-checkbox>
-      </mat-grid-tile>
-      <mat-grid-tile>
-          <mat-checkbox [(ngModel)]="entrevista.accedioPorInternet" name="accedioPorInternet">Por Internet</mat-checkbox>
-      </mat-grid-tile>
-      <mat-grid-tile>
-          <mat-checkbox [(ngModel)]="entrevista.pccedioPorOrgSocial" name="pccedioPorOrgSocial">Por Org.Social</mat-checkbox>
-      </mat-grid-tile>
-  </mat-grid-list>
-  <mat-grid-tile-header> 
-      <h6 class="hsubtitulo">Presentacion?</h6>
-  </mat-grid-tile-header>
-  <mat-grid-list cols="3" rowHeight="50">
-      <mat-grid-tile>
-          <mat-checkbox [(ngModel)]="entrevista.presentacionSuelto" name="presentacionSuelto" >Suelto</mat-checkbox>
-      </mat-grid-tile>
-      <mat-grid-tile>
-          <mat-checkbox [(ngModel)]="entrevista.presentacionCaja16" name="presentacionCaja16">Caja 16</mat-checkbox>
-      </mat-grid-tile>
-      <mat-grid-tile>
-          <mat-checkbox [(ngModel)]="entrevista.presentacionCaja20" name="presentacionCaja20">Caja 12</mat-checkbox>
-      </mat-grid-tile>
-  </mat-grid-list>
-  <mat-grid-tile-header> 
-      <h6 class="hsubtitulo">Efecto Adverso MSP?</h6>
-  </mat-grid-tile-header>
-  <mat-grid-list cols="5" rowHeight="50">
-      <mat-grid-tile>
-          <mat-checkbox [(ngModel)]="entrevista.efectoAdversoNo" name="efectoAdversoNo">No</mat-checkbox>
-      </mat-grid-tile>
-      <mat-grid-tile>
-          <mat-checkbox [(ngModel)]="entrevista.efectoAdversoGastro" name="efectoAdversoGastro">Gastrointestinal</mat-checkbox>
-      </mat-grid-tile>
-      <mat-grid-tile>
-          <mat-checkbox [(ngModel)]="entrevista.efectoAdversoTemperatura" name="efectoAdversoTemperatura">T > 38º</mat-checkbox>
-      </mat-grid-tile>
-      <mat-grid-tile>
-        <mat-checkbox [(ngModel)]="entrevista.efectoAdversoCafalea" name="efectoAdversoCafalea">Cafalea</mat-checkbox>
-      </mat-grid-tile>
-      <mat-grid-tile>
-          <mat-form-field >
-              <input  matInput
-                type="text"
-                name="efectoAdversoOtro"
-                placeholder="Otro"
-                [(ngModel)]="entrevista.efectoAdversoOtro">
-              <mat-error>Otro</mat-error>
-          </mat-form-field>
-      </mat-grid-tile>
-  </mat-grid-list>
-    <mat-grid-tile-header> 
+        </mat-grid-tile>
+    </mat-grid-list>
+    <mat-grid-list cols="4" rowHeight="50">
+        <mat-grid-tile>
+            <mat-checkbox [(ngModel)]="entrevista.procedimientoSiHecho" name="procedimientoSiHecho">Si ----->
+            </mat-checkbox>
+        </mat-grid-tile>
+        <mat-grid-tile>
+            <mat-checkbox [(ngModel)]="entrevista.procedimientoSiViaV" name="procedimientoSiViaV">Via V</mat-checkbox>
+        </mat-grid-tile>
+        <mat-grid-tile>
+            <mat-checkbox [(ngModel)]="entrevista.procedimientoSiViaSL" name="procedimientoSiViaSL">Via SL
+            </mat-checkbox>
+        </mat-grid-tile>
+        <mat-grid-tile>
+            <mat-form-field>
+                <input matInput type="text" name="procedimientoSiOtra" placeholder="Si Otro"
+                    [(ngModel)]="entrevista.procedimientoSiOtra">
+                <mat-error>Otro</mat-error>
+            </mat-form-field>
+        </mat-grid-tile>
+
+    </mat-grid-list>
+    <mat-grid-list cols="1" rowHeight="60">
+        <mat-grid-tile>
+            <mat-form-field class="all-width">
+                <textarea matInput name="procedimientoObservaciones" placeholder="Observaciones"
+                    [(ngModel)]="entrevista.procedimientoObservaciones"></textarea>
+                <mat-error>Debe ingresar las Observaciones</mat-error>
+            </mat-form-field>
+        </mat-grid-tile>
+    </mat-grid-list>
+    <mat-grid-tile-header>
+        <h6 class="hsubtitulo">Como accedio al Metodo?</h6>
+    </mat-grid-tile-header>
+    <mat-grid-list cols="5" rowHeight="50">
+        <mat-grid-tile>
+            <mat-checkbox [(ngModel)]="entrevista.accedioPorFarmacia" name="accedioPorFarmacia">Farmacia</mat-checkbox>
+        </mat-grid-tile>
+        <mat-grid-tile>
+            <mat-checkbox [(ngModel)]="entrevista.accedioPorConocido" name="accedioPorConocido">Por Conocido
+            </mat-checkbox>
+        </mat-grid-tile>
+        <mat-grid-tile>
+            <mat-checkbox [(ngModel)]="entrevista.accedioPorInternet" name="accedioPorInternet">Por Internet
+            </mat-checkbox>
+        </mat-grid-tile>
+        <mat-grid-tile>
+            <mat-checkbox [(ngModel)]="entrevista.pccedioPorOrgSocial" name="pccedioPorOrgSocial">Por Org.Social
+            </mat-checkbox>
+        </mat-grid-tile>
+        <mat-grid-tile>
+            <mat-checkbox [(ngModel)]="entrevista.pccedioPorSecretariaSalud" name="pccedioPorSecretariaSalud">Secretaria
+                Salud</mat-checkbox>
+        </mat-grid-tile>
+    </mat-grid-list>
+    <mat-grid-tile-header>
+        <h6 class="hsubtitulo">Presentacion?</h6>
+    </mat-grid-tile-header>
+    <mat-grid-list cols="3" rowHeight="50">
+        <mat-grid-tile>
+            <mat-checkbox [(ngModel)]="entrevista.presentacionSuelto" name="presentacionSuelto">Suelto</mat-checkbox>
+        </mat-grid-tile>
+        <mat-grid-tile>
+            <mat-checkbox [(ngModel)]="entrevista.presentacionCaja16" name="presentacionCaja16">Caja 16</mat-checkbox>
+        </mat-grid-tile>
+        <mat-grid-tile>
+            <mat-checkbox [(ngModel)]="entrevista.presentacionCaja20" name="presentacionCaja20">Caja 12</mat-checkbox>
+        </mat-grid-tile>
+    </mat-grid-list>
+    <mat-grid-tile-header>
+        <h6 class="hsubtitulo">Efecto Adverso MSP?</h6>
+    </mat-grid-tile-header>
+    <mat-grid-list cols="5" rowHeight="50">
+        <mat-grid-tile>
+            <mat-checkbox [(ngModel)]="entrevista.efectoAdversoNo" name="efectoAdversoNo">No</mat-checkbox>
+        </mat-grid-tile>
+        <mat-grid-tile>
+            <mat-checkbox [(ngModel)]="entrevista.efectoAdversoGastro" name="efectoAdversoGastro">Gastrointestinal
+            </mat-checkbox>
+        </mat-grid-tile>
+        <mat-grid-tile>
+            <mat-checkbox [(ngModel)]="entrevista.efectoAdversoTemperatura" name="efectoAdversoTemperatura">T > 38º
+            </mat-checkbox>
+        </mat-grid-tile>
+        <mat-grid-tile>
+            <mat-checkbox [(ngModel)]="entrevista.efectoAdversoCafalea" name="efectoAdversoCafalea">Cafalea
+            </mat-checkbox>
+        </mat-grid-tile>
+        <mat-grid-tile>
+            <mat-form-field>
+                <input matInput type="text" name="efectoAdversoOtro" placeholder="Otro"
+                    [(ngModel)]="entrevista.efectoAdversoOtro">
+                <mat-error>Otro</mat-error>
+            </mat-form-field>
+        </mat-grid-tile>
+    </mat-grid-list>
+    <mat-grid-tile-header>
         <h6 class="hsubtitulo">Complicaciones asociadas al Procedimiento</h6>
     </mat-grid-tile-header>
     <mat-grid-list cols="5" rowHeight="50">
@@ -131,31 +134,31 @@
             <mat-checkbox [(ngModel)]="entrevista.complicacionNo" name="complicacionNo">No</mat-checkbox>
         </mat-grid-tile>
         <mat-grid-tile>
-            <mat-checkbox [(ngModel)]="entrevista.complicacionHemorragia" name="complicacionHemorragia">Hemorragia</mat-checkbox>
+            <mat-checkbox [(ngModel)]="entrevista.complicacionHemorragia" name="complicacionHemorragia">Hemorragia
+            </mat-checkbox>
         </mat-grid-tile>
         <mat-grid-tile>
-            <mat-checkbox [(ngModel)]="entrevista.complicacionInfeccion" name="complicacionInfeccion">Infeccion</mat-checkbox>
+            <mat-checkbox [(ngModel)]="entrevista.complicacionInfeccion" name="complicacionInfeccion">Infeccion
+            </mat-checkbox>
         </mat-grid-tile>
         <mat-grid-tile colspan=2>
-            <mat-form-field >
-                <input  matInput
-                type="text"
-                name="complicacionOtro"
-                placeholder="Otro"
-                [(ngModel)]="entrevista.complicacionOtro">
+            <mat-form-field>
+                <input matInput type="text" name="complicacionOtro" placeholder="Otro"
+                    [(ngModel)]="entrevista.complicacionOtro">
                 <mat-error>Otro</mat-error>
             </mat-form-field>
         </mat-grid-tile>
     </mat-grid-list>
-    <mat-grid-tile-header> 
+    <mat-grid-tile-header>
         <h6 class="hsubtitulo">Indicacion de Gammaglobulina (si RH - luego de la semana 9)</h6>
     </mat-grid-tile-header>
     <mat-grid-list cols="1" rowHeight="50">
         <mat-grid-tile>
-            <mat-checkbox [(ngModel)]="entrevista.indicacionGammaglobulina" name="indicacionGammaglobulina">Si hubo, marquelo!.</mat-checkbox>
+            <mat-checkbox [(ngModel)]="entrevista.indicacionGammaglobulina" name="indicacionGammaglobulina">Si hubo,
+                marquelo!.</mat-checkbox>
         </mat-grid-tile>
     </mat-grid-list>
-    <mat-grid-tile-header> 
+    <mat-grid-tile-header>
         <h6 class="hsubtitulo">Ecografia Post</h6>
     </mat-grid-tile-header>
     <mat-grid-list cols="6" rowHeight="50">
@@ -167,73 +170,78 @@
             </mat-form-field>
         </mat-grid-tile> -->
         <mat-grid-tile>
-            <mat-checkbox [(ngModel)]="entrevista.ecografiaPostNoRealizo" name="ecografiaPostNoRealizo">No Realizo</mat-checkbox>
+            <mat-checkbox [(ngModel)]="entrevista.ecografiaPostNoRealizo" name="ecografiaPostNoRealizo">No Realizo
+            </mat-checkbox>
         </mat-grid-tile>
         <mat-grid-tile>
-            <mat-checkbox [(ngModel)]="entrevista.ecografiaPostAbortoCompleto" name="ecografiaPostAbortoCompleto">Aborto Completo</mat-checkbox>
+            <mat-checkbox [(ngModel)]="entrevista.ecografiaPostAbortoCompleto" name="ecografiaPostAbortoCompleto">Aborto
+                Completo</mat-checkbox>
         </mat-grid-tile>
         <mat-grid-tile>
-            <mat-checkbox [(ngModel)]="entrevista.ecografiaPostAbortoHMyR" name="ecografiaPostAbortoHMyR">HMyR</mat-checkbox>
+            <mat-checkbox [(ngModel)]="entrevista.ecografiaPostAbortoHMyR" name="ecografiaPostAbortoHMyR">HMyR
+            </mat-checkbox>
         </mat-grid-tile>
         <mat-grid-tile>
-          <mat-checkbox [(ngModel)]="entrevista.ecografiaPostAbortoIncompleto" name="ecografiaPostAbortoIncompleto">Aborto Incompleto</mat-checkbox>
+            <mat-checkbox [(ngModel)]="entrevista.ecografiaPostAbortoIncompleto" name="ecografiaPostAbortoIncompleto">
+                Aborto Incompleto</mat-checkbox>
         </mat-grid-tile>
         <mat-grid-tile>
-            <mat-checkbox [(ngModel)]="entrevista.ecografiaPostEmbrionViable" name="ecografiaPostEmbrionViable">Embrion Viable</mat-checkbox>
+            <mat-checkbox [(ngModel)]="entrevista.ecografiaPostEmbrionViable" name="ecografiaPostEmbrionViable">Embrion
+                Viable</mat-checkbox>
         </mat-grid-tile>
         <mat-grid-tile>
-            <mat-checkbox [(ngModel)]="entrevista.ecografiaPostNuevaConsejeria" name="ecografiaPostNuevaConsejeria">Nueva Consejeria</mat-checkbox>
+            <mat-checkbox [(ngModel)]="entrevista.ecografiaPostNuevaConsejeria" name="ecografiaPostNuevaConsejeria">
+                Nueva Consejeria</mat-checkbox>
         </mat-grid-tile>
     </mat-grid-list>
     <mat-grid-list cols="6" rowHeight="50">
         <mat-grid-tile>
-            <mat-checkbox [(ngModel)]="entrevista.ecografiaPostDerivacion2Nivel" name="ecografiaPostDerivacion2Nivel">Derivacion 2 Nivel</mat-checkbox>
+            <mat-checkbox [(ngModel)]="entrevista.ecografiaPostDerivacion2Nivel" name="ecografiaPostDerivacion2Nivel">
+                Derivacion 2 Nivel</mat-checkbox>
         </mat-grid-tile>
         <mat-grid-tile>
-            <mat-checkbox [(ngModel)]="entrevista.ecografiaPostConductaExpectante" name="ecografiaPostConductaExpectante">Conducta Expectante</mat-checkbox>
+            <mat-checkbox [(ngModel)]="entrevista.ecografiaPostConductaExpectante"
+                name="ecografiaPostConductaExpectante">Conducta Expectante</mat-checkbox>
         </mat-grid-tile>
     </mat-grid-list>
-    <mat-grid-tile-header> 
-            <h6 class="hsubtitulo">Consejeria MAC</h6>
-        </mat-grid-tile-header>
-        <mat-grid-list cols="7" rowHeight="50">
-            <mat-grid-tile>
-                <mat-checkbox [(ngModel)]="entrevista.consejeriaMACNo" name="consejeriaMACNo">No Realizo</mat-checkbox>
-            </mat-grid-tile>
-            <mat-grid-tile>
-                <mat-checkbox [(ngModel)]="entrevista.consejeriaMACACO" name="consejeriaMACACO">ACO</mat-checkbox>
-            </mat-grid-tile>
-            <mat-grid-tile>
-                <mat-checkbox [(ngModel)]="entrevista.consejeriaMACACI" name="consejeriaMACACI">ACI</mat-checkbox>
-            </mat-grid-tile>
-            <mat-grid-tile>
-              <mat-checkbox [(ngModel)]="entrevista.consejeriaMACDIU" name="consejeriaMACDIU">DIU</mat-checkbox>
-            </mat-grid-tile>
-            <mat-grid-tile>
-                <mat-checkbox [(ngModel)]="entrevista.consejeriaMACPreservativo" name="consejeriaMACPreservativo">Preservativo</mat-checkbox>
-            </mat-grid-tile>
-            <mat-grid-tile>
-                <mat-checkbox [(ngModel)]="entrevista.consejeriaMACImplanteHormonal" name="consejeriaMACImplanteHormonal">Imp.Hormonal</mat-checkbox>
-            </mat-grid-tile>
-            <mat-grid-tile>
-                <mat-checkbox [(ngModel)]="entrevista.consejeriaMACACOLactancia" name="consejeriaMACACOLactancia">ACO Lactancia</mat-checkbox>
-            </mat-grid-tile>
-        </mat-grid-list>
-        <mat-grid-tile-footer>
-            <div class="action-buttons">
-                <button  mat-button
-                    type="button"
-                    (click) = "cancelarEdicionEntrevista()">
-                    Volver al Listado
-                </button>
-                <button type="button" (click)="guardarEntrevista(en.value, en.valid)"   mat-raised-button color="primary" [disabled]="en.invalid">
-                    Guardar datos de Entrevista Post Aborto
-                </button>
-                </div>
-        </mat-grid-tile-footer>
+    <mat-grid-tile-header>
+        <h6 class="hsubtitulo">Consejeria MAC</h6>
+    </mat-grid-tile-header>
+    <mat-grid-list cols="7" rowHeight="50">
+        <mat-grid-tile>
+            <mat-checkbox [(ngModel)]="entrevista.consejeriaMACNo" name="consejeriaMACNo">No Realizo</mat-checkbox>
+        </mat-grid-tile>
+        <mat-grid-tile>
+            <mat-checkbox [(ngModel)]="entrevista.consejeriaMACACO" name="consejeriaMACACO">ACO</mat-checkbox>
+        </mat-grid-tile>
+        <mat-grid-tile>
+            <mat-checkbox [(ngModel)]="entrevista.consejeriaMACACI" name="consejeriaMACACI">ACI</mat-checkbox>
+        </mat-grid-tile>
+        <mat-grid-tile>
+            <mat-checkbox [(ngModel)]="entrevista.consejeriaMACDIU" name="consejeriaMACDIU">DIU</mat-checkbox>
+        </mat-grid-tile>
+        <mat-grid-tile>
+            <mat-checkbox [(ngModel)]="entrevista.consejeriaMACPreservativo" name="consejeriaMACPreservativo">
+                Preservativo</mat-checkbox>
+        </mat-grid-tile>
+        <mat-grid-tile>
+            <mat-checkbox [(ngModel)]="entrevista.consejeriaMACImplanteHormonal" name="consejeriaMACImplanteHormonal">
+                Imp.Hormonal</mat-checkbox>
+        </mat-grid-tile>
+        <mat-grid-tile>
+            <mat-checkbox [(ngModel)]="entrevista.consejeriaMACACOLactancia" name="consejeriaMACACOLactancia">ACO
+                Lactancia</mat-checkbox>
+        </mat-grid-tile>
+    </mat-grid-list>
+    <mat-grid-tile-footer>
+        <div class="action-buttons">
+            <button mat-button type="button" (click)="cancelarEdicionEntrevista()">
+                Volver al Listado
+            </button>
+            <button type="button" (click)="guardarEntrevista(en.value, en.valid)" mat-raised-button color="primary"
+                [disabled]="en.invalid">
+                Guardar datos de Entrevista Post Aborto
+            </button>
+        </div>
+    </mat-grid-tile-footer>
 </form>
-
-
-
-
-              

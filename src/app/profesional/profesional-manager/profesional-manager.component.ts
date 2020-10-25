@@ -18,7 +18,9 @@ export class ProfesionalManagerComponent implements OnInit {
     private profesionalesService: UsuarieHttpService,//ProfesionalsArrayService,
     private router: Router,
     private stateService: StateService
-  ) { }
+  ) {
+    this.stateService.setAppTitulo('Administracion de Profesionales');
+   }
 
   ngOnInit() {
     //this.profesionalesData.getAll().subscribe(profesionales => this.profesionales = profesionales);
@@ -28,7 +30,7 @@ export class ProfesionalManagerComponent implements OnInit {
     this.stateService.usuaries$.subscribe(profesionales => this.usuaries = profesionales);
     //this.stateService.setAppTitulo('Administracion de profesionales');
 
-    this.stateService.setAppTitulo('Administracion de Profesionales');
+    
     
   }
 

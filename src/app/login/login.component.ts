@@ -27,12 +27,11 @@ export class LoginComponent implements OnInit {
         if (this.authenticationService.currentUserValue) {
             this.router.navigate(['/']);
         }
+
+        this.stateService.setAppTitulo('Ingreso al sistema');
     }
 
     ngOnInit() {
-
-        this.stateService.setAppTitulo('Ingreso al sistema');
-        // get return url from route parameters or default to '/'
         this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/consejerias';
     }
 

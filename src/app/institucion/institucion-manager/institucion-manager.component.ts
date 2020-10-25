@@ -15,13 +15,13 @@ export class InstitucionManagerComponent implements OnInit {
   institucionSeleccionada : Institucion;
   instituciones : Institucion[];
 
-  constructor(private institucionService: InstitucionHttpService, private router: Router, private institucionAdap: InstitucionAdapter,  private stateService: StateService) { }
+  constructor(private institucionService: InstitucionHttpService, private router: Router, private institucionAdap: InstitucionAdapter,  private stateService: StateService) { 
+    this.stateService.setAppTitulo('Administracion de Instituciones');
+  }
 
   ngOnInit() {
     this.institucionService.getAll();
     this.stateService.instituciones$.subscribe(inst => this.instituciones = inst);
-
-    this.stateService.setAppTitulo('Administracion de Instituciones');
   }
 
   filtrarUS(filtro: string) {

@@ -21,14 +21,16 @@ export class ConsejeriaManagerComponent implements OnInit {
     private router: Router,
     private stateService: StateService,
     private usuarieHttpService : UsuarieHttpService,
-  ) { }
+  ) {
+    this.stateService.setAppTitulo('Administracion de Consejerias');
+   }
 
   ngOnInit() {
     this.consejeriasService.getAll();
     this.stateService.consejerias$.subscribe(consejerias => this.consejerias = consejerias);
     //this.usuarieHttpService.getAll();
 
-    this.stateService.setAppTitulo('Administracion de Consejerias');
+    
   }
 
   filtrarConsejeria(filtro: string) {

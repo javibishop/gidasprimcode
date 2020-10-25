@@ -34,7 +34,7 @@ export class EntrevistaPostComponent implements OnInit {
   }
 
   inicializar(consejeriaId: string){
-    this.entrevista =  new EntrevistaPostAborto('',new Date(),'',false,false,false,'',false,false,'',false,false,'',false,false,false,false,false,false,false,false,
+    this.entrevista =  new EntrevistaPostAborto('',new Date(),'',false,false,false,'',false,false,'',false,false,'',false,false,false,false, false,false,false,false,false,
     false,false,false,'',false,false,false,'',false,new Date(),false,false,false,false,false,false,false,false,false,false,false,false,false,false,false, consejeriaId);
   }
 

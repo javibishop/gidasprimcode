@@ -1,4 +1,4 @@
-import { Consejeria } from '../models/consejeria.model';
+import { Consejeria, SeguimientoConsejeria } from '../models/consejeria.model';
 import { Injectable, OnInit } from '@angular/core';
 import {Usuarie } from '../models/usuarie.model';
 import {Usuaria } from '../models/usuaria.model';
@@ -6,6 +6,14 @@ import {Usuaria } from '../models/usuaria.model';
 import {UsuarieHttpService} from './usuarie-http.service';
 import {UsuariaHttpService} from './usuaria-http.service';
 import { StateService } from './state.service';
+
+export class SeguimientoConsejeriaApi {
+    constructor(
+        public fecha: Date,
+        public procedimientoNoOtro :string,
+        public usuarieId:string)
+    {}
+}
 
 export class ConsejeriaApi {
     constructor(
@@ -15,14 +23,9 @@ export class ConsejeriaApi {
         public observacion :string,
         public usuariaId :Usuaria,
         public usuarie1Id :Usuarie,
-        public usuarie2Id :Usuarie
-        // ,
-        // public usuariaNombre :String,
-        // public usuarie1Nombre :String,
-        // public usuarie2Nombre :String
-    ){
-       
-    }
+        public usuarie2Id :Usuarie,
+        public seguimiento : SeguimientoConsejeria []
+    ){}
 }
 
 export class ConsejeriaList {
@@ -59,7 +62,7 @@ export class ConsejeriasAdapter implements OnInit{
     }
     adapt(consejeriasApi: ConsejeriaApi) :Consejeria {
         return new Consejeria(consejeriasApi._id, consejeriasApi.numero, this.parseJsonDate(consejeriasApi.fechaIngreso), consejeriasApi.observacion, consejeriasApi.usuariaId, 
-            consejeriasApi.usuarie1Id, consejeriasApi.usuarie2Id);
+            consejeriasApi.usuarie1Id, consejeriasApi.usuarie2Id, consejeriasApi.seguimiento);
     }
 
     adaptToList(consejeriasApi: ConsejeriaApi) : ConsejeriaList {
@@ -93,8 +96,9 @@ export class ConsejeriasAdapter implements OnInit{
 
     adaptToApi(consejeria: Consejeria) :ConsejeriaApi {
         return new ConsejeriaApi(consejeria._id, consejeria.numero, consejeria.fechaIngreso, consejeria.observacion, consejeria.usuariaId, 
-            consejeria.usuarie1Id, consejeria.usuarie2Id);
+            consejeria.usuarie1Id, consejeria.usuarie2Id, consejeria.seguimiento);
     }
+    
     
     getProfesional(id : string) : Usuarie {
         return this.profesionales.find(c => c.id === id);

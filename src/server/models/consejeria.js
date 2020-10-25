@@ -3,6 +3,19 @@ const uniqueValidator = require('mongoose-unique-validator')
 const Usuaria = require('../models/usuaria');
 const Usuarie = require('../models/usuarie');
 let Shcema = mongoose.Schema;
+
+let seguimientoSchema = new Shcema({
+    observacion:{
+        type:String
+    },
+    fecha:{
+        type:Date,
+        required: [true, 'La fecha es requerida']
+    },
+    usuarie1Id:{type: mongoose.Schema.ObjectId, ref: Usuarie }
+})
+    
+
 let consejeriaSchema = new Shcema({
     numero:{
         type:String,
@@ -12,6 +25,7 @@ let consejeriaSchema = new Shcema({
         type:Date,
         required: [true, 'La fechaIngreso es requerido']
     },
+    seguimiento: [seguimientoSchema],
     observacion:{
         type:String
     },
