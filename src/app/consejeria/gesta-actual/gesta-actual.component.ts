@@ -16,7 +16,7 @@ export class GestaActualComponent implements OnInit , OnDestroy {
   constructor(private consejeriaService: ConsejeriasHttpService,private router: Router) { }
 
   ngOnInit() {
-    if(this.consejeriaId != ''){
+    if(this.consejeriaId != '' && this.consejeriaId != 'new'){
       let gesta = null;
       this.subscripciones.push(this.consejeriaService.getGestasByConsejeriaId(this.consejeriaId).subscribe(gestaRequest => 
         {

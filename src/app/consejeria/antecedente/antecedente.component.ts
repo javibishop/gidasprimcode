@@ -15,7 +15,7 @@ export class AntecedenteComponent implements OnInit , OnDestroy {
   constructor(private consejeriaService: ConsejeriasHttpService) { }
 
   ngOnInit() {
-    if(this.consejeriaId != ''){
+    if(this.consejeriaId != '' && this.consejeriaId != 'new'){
       let ante = null;
       this.subscripciones.push(this.consejeriaService.getAntecedenteByConsejeriaId(this.consejeriaId).subscribe(antecedenteRequest => 
         {

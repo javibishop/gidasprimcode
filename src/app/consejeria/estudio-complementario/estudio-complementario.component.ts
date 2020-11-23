@@ -16,7 +16,7 @@ export class EstudioComplementarioComponent implements OnInit , OnDestroy {
   constructor(private consejeriaService: ConsejeriasHttpService, private router: Router) { }
 
   ngOnInit() {
-    if(this.consejeriaId !=''){
+    if(this.consejeriaId !='' && this.consejeriaId != 'new'){
       let estudio = null;
       this.subscripciones.push(this.consejeriaService.getEstudioByConsejeriaId(this.consejeriaId).subscribe(estudioRequest => 
         {

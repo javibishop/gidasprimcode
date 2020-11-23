@@ -16,7 +16,7 @@ export class EntrevistaPostComponent implements OnInit , OnDestroy {
   constructor(private consejeriaService: ConsejeriasHttpService, private router: Router) { }
 
   ngOnInit() {
-    if(this.consejeriaId != ''){
+    if(this.consejeriaId != '' && this.consejeriaId != 'new'){
       let ante = null;
       this.subscripciones.push(this.consejeriaService.getEntrevistaByConsejeriaId(this.consejeriaId).subscribe(antecedenteRequest => 
         {

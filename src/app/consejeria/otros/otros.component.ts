@@ -22,7 +22,7 @@ export class OtrosComponent implements OnInit , OnDestroy {
     this.tipos.push({ id :TipoViolencia.Sexual, nombre: 'Sexual'});
     this.tipos.push({ id :TipoViolencia.Simbolica, nombre: 'Simbolica'});
     
-    if(this.consejeriaId != ''){
+    if(this.consejeriaId != '' && this.consejeriaId != 'new'){
       let ante = null;
       this.subscripciones.push(this.consejeriaService.getOtrosByConsejeriaId(this.consejeriaId).pipe(take(1)).subscribe(otroRequest => 
         {

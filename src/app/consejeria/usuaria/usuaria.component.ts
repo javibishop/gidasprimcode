@@ -46,7 +46,15 @@ export class UsuariaComponent implements OnInit, OnDestroy {
     this.subscripciones.push(this.stateService.provincias$.subscribe(provincias => this.provincias = provincias));
 
     if(this.usuaria == undefined){
+
       this.usuaria = new Usuaria('','','',0, true, new Date(),'','','','','','', false, false, false, false, false, false, false, '', '',0, 0,'','');
+      // datos para varela hc.
+      this.usuaria.nacionalidadId = '5f73aec7c17827403b7b9541';
+      this.usuaria.provinciaId = '06';
+      this.usuaria.partidoId = '060274';
+      this.usuaria.localidadId = '06274010003';
+      this.selectProvincia(this.usuaria.provinciaId);
+      this.selectPartido(this.usuaria.partidoId);
     }
     else{
       this.selectProvincia(this.usuaria.provinciaId);
