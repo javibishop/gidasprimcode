@@ -7,7 +7,8 @@ let verificaToken =  (req, res, next) => {
             return res.status(401).json({ok: false, err : {err, mensaje:'Token no valido'}});
         }else{
             //info correcta. 
-            req.usuario = decode.usuario;
+            req.userId = decode.userId;
+            req.empresa = decode.empresa;
             //ejecuta lo que sigue.
             next();
         }
