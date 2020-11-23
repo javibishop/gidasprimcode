@@ -5,7 +5,7 @@ export class OtroApi {
     constructor(
         public id :string,
         public violenciaDG :boolean,
-        public violenciaDGTipo :number,
+        public violenciaDGTipo : [number],
         public violenciaDGObservaciones: string,
         public violenciaI :boolean,
         public violenciaIDeQuien :string,

@@ -4,8 +4,7 @@ const uniqueValidator = require('mongoose-unique-validator')
 let Shcema = mongoose.Schema;
 let otroSchema = new Shcema({
     violenciaDGTipo:{
-        type:Number,
-        default:0
+        type:[Number]
     },
     fecha:{
         type:Date,

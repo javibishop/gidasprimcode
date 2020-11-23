@@ -7,20 +7,20 @@ require('./src/server/config/config');
 
 let prodserver = true;
 
-if(process.env.NODE_ENV === 'dev'){
+if (process.env.NODE_ENV === 'dev') {
    prodserver = false;
-}else{
+} else {
    prodserver = true;
 }
 
-app.use(function(req, res, next) {
+app.use(function (req, res, next) {
    var allowedOrigins = ['http://localhost:4200'];
-   if(prodserver){
+   if (prodserver) {
       allowedOrigins = [process.env.URLFront];
    }
    var origin = req.headers.origin;
-   if(allowedOrigins.indexOf(origin) > -1){
-        res.setHeader('Access-Control-Allow-Origin', origin);
+   if (allowedOrigins.indexOf(origin) > -1) {
+      res.setHeader('Access-Control-Allow-Origin', origin);
    }
    /*https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Access-Control-Allow-Methods*/
    //res.header('Access-Control-Allow-Origin', 'http://127.0.0.1:8020');
@@ -28,8 +28,8 @@ app.use(function(req, res, next) {
    res.header('Access-Control-Allow-Headers', 'Content-Type, Authorization');
    res.header('Access-Control-Allow-Credentials', true);
    return next();
- });
- 
+});
+
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
@@ -42,10 +42,10 @@ app.use(require('./src/server/controller/index'));
 // });
 
 // Create link to Angular build directory solo PROD.
-if(prodserver){
-   
-// Point static path to dist
-app.use(express.static(path.join(__dirname, 'dist')));
+if (prodserver) {
+
+   // Point static path to dist
+   app.use(express.static(path.join(__dirname, 'dist')));
 
    var distDir = __dirname + "/dist/";
    app.use(express.static(distDir));
@@ -54,17 +54,12 @@ app.use(express.static(path.join(__dirname, 'dist')));
    app.get('*', (req, res) => {
       res.sendFile(path.join(__dirname, 'dist/index.html'));
    });
- }
- 
+}
 
-
-
-
-mongoose.connect(process.env.URLDB, {useNewUrlParser: true, useCreateIndex: true}, (err, res) => {
-   if(err)throw err;
+mongoose.connect(process.env.URLDB, { useNewUrlParser: true, useCreateIndex: true }, (err, res) => {
+   if (err) throw err;
    else console.log('base online')
 });
 
 
-app.listen(process.env.PORT, ()=> console.log(process.env.PORT));
- 
+app.listen(process.env.PORT, () => console.log(process.env.PORT));

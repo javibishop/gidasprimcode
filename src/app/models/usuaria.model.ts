@@ -25,7 +25,8 @@ export class Usuaria {
         public conocePorOtro : string,
         public nivelInstruccion : number,
         public nivelInstruccionEstado : number,
-        public localidadId: string
+        public localidadId: string,
+        public barrio: string
         )
         {}
 }

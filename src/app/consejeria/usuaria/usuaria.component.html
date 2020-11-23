@@ -1,9 +1,9 @@
-<form #us="ngForm"  *ngIf="usuaria">
-  <mat-grid-tile-header> 
-     <h5 class="hsubtitulo">Datos Filiatorios</h5>
-  </mat-grid-tile-header>
-  <mat-grid-list cols="4" rowHeight="50" [style.background]="red">
-    <!-- <mat-grid-tile>
+<form #us="ngForm" *ngIf="usuaria">
+    <mat-grid-tile-header>
+        <h5 class="hsubtitulo">Datos Filiatorios</h5>
+    </mat-grid-tile-header>
+    <mat-grid-list cols="4" rowHeight="50" [style.background]="red">
+        <!-- <mat-grid-tile>
         <mat-form-field>
             <input  matInput
                     required
@@ -23,53 +23,43 @@
             <mat-error>Debe ingresar el Apellido</mat-error>
           </mat-form-field>
     </mat-grid-tile> -->
-    
-    <mat-grid-tile>
-        <mat-form-field >
-            <input  matInput
-                    required
-                    type="number"
-                    name="edad"
-                    placeholder="Edad"
-                    [(ngModel)]="usuaria.edad">
-            <mat-error>Debe ingresar el Edad</mat-error>
-          </mat-form-field>
-    </mat-grid-tile>
-    <mat-grid-tile>
-        <mat-form-field>
-          <input matInput [matDatepicker]="picker" placeholder="Fecha Nacimiento" name="fechaNacimiento" [(ngModel)]="usuaria.fechaNacimiento">
-          <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-          <mat-datepicker #picker startView="month" [startAt]="startDate"></mat-datepicker>
-        </mat-form-field>
-    </mat-grid-tile>
-    
-    <mat-grid-tile>
-        <mat-form-field  class="all-width">
-            <mat-select
-                placeholder="Debe ingresar el Estado de Nivel de Instruccion"
-                [(ngModel)]="usuaria.nivelInstruccionEstado"
-                name="nivelInstruccionEstado">
-                <mat-option *ngFor="let estado of estadoEstudios"
-                [value] = "estado.id">
-                    {{estado.descripcion}}
-                </mat-option>
-            </mat-select>
-        </mat-form-field>
-    </mat-grid-tile>
-    <mat-grid-tile>
-            <mat-form-field  class="all-width">
-                <mat-select
-                    placeholder="Debe ingresar el Nivel de Instruccion"
-                    [(ngModel)]="usuaria.nivelInstruccion"
+
+        <mat-grid-tile>
+            <mat-form-field>
+                <input matInput required type="number" name="edad" placeholder="Edad" [(ngModel)]="usuaria.edad">
+                <mat-error>Debe ingresar el Edad</mat-error>
+            </mat-form-field>
+        </mat-grid-tile>
+        <mat-grid-tile>
+            <mat-form-field>
+                <input matInput [matDatepicker]="picker" placeholder="Fecha Nacimiento" name="fechaNacimiento"
+                    [(ngModel)]="usuaria.fechaNacimiento">
+                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                <mat-datepicker #picker startView="month" [startAt]="startDate"></mat-datepicker>
+            </mat-form-field>
+        </mat-grid-tile>
+
+        <mat-grid-tile>
+            <mat-form-field class="all-width">
+                <mat-select placeholder="Debe ingresar el Estado de Nivel de Instruccion"
+                    [(ngModel)]="usuaria.nivelInstruccionEstado" name="nivelInstruccionEstado">
+                    <mat-option *ngFor="let estado of estadoEstudios" [value]="estado.id">
+                        {{estado.descripcion}}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+        </mat-grid-tile>
+        <mat-grid-tile>
+            <mat-form-field class="all-width">
+                <mat-select placeholder="Debe ingresar el Nivel de Instruccion" [(ngModel)]="usuaria.nivelInstruccion"
                     name="nivelInstruccion">
-                    <mat-option *ngFor="let nin of nivelEstudios"
-                    [value] = "nin.id">
+                    <mat-option *ngFor="let nin of nivelEstudios" [value]="nin.id">
                         {{nin.descripcion}}
                     </mat-option>
                 </mat-select>
             </mat-form-field>
         </mat-grid-tile>
-    <!-- <mat-grid-tile>
+        <!-- <mat-grid-tile>
         <mat-form-field >
             <input  matInput
                     required
@@ -79,8 +69,8 @@
             <mat-error>Debe ingresar la Direccion</mat-error>
             </mat-form-field>
     </mat-grid-tile> -->
-    
-    <!-- <mat-grid-tile>
+
+        <!-- <mat-grid-tile>
         <mat-form-field >
             <input  matInput
                     required
@@ -90,8 +80,8 @@
             <mat-error>Debe ingresar el Telefono de contacto</mat-error>
             </mat-form-field>
         </mat-grid-tile> -->
-  </mat-grid-list>
-  <!-- <mat-grid-list cols="4" rowHeight="50">
+    </mat-grid-list>
+    <!-- <mat-grid-list cols="4" rowHeight="50">
     <mat-grid-tile>
         <mat-form-field >
         <input  matInput
@@ -103,142 +93,132 @@
         </mat-form-field>
     </mat-grid-tile>
 </mat-grid-list> -->
-  <mat-grid-list cols="4" rowHeight="50">
-    <mat-grid-tile>
-        <mat-form-field  class="all-width">
-            <mat-select (selectionChange)="selectPais($event.value)"
-                placeholder="Nacionalidad"
-                [(ngModel)]="usuaria.nacionalidadId"
-                name="nacionalidadId">
-                <mat-option *ngFor="let pais of paises"
-                [value] = "pais.id">
-                {{pais.nombre}}
-                </mat-option>
-            </mat-select>
-        </mat-form-field>
-    </mat-grid-tile>
-      <mat-grid-tile>
-        <mat-form-field  class="all-width">
-            <mat-select (selectionChange)="selectProvincia($event.value)"
-                placeholder="Provincia"
-                [(ngModel)]="usuaria.provinciaId"
-                name="provinciaId">
-                <mat-option *ngFor="let prov of provincias"
-                [value] = "prov.id">
-                {{prov.nombre}}
-                </mat-option>
-            </mat-select>
-        </mat-form-field>
-      </mat-grid-tile>
-      <mat-grid-tile>
-            <mat-form-field  class="all-width">
-                <mat-select (selectionChange)="selectPartido($event.value)"
-                    placeholder="Debe seleccionar la Partido"
-                    [(ngModel)]="usuaria.partidoId"
-                    name="partidoId">
-                    <mat-option *ngFor="let par of partidos"
-                    [value] = "par.id">
+    <mat-grid-list cols="4" rowHeight="50">
+        <mat-grid-tile>
+            <mat-form-field class="all-width">
+                <mat-select (selectionChange)="selectPais($event.value)" placeholder="Nacionalidad"
+                    [(ngModel)]="usuaria.nacionalidadId" name="nacionalidadId">
+                    <mat-option *ngFor="let pais of paises" [value]="pais.id">
+                        {{pais.nombre}}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+        </mat-grid-tile>
+        <mat-grid-tile>
+            <mat-form-field class="all-width">
+                <mat-select (selectionChange)="selectProvincia($event.value)" placeholder="Provincia"
+                    [(ngModel)]="usuaria.provinciaId" name="provinciaId">
+                    <mat-option *ngFor="let prov of provincias" [value]="prov.id">
+                        {{prov.nombre}}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+        </mat-grid-tile>
+        <mat-grid-tile>
+            <mat-form-field class="all-width">
+                <mat-select (selectionChange)="selectPartido($event.value)" placeholder="Debe seleccionar la Partido"
+                    [(ngModel)]="usuaria.partidoId" name="partidoId">
+                    <mat-option *ngFor="let par of partidos" [value]="par.id">
                         {{par.nombre}}
                     </mat-option>
                 </mat-select>
             </mat-form-field>
         </mat-grid-tile>
         <mat-grid-tile>
-            <mat-form-field  class="all-width">
-                <mat-select
-                    placeholder="Debe seleccionar la Localidad"
-                    [(ngModel)]="usuaria.localidadId"
+            <mat-form-field class="all-width">
+                <mat-select placeholder="Debe seleccionar la Localidad" [(ngModel)]="usuaria.localidadId"
                     name="localidadId">
-                    <mat-option *ngFor="let loc of localidades"
-                    [value] = "loc.id">
+                    <mat-option *ngFor="let loc of localidades" [value]="loc.id">
                         {{loc.nombre}}
                     </mat-option>
                 </mat-select>
             </mat-form-field>
         </mat-grid-tile>
-  </mat-grid-list>
-
-  <mat-grid-tile-header> 
-      <h5 class="hsubtitulo">Como se entero de la Consejeria?</h5>
-   </mat-grid-tile-header>
+    </mat-grid-list>
+    <mat-grid-list cols="1" rowHeight="50">
+        <mat-grid-tile>
+            <mat-form-field>
+                <input  matInput
+                name="barrio"
+                placeholder="Barrio"
+                [(ngModel)]="usuaria.barrio">
+            </mat-form-field>
+        </mat-grid-tile>
+    </mat-grid-list>
+    <mat-grid-tile-header>
+        <h5 class="hsubtitulo">Como se entero de la Consejeria?</h5>
+    </mat-grid-tile-header>
     <mat-grid-list cols="6" rowHeight="40">
         <mat-grid-tile>
 
-            <mat-checkbox [(ngModel)]="usuaria.conocePorParejaX" name="conocePorParejaX" >
+            <mat-checkbox [(ngModel)]="usuaria.conocePorParejaX" name="conocePorParejaX">
                 Pareja/Fliar/Amigue/Usuarie
             </mat-checkbox>
         </mat-grid-tile>
         <mat-grid-tile>
-            <mat-checkbox [(ngModel)]="usuaria.conocePorOrganizacion" name="conocePorOrganizacion" >
+            <mat-checkbox [(ngModel)]="usuaria.conocePorOrganizacion" name="conocePorOrganizacion">
                 Organizacion Social
             </mat-checkbox>
         </mat-grid-tile>
         <mat-grid-tile>
-            <mat-checkbox [(ngModel)]="usuaria.conocePorMedios" name="conocePorMedios" >
+            <mat-checkbox [(ngModel)]="usuaria.conocePorMedios" name="conocePorMedios">
                 Medios de Comunicacion
             </mat-checkbox>
         </mat-grid-tile>
 
         <mat-grid-tile>
-            <mat-checkbox [(ngModel)]="usuaria.conocePorUS" name="conocePorUS" >
+            <mat-checkbox [(ngModel)]="usuaria.conocePorUS" name="conocePorUS">
                 Personal de la U.S.
             </mat-checkbox>
         </mat-grid-tile>
         <mat-grid-tile>
-            <mat-checkbox [(ngModel)]="usuaria.conocePorReferente" name="conocePorReferente" >
+            <mat-checkbox [(ngModel)]="usuaria.conocePorReferente" name="conocePorReferente">
                 Referente Comunitarix
             </mat-checkbox>
         </mat-grid-tile>
-       
-        
+
+
     </mat-grid-list>
     <mat-grid-list cols="6" rowHeight="40">
         <mat-grid-tile>
-            <mat-checkbox [(ngModel)]="usuaria.conocePorInsititucionSalud" name="conocePorInsititucionSalud" >
+            <mat-checkbox [(ngModel)]="usuaria.conocePorInsititucionSalud" name="conocePorInsititucionSalud">
                 Otra Insititucion de Salud
             </mat-checkbox>
         </mat-grid-tile>
     </mat-grid-list>
     <mat-grid-list cols="1" rowHeight="70">
         <mat-grid-tile>
-            <mat-form-field class="all-width"  >
-                <textarea  matInput
-                
-                name="conocePorInsititucionSaludObs"
-                placeholder="Otra Institucion de Salud?"
-                [(ngModel)]="usuaria.conocePorInsititucionSaludObs"></textarea>
+            <mat-form-field class="all-width">
+                <textarea matInput name="conocePorInsititucionSaludObs" placeholder="Otra Institucion de Salud?"
+                    [(ngModel)]="usuaria.conocePorInsititucionSaludObs"></textarea>
                 <mat-error>Debe ingresar las Observaciones de como conoce por Otra Insititucion de Salud</mat-error>
-              </mat-form-field>
+            </mat-form-field>
         </mat-grid-tile>
     </mat-grid-list>
     <mat-grid-list cols="1" rowHeight="60">
         <mat-grid-tile>
-            <mat-checkbox [(ngModel)]="usuaria.conocePorOtro" name="conocePorOtro" >
-              Conoce por Otro
+            <mat-checkbox [(ngModel)]="usuaria.conocePorOtro" name="conocePorOtro">
+                Conoce por Otro
             </mat-checkbox>
-          </mat-grid-tile>
+        </mat-grid-tile>
         <mat-grid-tile>
-            <mat-form-field class="all-width"  >
-                <textarea matInput
-                        
-                        name="observacion"
-                        placeholder="Otra observacion"
-                        [(ngModel)]="usuaria.conocePorOtro"></textarea>
+            <mat-form-field class="all-width">
+                <textarea matInput name="observacion" placeholder="Otra observacion"
+                    [(ngModel)]="usuaria.conocePorOtro"></textarea>
                 <mat-error>Debe ingresar las Observaciones</mat-error>
-              </mat-form-field>
+            </mat-form-field>
         </mat-grid-tile>
     </mat-grid-list>
 
     <mat-grid-tile-footer>
         <div class="action-buttons">
-            <button  mat-button
-              type="button"
-              (click) = "cancelarEdicionUsuaria()">
-              Volver al Listado
+            <button mat-button type="button" (click)="cancelarEdicionUsuaria()">
+                Volver al Listado
             </button>
-            <button type="button" (click) = "guardarUsuaria(us.value, us.valid)"   mat-raised-button color="primary" [disabled]="us.invalid">
-              Guardar datos de Usuaria
+            <button type="button" (click)="guardarUsuaria(us.value, us.valid)" mat-raised-button color="primary"
+                [disabled]="us.invalid">
+                Guardar datos de Usuaria
             </button>
-          </div>
+        </div>
     </mat-grid-tile-footer>
 </form>

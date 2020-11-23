@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter, OnDestroy } from '@angular/core';
 import { Usuaria } from '../../models/usuaria.model';
 import { ConsejeriasHttpService } from '../../services/consejerias-http.service';
 import { Router } from '@angular/router';
@@ -19,10 +19,10 @@ import { Partido } from 'src/app/models/partido.model';
   templateUrl: './usuaria.component.html',
   styleUrls: ['./usuaria.component.scss']
 })
-export class UsuariaComponent implements OnInit {
+export class UsuariaComponent implements OnInit, OnDestroy {
+  subscripciones = [];
   @Input() usuaria: Usuaria;
   @Output() usuariaIdInsert = new EventEmitter <number>();
-  
   paises: Pais [];
   provincias: Provincia[];
   partidos: Partido[];
@@ -40,13 +40,13 @@ export class UsuariaComponent implements OnInit {
     this.nivelEstudios = this.estadoEstudioListService.list;
     this.estadoEstudios = this.nivelEstudioListService.list;
     this.paisHttpService.getAll();
-    this.provinciaHttpService.getTodas().subscribe(provs => this.provincias = provs);
+    this.subscripciones.push(this.provinciaHttpService.getTodas().subscribe(provs => this.provincias = provs));
     
-    this.stateService.paises$.subscribe(paises => this.paises = paises);
-    this.stateService.provincias$.subscribe(provincias => this.provincias = provincias);
+    this.subscripciones.push(this.stateService.paises$.subscribe(paises => this.paises = paises));
+    this.subscripciones.push(this.stateService.provincias$.subscribe(provincias => this.provincias = provincias));
 
     if(this.usuaria == undefined){
-      this.usuaria = new Usuaria('','','',0, true, new Date(),'','','','','','', false, false, false, false, false, false, false, '', '',0, 0,'');
+      this.usuaria = new Usuaria('','','',0, true, new Date(),'','','','','','', false, false, false, false, false, false, false, '', '',0, 0,'','');
     }
     else{
       this.selectProvincia(this.usuaria.provinciaId);
@@ -57,32 +57,35 @@ export class UsuariaComponent implements OnInit {
 
   guardarUsuaria(form: any) {
     if(this.usuaria != undefined && this.usuaria.id !== '') {
-      this.consejeriaService.updateUsuaria(this.usuaria).subscribe(
+      this.subscripciones.push(this.consejeriaService.updateUsuaria(this.usuaria).subscribe(
         (_) => {}
-      ); 
+      )); 
    }else{
-    this.consejeriaService.insertUsuaria(this.usuaria).subscribe(
+    this.subscripciones.push(this.consejeriaService.insertUsuaria(this.usuaria).subscribe(
       (result: any) => {
         this.usuariaIdInsert.emit(result.usuaria);    
       }
-    ); 
+    )); 
    }
 }
 
 
 selectPais(paisid: string){
-  this.provinciaHttpService.getTodas().subscribe(provs => this.provincias = provs);
+  this.subscripciones.push(this.provinciaHttpService.getTodas().subscribe(provs => this.provincias = provs));
 }
 
   selectProvincia(provinciaid: string){
-    this.partidoHttpService.getByProvinciaGob(provinciaid).subscribe(partidos => this.partidos = partidos);
+    this.subscripciones.push(this.partidoHttpService.getByProvinciaGob(provinciaid).subscribe(partidos => this.partidos = partidos));
   }
   selectPartido(partidoid: string){
-    this.localidadHttpService.getByPartidoGob(partidoid).subscribe(localidades => this.localidades = localidades);
+    this.subscripciones.push(this.localidadHttpService.getByPartidoGob(partidoid).subscribe(localidades => this.localidades = localidades));
   }
   
   cancelarEdicionUsuaria() {
     this.router.navigate(['consejerias']);
   }
 
+  ngOnDestroy() {
+    this.subscripciones.forEach(s => s.unsubscribe())
+  }
 }

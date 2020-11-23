@@ -1,0 +1,11 @@
+<h1 mat-dialog-title>{{titulo}}</h1>
+<div mat-dialog-content>
+  <mat-form-field>
+    <mat-label>{{placeHolder}}</mat-label>
+    <input matInput [(ngModel)]="texto">
+  </mat-form-field>
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="cerrar()">Cerrar</button>
+  <button mat-raised-button color="primary" (click)="guardar()">Guardar</button>
+</div>

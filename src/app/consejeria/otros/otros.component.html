@@ -1,152 +1,136 @@
-<form #an="ngForm"  *ngIf="otro">
-    <mat-grid-tile-header> 
+<form #an="ngForm" *ngIf="otro">
+    <mat-grid-tile-header>
         <h5 class="hsubtitulo">Violencia de género</h5>
-     </mat-grid-tile-header>
-     <mat-grid-list cols="3" rowHeight="50" [style.background]="red">
+    </mat-grid-tile-header>
+    <mat-grid-list cols="3" rowHeight="50" [style.background]="red">
         <mat-grid-tile>
-            <mat-checkbox [(ngModel)]="otro.violenciaDG" name="violenciaDG" >
+            <mat-checkbox [(ngModel)]="otro.violenciaDG" name="violenciaDG">
                 Tuvo?
             </mat-checkbox>
         </mat-grid-tile>
-      <mat-grid-tile>
-        <span class="mat-form-field-label">Tipo</span>
-        <mat-form-field  class="all-width">
-            <mat-select
-                placeholder="Tipo"
-                [(ngModel)]="otro.violenciaDGTipo"
-                name="violenciaDGTipo">
-                <mat-option *ngFor="let v of tipos"
-                [value] = "v.id">
-                {{v.nombre}}
-                </mat-option>
-            </mat-select>
-        </mat-form-field>
-      </mat-grid-tile>
-      <mat-grid-tile>
-        <mat-form-field >
-            <textarea matInput
-            name="violenciaDGObservaciones"
-            placeholder="¿Por parte de quién? Pareja/ ex pareja/ otre:"
-            [(ngModel)]="otro.violenciaDGObservaciones"></textarea>
-            <mat-error>¿Por parte de quién? Pareja/ ex pareja/ otre:</mat-error>
-        </mat-form-field>
-    </mat-grid-tile>
+        <mat-grid-tile>
+            <span class="mat-form-field-label">Tipo</span>
+            <mat-form-field class="all-width">
+                <mat-select placeholder="Tipo" multiple [(ngModel)]="otro.violenciaDGTipo" name="violenciaDGTipo">
+                    <mat-option *ngFor="let v of tipos" [value]="v.id">
+                        {{v.nombre}}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+        </mat-grid-tile>
+        <mat-grid-tile>
+            <mat-form-field>
+                <textarea matInput name="violenciaDGObservaciones"
+                    placeholder="¿Por parte de quién? Pareja/ ex pareja/ otre:"
+                    [(ngModel)]="otro.violenciaDGObservaciones"></textarea>
+                <mat-error>¿Por parte de quién? Pareja/ ex pareja/ otre:</mat-error>
+            </mat-form-field>
+        </mat-grid-tile>
     </mat-grid-list>
 
-    <mat-grid-tile-header> 
+    <mat-grid-tile-header>
         <h5 class="hsubtitulo">Violencia institucional</h5>
-     </mat-grid-tile-header>
-     <mat-grid-list cols="3" rowHeight="50" [style.background]="red">
+    </mat-grid-tile-header>
+    <mat-grid-list cols="3" rowHeight="50" [style.background]="red">
         <mat-grid-tile>
-            <mat-checkbox [(ngModel)]="otro.violenciaI" name="violenciaI" >
+            <mat-checkbox [(ngModel)]="otro.violenciaI" name="violenciaI">
                 Tuvo?
             </mat-checkbox>
         </mat-grid-tile>
         <mat-grid-tile>
-            <mat-form-field >
-                <textarea matInput 
-                name="violenciaIDeQuien"
-                placeholder="Por parte de quien"
-                [(ngModel)]="otro.violenciaIDeQuien"></textarea>
+            <mat-form-field>
+                <textarea matInput name="violenciaIDeQuien" placeholder="Por parte de quien"
+                    [(ngModel)]="otro.violenciaIDeQuien"></textarea>
                 <mat-error>Por parte de quien?</mat-error>
             </mat-form-field>
         </mat-grid-tile>
         <mat-grid-tile>
-            <mat-form-field >
-                <textarea matInput 
-                name="violenciaIComo"
-                placeholder="Como?"
-                [(ngModel)]="otro.violenciaIComo"></textarea>
+            <mat-form-field>
+                <textarea matInput name="violenciaIComo" placeholder="Como?"
+                    [(ngModel)]="otro.violenciaIComo"></textarea>
                 <mat-error>Como?</mat-error>
             </mat-form-field>
         </mat-grid-tile>
     </mat-grid-list>
-    
-    <mat-grid-tile-header> 
+
+    <mat-grid-tile-header>
         <h5 class="hsubtitulo">Acompañamiento post asesorías</h5>
-     </mat-grid-tile-header>
-     <mat-grid-list cols="3" rowHeight="50" [style.background]="red">
+    </mat-grid-tile-header>
+    <mat-grid-list cols="3" rowHeight="50" [style.background]="red">
         <mat-grid-tile>
-            <mat-checkbox [(ngModel)]="otro.acompaniamiento" name="acompaniamiento" >
+            <mat-checkbox [(ngModel)]="otro.acompaniamiento" name="acompaniamiento">
                 Tuvo?
             </mat-checkbox>
         </mat-grid-tile>
         <mat-grid-tile>
-            <mat-form-field >
-                <textarea matInput 
-                name="acompaniamientoLugar"
-                placeholder="Lugar"
-                [(ngModel)]="otro.acompaniamientoLugar"></textarea>
+            <mat-form-field>
+                <textarea matInput name="acompaniamientoLugar" placeholder="Lugar"
+                    [(ngModel)]="otro.acompaniamientoLugar"></textarea>
                 <mat-error>Lugar?</mat-error>
             </mat-form-field>
         </mat-grid-tile>
         <mat-grid-tile>
-            <mat-form-field >
-                <textarea matInput 
-                name="acompaniamientoDispositivo"
-                placeholder="Dispositivo?"
-                [(ngModel)]="otro.acompaniamientoDispositivo"></textarea>
+            <mat-form-field>
+                <textarea matInput name="acompaniamientoDispositivo" placeholder="Dispositivo?"
+                    [(ngModel)]="otro.acompaniamientoDispositivo"></textarea>
                 <mat-error>Dispositivo?</mat-error>
             </mat-form-field>
         </mat-grid-tile>
     </mat-grid-list>
 
-    <mat-grid-tile-header> 
+    <mat-grid-tile-header>
         <h5 class="hsubtitulo">Abuso sexual</h5>
-     </mat-grid-tile-header>
-     <mat-grid-list cols="3" rowHeight="50" [style.background]="red">
+    </mat-grid-tile-header>
+    <mat-grid-list cols="3" rowHeight="50" [style.background]="red">
         <mat-grid-tile>
-            <mat-checkbox [(ngModel)]="otro.abusoSexual" name="abusoSexual" >
+            <mat-checkbox [(ngModel)]="otro.abusoSexual" name="abusoSexual">
                 Tuvo?
             </mat-checkbox>
         </mat-grid-tile>
         <mat-grid-tile>
-            <mat-checkbox [(ngModel)]="otro.abusoSexualDJurada" name="abusoSexualDJurada" >
+            <mat-checkbox [(ngModel)]="otro.abusoSexualDJurada" name="abusoSexualDJurada">
                 Declaración Jurada?
             </mat-checkbox>
         </mat-grid-tile>
         <mat-grid-tile>
-            <mat-checkbox [(ngModel)]="otro.abusoSexualDPenal" name="abusoSexualDPenal" >
+            <mat-checkbox [(ngModel)]="otro.abusoSexualDPenal" name="abusoSexualDPenal">
                 Denuncia penal?
             </mat-checkbox>
         </mat-grid-tile>
     </mat-grid-list>
-    
-    <mat-grid-tile-header> 
+
+    <mat-grid-tile-header>
         <h5 class="hsubtitulo">Circuitos clandestinos de interrupción</h5>
-     </mat-grid-tile-header>
-     <mat-grid-list cols="3" rowHeight="50" [style.background]="red">
+    </mat-grid-tile-header>
+    <mat-grid-list cols="3" rowHeight="50" [style.background]="red">
         <mat-grid-tile>
-            <mat-checkbox [(ngModel)]="otro.circuitoActual" name="circuitoActual" >
+            <mat-checkbox [(ngModel)]="otro.circuitoActual" name="circuitoActual">
                 Gesta actual?
             </mat-checkbox>
         </mat-grid-tile>
         <mat-grid-tile>
-            <mat-checkbox [(ngModel)]="otro.circuitoAnterior" name="circuitoAnterior" >
+            <mat-checkbox [(ngModel)]="otro.circuitoAnterior" name="circuitoAnterior">
                 Gesta anterior?
             </mat-checkbox>
         </mat-grid-tile>
         <mat-grid-tile>
-            <mat-form-field >
-                <textarea matInput 
-                name="circuitoObservaciones"
-                placeholder="Como?"
-                [(ngModel)]="otro.circuitoObservaciones"></textarea>
+            <mat-form-field>
+                <textarea matInput name="circuitoObservaciones" placeholder="Como?"
+                    [(ngModel)]="otro.circuitoObservaciones"></textarea>
                 <mat-error>Como?</mat-error>
             </mat-form-field>
         </mat-grid-tile>
     </mat-grid-list>
 
-      <mat-grid-tile-footer>
-          <div class="action-buttons">
-              <button  mat-button
-                type="button"
-                (click) = "cancelarOtro()">
-                Cancelar
-              </button>
-              <button type="button" (click)="guardarOtro(an.value, an.valid)"   mat-raised-button color="primary" [disabled]="an.invalid">
-                Aceptar
-              </button>
-            </div>
-      </mat-grid-tile-footer>
+    <mat-grid-tile-footer>
+        <div class="action-buttons">
+            <button mat-button type="button" (click)="cancelarOtro()">
+                Volver al Listado
+            </button>
+            <button type="button" (click)="guardarOtro(an.value, an.valid)" mat-raised-button color="primary"
+                [disabled]="an.invalid">
+                Guardar Otros datos
+            </button>
+        </div>
+    </mat-grid-tile-footer>
 </form>

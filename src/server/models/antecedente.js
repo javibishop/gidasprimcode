@@ -24,8 +24,7 @@ let antecedenteSchema = new Shcema({
         default:0
     },
     fecha:{
-        type:Date,
-        required: [true, 'La fecha es requerida']
+        type:Date
     },
     mACNoUsa:{
         type:Boolean,

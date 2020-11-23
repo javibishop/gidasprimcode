@@ -61,6 +61,8 @@ import { ConfirmComponent } from './confirm/confirm.component';
 import { InstitucionManagerComponent } from './institucion/institucion-manager/institucion-manager.component';
 import { InstitucionEditComponent } from './institucion/institucion-edit/institucion-edit.component';
 import { InstitucionListComponent } from './institucion/institucion-list/institucion-list.component';
+import { TextboxModalComponent } from './textbox.modal/textbox.modal.component';
+import { SeguimientoComponent } from './consejeria/seguimiento/seguimiento.component';
 
 @NgModule({
   declarations: [
@@ -90,7 +92,9 @@ import { InstitucionListComponent } from './institucion/institucion-list/institu
     InstitucionManagerComponent,
     InstitucionEditComponent,
     InstitucionListComponent,
-    OtrosComponent
+    OtrosComponent,
+    SeguimientoComponent,
+    TextboxModalComponent
   ],
   entryComponents: [
     ErrorDialogComponent, ConfirmComponent

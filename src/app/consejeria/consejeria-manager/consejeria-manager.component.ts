@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Consejeria } from '../../models/consejeria.model';
 import { Router } from '@angular/router';
 import { ConsejeriasHttpService } from '../../services/consejerias-http.service';
@@ -10,8 +10,8 @@ import {UsuarieHttpService} from '../../services/usuarie-http.service';
   templateUrl: './consejeria-manager.component.html',
   styleUrls: ['./consejeria-manager.component.scss'],
 })
-export class ConsejeriaManagerComponent implements OnInit {
-
+export class ConsejeriaManagerComponent implements OnInit , OnDestroy {
+  subscripciones = [];
   //consejerias: Consejeria[];
   consejerias: ConsejeriaList[];
   consejeriaSeleccionado: Consejeria;
@@ -19,20 +19,18 @@ export class ConsejeriaManagerComponent implements OnInit {
   constructor(
     private consejeriasService: ConsejeriasHttpService,//ConsejeriaArrayService,
     private router: Router,
-    private stateService: StateService,
-    private usuarieHttpService : UsuarieHttpService,
-  ) { }
+    private stateService: StateService
+  ) {
+    this.stateService.setAppTitulo('Administracion de Consejerias');
+   }
 
   ngOnInit() {
     this.consejeriasService.getAll();
-    this.stateService.consejerias$.subscribe(consejerias => this.consejerias = consejerias);
-    //this.usuarieHttpService.getAll();
-
-    this.stateService.setAppTitulo('Administracion de Consejerias');
+    this.subscripciones.push(this.stateService.consejerias$.subscribe(consejerias => this.consejerias = consejerias));
   }
 
   filtrarConsejeria(filtro: string) {
-    this.consejeriasService.filterByNombreApellido(filtro).subscribe(consejerias => this.consejerias = consejerias);
+    this.subscripciones.push(this.consejeriasService.filterByNombreApellido(filtro).subscribe(consejerias => this.consejerias = consejerias));
   }
 
   seleccionarConsejeria(consejeria: Consejeria) {
@@ -46,11 +44,7 @@ export class ConsejeriaManagerComponent implements OnInit {
   nuevoConsejeria(){
     this.router.navigate(['consejerias', 'new']);
   }
-  //pasa al consejerias edit.
-  // actualizarConsejeria(consejeria: Consejeria) {
-  //   this.consejeriasData.update(consejeria);
-  //   this.consejeriaSeleccionado = null;
-
-  // }
-
+  ngOnDestroy() {
+    this.subscripciones.forEach(s => s.unsubscribe())
+  }
 }

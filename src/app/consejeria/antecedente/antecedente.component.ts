@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, OnDestroy } from '@angular/core';
 import { Antecedente } from '../../models/consejeria.model';
 import { ConsejeriasHttpService } from '../../services/consejerias-http.service';
 
@@ -7,7 +7,8 @@ import { ConsejeriasHttpService } from '../../services/consejerias-http.service'
   templateUrl: './antecedente.component.html',
   styleUrls: ['./antecedente.component.scss']
 })
-export class AntecedenteComponent implements OnInit {
+export class AntecedenteComponent implements OnInit , OnDestroy {
+  subscripciones = [];
   @Input() consejeriaId: string;
   antecedente: Antecedente;
 
@@ -16,7 +17,7 @@ export class AntecedenteComponent implements OnInit {
   ngOnInit() {
     if(this.consejeriaId != ''){
       let ante = null;
-      this.consejeriaService.getAntecedenteByConsejeriaId(this.consejeriaId).subscribe(antecedenteRequest => 
+      this.subscripciones.push(this.consejeriaService.getAntecedenteByConsejeriaId(this.consejeriaId).subscribe(antecedenteRequest => 
         {
           ante = antecedenteRequest;
           if(!ante){
@@ -24,30 +25,31 @@ export class AntecedenteComponent implements OnInit {
           }else{
             this.antecedente = ante;
           }
-        });
+        }));
     }
     else{
       this.inicializar(this.consejeriaId);
     }
-    
   }
 
   inicializar(consejeriaId: string){
-    this.antecedente =  new Antecedente('',0,0,0,0,0,false,false,false,false,false,false,false,false,0,'',consejeriaId, new Date(), '');
+    this.antecedente =  new Antecedente('',0,0,0,0,0,false,false,false,false,false,false,false,false,0,'',consejeriaId, null, '');
   }
 
   guardarAntecedente(form: any) {
     if(this.consejeriaId != '' && this.antecedente.id  != ''){
-      this.consejeriaService.updateAntecedente(this.antecedente).subscribe(
+      this.subscripciones.push(this.consejeriaService.updateAntecedente(this.antecedente).subscribe(
         (antece) => {this.antecedente = antece}
-      ); 
+      )); 
    }else{
-    this.consejeriaService.insertAntecedente(this.antecedente).subscribe(
+    this.subscripciones.push(this.consejeriaService.insertAntecedente(this.antecedente).subscribe(
       (antece) => {this.antecedente = antece}
-    ); 
+    )); 
    }
   }
-  cancelarEdicionAntecedente() {
+  cancelarEdicionAntecedente() {}
 
+  ngOnDestroy() {
+    this.subscripciones.forEach(s => s.unsubscribe())
   }
 }

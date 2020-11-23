@@ -75,6 +75,7 @@ app.post('/usuaria', verificaToken, (req, res) => {
         documento : body.documento,
         provinciaId : body.provinciaId,
         partidoId : body.partidoId,
+        barrio: body.barrio,
         usuarioCentroSalud : body.usuarioCentroSalud,
         parejaConViviente : body.parejaConViviente,
         parejaNoConViviente : body.parejaNoConViviente,

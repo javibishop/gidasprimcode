@@ -66,6 +66,10 @@ let entrevistaPostAbortoSchema = new Shcema({
         type:Boolean,
         default:false
     },
+    pccedioPorSecretariaSalud:{
+        type:Boolean,
+        default:false
+    },
     presentacionSuelto:{
         type:Boolean,
         default:false

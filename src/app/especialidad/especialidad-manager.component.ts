@@ -18,12 +18,14 @@ export class EspecialidadManagerComponent implements OnInit {
      private especialidadesData: EspecialidadHttpService,//ConsejeriaArrayService,
      private router: Router,
      private stateService: StateService
-   ) { }
+   ) { 
+    this.stateService.setAppTitulo('Administracion de Especialidades');
+   }
  
    ngOnInit() {
      this.especialidadesData.getAll();
      this.stateService.especialidades$.subscribe(especialidades => this.especialidades = especialidades);
-     this.stateService.setAppTitulo('Administracion de Especialidades');
+     
    }
  
    filtrarEspecialidad(filtro: string) {

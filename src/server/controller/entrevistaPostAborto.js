@@ -68,6 +68,7 @@ app.post('/entrevistapostaborto', verificaToken,  (req, res) => {
             accedioPorConocido :req.body.accedioPorConocido,
             accedioPorInternet :req.body.accedioPorInternet,
             pccedioPorOrgSocial :req.body.pccedioPorOrgSocial,
+            pccedioPorSecretariaSalud :req.body.pccedioPorSecretariaSalud,
             presentacionSuelto :req.body.presentacionSuelto,
             presentacionCaja20 :req.body.presentacionCaja20,
             presentacionCaja16 :req.body.presentacionCaja16,

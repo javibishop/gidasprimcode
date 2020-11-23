@@ -32,6 +32,14 @@ export class UsuarieHttpService {
     .subscribe(usuaries => this.stateService.setUsuaries(usuaries));
   }
   
+
+  getAll2() {
+    return this.HttpClient.get<UsuarieApi[]>(this.url)
+    .pipe(
+      map(usuariesApi => usuariesApi.map(usuarieApi => this.usuariesAdapter.adapt(usuarieApi)))
+    )
+  }
+
   getById(id: string) : Observable<Usuarie> {
       //const url = this.url + '/' + id.toString();
       const url = `${this.url}/${id}`; /*interpolacion */

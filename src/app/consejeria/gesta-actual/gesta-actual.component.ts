@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, OnDestroy } from '@angular/core';
 import { ConsejeriasHttpService } from '../../services/consejerias-http.service';
 import { GestaActual } from '../../models/consejeria.model';
 import {  Router } from '@angular/router';
@@ -7,7 +7,8 @@ import {  Router } from '@angular/router';
   templateUrl: './gesta-actual.component.html',
   styleUrls: ['./gesta-actual.component.scss']
 })
-export class GestaActualComponent implements OnInit {
+export class GestaActualComponent implements OnInit , OnDestroy {
+  subscripciones = [];
 
   @Input() consejeriaId: string;
   gestaActual: GestaActual;
@@ -17,7 +18,7 @@ export class GestaActualComponent implements OnInit {
   ngOnInit() {
     if(this.consejeriaId != ''){
       let gesta = null;
-      this.consejeriaService.getGestasByConsejeriaId(this.consejeriaId).subscribe(gestaRequest => 
+      this.subscripciones.push(this.consejeriaService.getGestasByConsejeriaId(this.consejeriaId).subscribe(gestaRequest => 
         {
           gesta = gestaRequest;
           if(!gesta){
@@ -25,7 +26,7 @@ export class GestaActualComponent implements OnInit {
           }else{
             this.gestaActual = gesta;
           }
-        });
+        }));
     }
     else{
       this.inicializar(this.consejeriaId);
@@ -39,20 +40,24 @@ export class GestaActualComponent implements OnInit {
 
   guardarGestaActual(form: any) {
     if(this.consejeriaId != '' && this.gestaActual.id != ''){
-      this.consejeriaService.updateGestaActual(this.gestaActual).subscribe(
+      this.subscripciones.push(this.consejeriaService.updateGestaActual(this.gestaActual).subscribe(
         (gesta) => {
           this.gestaActual = gesta;
         }
-      ); 
+      )); 
    }else{
-    this.consejeriaService.insertGestaActual(this.gestaActual).subscribe(
+    this.subscripciones.push(this.consejeriaService.insertGestaActual(this.gestaActual).subscribe(
       (gesta) => {
         this.gestaActual = gesta;
       }
-    ); 
+    )); 
    }
   }
   cancelarEdicionGestaActual() {
     this.router.navigate(['consejerias']);
+  }
+
+  ngOnDestroy() {
+    this.subscripciones.forEach(s => s.unsubscribe())
   }
 }
