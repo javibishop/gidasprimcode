@@ -81,6 +81,7 @@ app.post('/usuaria', verificaToken, (req, res) => {
         parejaNoConViviente : body.parejaNoConViviente,
         sinPareja : body.sinPareja,
         conocePorConocido : body.conocePorConocido,
+        conocePorParejaX : body.conocePorParejaX,
         conocePorUS : body.conocePorUS,
         conocePorOrganizacion : body.conocePorOrganizacion,
         conocePorMedios : body.conocePorMedios,

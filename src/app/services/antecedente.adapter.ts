@@ -40,7 +40,7 @@ export class AntecedentesAdapter {
         return new Antecedente(antecedenteApi.id, antecedenteApi.gestas, antecedenteApi.partosVaginal, antecedenteApi.cesareas, 
             antecedenteApi.abortoEspontaneo, antecedenteApi.abortoVoluntario, antecedenteApi.mACNoUsa, antecedenteApi.mACACO, antecedenteApi.mACACI,
             antecedenteApi.mACDIU, antecedenteApi.mCPreservativo, antecedenteApi.mACImplanteHormonal, antecedenteApi.falloMAC, antecedenteApi.noUsoMAC, antecedenteApi.aHEMAC,
-            antecedenteApi.observaciones, antecedenteApi.consejeriaId, this.parseJsonDate(antecedenteApi.fecha), antecedenteApi.antecedentesPersonales);
+            antecedenteApi.observaciones, antecedenteApi.consejeriaId, antecedenteApi.fecha, antecedenteApi.antecedentesPersonales);
         }else return null;
     }
 
@@ -48,7 +48,7 @@ export class AntecedentesAdapter {
         return new AntecedenteApi(antecedente.id, antecedente.gestas, antecedente.partosVaginal, antecedente.cesareas, 
             antecedente.abortoEspontaneo, antecedente.abortoVoluntario, antecedente.mACNoUsa, antecedente.mACACO, antecedente.mACACI,
             antecedente.mACDIU, antecedente.mCPreservativo, antecedente.mACImplanteHormonal, antecedente.falloMAC, antecedente.noUsoMAC, antecedente.aHEMAC,
-            antecedente.observaciones, antecedente.consejeriaId, this.parseJsonDate(antecedente.fecha), antecedente.antecedentesPersonales);
+            antecedente.observaciones, antecedente.consejeriaId, antecedente.fecha, antecedente.antecedentesPersonales);
     }
 
     parseJsonDate(jsonDateString): Date {

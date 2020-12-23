@@ -71,12 +71,12 @@ export class EntrevistaAdapter {
 
     adapt(entrevistaApi: EntrevistaApi) :EntrevistaPostAborto {
         if(entrevistaApi){
-        return new EntrevistaPostAborto(entrevistaApi.id, this.parseJsonDate(entrevistaApi.fecha), entrevistaApi.procedimientoObservaciones, entrevistaApi.procedimientoHecho,
+        return new EntrevistaPostAborto(entrevistaApi.id, entrevistaApi.fecha, entrevistaApi.procedimientoObservaciones, entrevistaApi.procedimientoHecho,
             entrevistaApi.procedimientoNoContinua, entrevistaApi.procedimientoNoAbortoEspontaneo, entrevistaApi.procedimientoNoOtro, entrevistaApi.procedimientoSiHecho, entrevistaApi.procedimientoSiInformado, entrevistaApi.procedimientoSiOtra,
             entrevistaApi.procedimientoSiViaV, entrevistaApi.procedimientoSiViaSL, entrevistaApi.procedimientoSiOtro, entrevistaApi.accedioPorFarmacia, entrevistaApi.accedioPorConocido,
             entrevistaApi.accedioPorInternet, entrevistaApi.pccedioPorOrgSocial, entrevistaApi.pccedioPorSecretariaSalud, entrevistaApi.presentacionSuelto, entrevistaApi.presentacionCaja20,entrevistaApi.presentacionCaja16, entrevistaApi.efectoAdversoNo,
             entrevistaApi.efectoAdversoGastro, entrevistaApi.efectoAdversoTemperatura,entrevistaApi.efectoAdversoCafalea, entrevistaApi.efectoAdversoOtro, entrevistaApi.complicacionNo, 
-            entrevistaApi.complicacionHemorragia, entrevistaApi.complicacionInfeccion, entrevistaApi.complicacionOtro, entrevistaApi.indicacionGammaglobulina, this.parseJsonDate(entrevistaApi.ecografiaPostFecha),
+            entrevistaApi.complicacionHemorragia, entrevistaApi.complicacionInfeccion, entrevistaApi.complicacionOtro, entrevistaApi.indicacionGammaglobulina, entrevistaApi.ecografiaPostFecha,
             entrevistaApi.ecografiaPostNoRealizo, entrevistaApi.ecografiaPostAbortoIncompleto, entrevistaApi.ecografiaPostAbortoIncompleto, entrevistaApi.ecografiaPostAbortoHMyR, entrevistaApi.ecografiaPostEmbrionViable, entrevistaApi.ecografiaPostNuevaConsejeria,
             entrevistaApi.ecografiaPostDerivacion2Nivel, entrevistaApi.ecografiaPostConductaExpectante, entrevistaApi.consejeriaMACNo, entrevistaApi.consejeriaMACACO, entrevistaApi.consejeriaMACACI, entrevistaApi.consejeriaMACDIU
             ,entrevistaApi.consejeriaMACPreservativo, entrevistaApi.consejeriaMACImplanteHormonal, entrevistaApi.consejeriaMACACOLactancia, entrevistaApi.consejeriaId);
@@ -84,12 +84,12 @@ export class EntrevistaAdapter {
     }
 
     adaptToApi(entrevista: EntrevistaPostAborto) :EntrevistaApi {
-        return new EntrevistaApi(entrevista.id, this.parseJsonDate(entrevista.fecha), entrevista.procedimientoObservaciones, entrevista.procedimientoHecho,
+        return new EntrevistaApi(entrevista.id, entrevista.fecha, entrevista.procedimientoObservaciones, entrevista.procedimientoHecho,
         entrevista.procedimientoNoContinua, entrevista.procedimientoNoAbortoEspontaneo, entrevista.procedimientoNoOtro, entrevista.procedimientoSiHecho, entrevista.procedimientoSiInformado, entrevista.procedimientoSiOtra,
         entrevista.procedimientoSiViaV, entrevista.procedimientoSiViaSL, entrevista.procedimientoSiOtro, entrevista.accedioPorFarmacia, entrevista.accedioPorConocido,
         entrevista.accedioPorInternet, entrevista.pccedioPorOrgSocial, entrevista.pccedioPorSecretariaSalud, entrevista.presentacionSuelto, entrevista.presentacionCaja20,entrevista.presentacionCaja16, entrevista.efectoAdversoNo,
         entrevista.efectoAdversoGastro, entrevista.efectoAdversoTemperatura,entrevista.efectoAdversoCafalea, entrevista.efectoAdversoOtro, entrevista.complicacionNo, 
-        entrevista.complicacionHemorragia, entrevista.complicacionInfeccion, entrevista.complicacionOtro, entrevista.indicacionGammaglobulina, this.parseJsonDate(entrevista.ecografiaPostFecha),
+        entrevista.complicacionHemorragia, entrevista.complicacionInfeccion, entrevista.complicacionOtro, entrevista.indicacionGammaglobulina, entrevista.ecografiaPostFecha,
         entrevista.ecografiaPostNoRealizo, entrevista.ecografiaPostAbortoIncompleto, entrevista.ecografiaPostAbortoIncompleto, entrevista.ecografiaPostAbortoHMyR, entrevista.ecografiaPostEmbrionViable, entrevista.ecografiaPostNuevaConsejeria,
         entrevista.ecografiaPostDerivacion2Nivel, entrevista.ecografiaPostConductaExpectante, entrevista.consejeriaMACNo, entrevista.consejeriaMACACO, entrevista.consejeriaMACACI, entrevista.consejeriaMACDIU
         ,entrevista.consejeriaMACPreservativo, entrevista.consejeriaMACImplanteHormonal, entrevista.consejeriaMACACOLactancia, entrevista.consejeriaId);

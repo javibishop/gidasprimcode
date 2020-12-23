@@ -61,32 +61,13 @@ export class ConsejeriasAdapter implements OnInit{
         
     }
     adapt(consejeriasApi: ConsejeriaApi) :Consejeria {
-        return new Consejeria(consejeriasApi._id, consejeriasApi.numero, this.parseJsonDate(consejeriasApi.fechaIngreso), consejeriasApi.observacion, consejeriasApi.usuariaId, 
+        return new Consejeria(consejeriasApi._id, consejeriasApi.numero, consejeriasApi.fechaIngreso, consejeriasApi.observacion, consejeriasApi.usuariaId, 
             consejeriasApi.usuarie1Id, consejeriasApi.usuarie2Id, consejeriasApi.seguimiento);
     }
 
     adaptToList(consejeriasApi: ConsejeriaApi) : ConsejeriaList {
         /*TODO ESTO DE OBTENER DATOS SE TIENE QUE RESOLVER EN EL SERVER */
-        // let usuarie1 = this.getProfesional(consejeriasApi.usuarie1Id);
-        // let usuarie2 = this.getProfesional(consejeriasApi.usuarie2Id);
-        
-        //  let usuarie1 : Usuarie;
-        //  let usuarie2 : Usuarie;
-        //  let usuaria : Usuaria;
-        //  let consejeriaList: ConsejeriaList;
-        //  this.usuarieHttpService.getById(consejeriasApi.usuarie1Id).toPromise().then(data => {
-        //     usuarie1 = data;
-        //     this.usuarieHttpService.getById(consejeriasApi.usuarie1Id).toPromise().then(data2 => {
-        //         usuarie2 = data2
-        //         this.usuariaHttpService.getById(consejeriasApi.usuariaId).toPromise().then(data3 => {
-        //             usuaria = data3;
-        //             consejeriaList = new ConsejeriaList(consejeriasApi._id, consejeriasApi.numero, this.parseJsonDate(consejeriasApi.fechaIngreso), consejeriasApi.observacion, usuaria.nombre, 
-        //             usuarie1.nombre, usuarie2.nombre, usuaria.apellido, usuarie1.apellido, usuarie2.apellido);
-        //         });
-        //     });
-        //   });
-
-        return new ConsejeriaList(consejeriasApi._id, consejeriasApi.numero, this.parseJsonDate(consejeriasApi.fechaIngreso), consejeriasApi.observacion, consejeriasApi.usuariaId.nombre, 
+        return new ConsejeriaList(consejeriasApi._id, consejeriasApi.numero, consejeriasApi.fechaIngreso, consejeriasApi.observacion, consejeriasApi.usuariaId.nombre, 
         consejeriasApi.usuarie1Id.nombre, consejeriasApi.usuarie2Id.nombre, consejeriasApi.usuariaId.apellido, consejeriasApi.usuarie1Id.apellido, consejeriasApi.usuarie2Id.apellido);
                     
         // return  consejeriaList;

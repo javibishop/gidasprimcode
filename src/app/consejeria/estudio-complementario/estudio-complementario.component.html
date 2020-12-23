@@ -5,9 +5,9 @@
      <mat-grid-list cols="3" rowHeight="50">
         <mat-grid-tile>
           <mat-form-field>
-              <input matInput [matDatepicker]="picker" placeholder="Fecha" name="eco1Fecha" [(ngModel)]="estudioComplementario.eco1Fecha">
-              <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-              <mat-datepicker #picker startView="month" [startAt]="startDate"></mat-datepicker>
+              <input matInput [matDatepicker]="pickereco1Fecha" placeholder="Fecha" name="eco1Fecha" [(ngModel)]="estudioComplementario.eco1Fecha">
+              <mat-datepicker-toggle matSuffix [for]="pickereco1Fecha"></mat-datepicker-toggle>
+              <mat-datepicker #pickereco1Fecha startView="month" [startAt]="startDate"></mat-datepicker>
             </mat-form-field>
       </mat-grid-tile>
       <mat-grid-tile>
@@ -67,9 +67,9 @@
     <mat-grid-list cols="3" rowHeight="50" [style.background]="red">
         <mat-grid-tile>
           <mat-form-field>
-              <input matInput [matDatepicker]="picker1" placeholder="Fecha" name="eco1Fecha" [(ngModel)]="estudioComplementario.eco2Fecha">
-              <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
-              <mat-datepicker #picker1 startView="month" [startAt]="startDate"></mat-datepicker>
+              <input matInput [matDatepicker]="pickereco2Fecha" placeholder="Fecha" name="eco2Fecha" [(ngModel)]="estudioComplementario.eco2Fecha">
+              <mat-datepicker-toggle matSuffix [for]="pickereco2Fecha"></mat-datepicker-toggle>
+              <mat-datepicker #pickereco2Fecha startView="month" [startAt]="startDate"></mat-datepicker>
             </mat-form-field>
       </mat-grid-tile>
       <mat-grid-tile>
@@ -129,9 +129,9 @@
     <mat-grid-list cols="3" rowHeight="50" [style.background]="red">
         <mat-grid-tile>
           <mat-form-field>
-              <input matInput [matDatepicker]="picker2" placeholder="Fecha" name="labFecha" [(ngModel)]="estudioComplementario.labFecha">
-              <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
-              <mat-datepicker #picker2 startView="month" [startAt]="startDate"></mat-datepicker>
+              <input matInput [matDatepicker]="pickerlabFecha" placeholder="Fecha" name="labFecha" [(ngModel)]="estudioComplementario.labFecha">
+              <mat-datepicker-toggle matSuffix [for]="pickerlabFecha"></mat-datepicker-toggle>
+              <mat-datepicker #pickerlabFecha startView="month" [startAt]="startDate"></mat-datepicker>
             </mat-form-field>
       </mat-grid-tile>
       <mat-grid-tile>

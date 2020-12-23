@@ -46,8 +46,8 @@ export class GestaActualAdapter {
 
     adapt(gestaActualApi: GestaActualApi) :GestaActual {
         if(gestaActualApi){
-        return new GestaActual(gestaActualApi.id, gestaActualApi.enteroPorTestOrina, gestaActualApi.enteroPorTestOrinaObservaciones, this.parseJsonDate(gestaActualApi.enteroFecha), 
-            this.parseJsonDate(gestaActualApi.fum),gestaActualApi.egfum, gestaActualApi.intentoSuprimir, gestaActualApi.intentoSuprimirObservaciones, gestaActualApi.loComento, gestaActualApi.loComentoAQuien,
+        return new GestaActual(gestaActualApi.id, gestaActualApi.enteroPorTestOrina, gestaActualApi.enteroPorTestOrinaObservaciones, gestaActualApi.enteroFecha, 
+            gestaActualApi.fum,gestaActualApi.egfum, gestaActualApi.intentoSuprimir, gestaActualApi.intentoSuprimirObservaciones, gestaActualApi.loComento, gestaActualApi.loComentoAQuien,
             gestaActualApi.causaSaludIntegral, gestaActualApi.causaViolacion, gestaActualApi.causaSinVE,gestaActualApi.calendarioVacunacionCompleto, gestaActualApi.calendarioVacunacionObservaciones,
             gestaActualApi.cUMSPACO, gestaActualApi.cUMSPDisfuncionHepaticaSevera, gestaActualApi.cUMSPEmbarazoEctopico, gestaActualApi.cUMSPAlergiaMisoDiclo,gestaActualApi.cUMSPNinguna, gestaActualApi.factorRiesgoHb7,
             gestaActualApi.factorRiesgoCardiopatia, gestaActualApi.factorRiesgoDIU, gestaActualApi.factorRiesgoCardiovascular, gestaActualApi.factorRiesgoCorticoterapia,

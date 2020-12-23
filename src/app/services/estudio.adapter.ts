@@ -49,19 +49,19 @@ export class EstudioComplementarioAdapter {
 
     adapt(estudioApi: EstudioApi) :EstudioComplementario {
         if(estudioApi){
-        return new EstudioComplementario(estudioApi.id, estudioApi.eco1Observacion, this.parseJsonDate(estudioApi.eco1Fecha), estudioApi.eco1EG,  estudioApi.eco1LFC,
+        return new EstudioComplementario(estudioApi.id, estudioApi.eco1Observacion, estudioApi.eco1Fecha, estudioApi.eco1EG,  estudioApi.eco1LFC,
             estudioApi.eco1Embrion, estudioApi.eco1Saco, estudioApi.eco1Ubicacion, estudioApi.eco1Normoincerto, estudioApi.eco1Ectopico, estudioApi.eco1HMR,
-            estudioApi.eco2Observacion, this.parseJsonDate(estudioApi.eco2Fecha), estudioApi.eco2EG,  estudioApi.eco2LFC, estudioApi.eco2Embrion, estudioApi.eco2Saco,
-            estudioApi.eco2Ubicacion, estudioApi.eco2Normoincerto, estudioApi.eco2Ectopico, estudioApi.eco2HMR, this.parseJsonDate(estudioApi.labFecha), estudioApi.labGB,
+            estudioApi.eco2Observacion, estudioApi.eco2Fecha, estudioApi.eco2EG,  estudioApi.eco2LFC, estudioApi.eco2Embrion, estudioApi.eco2Saco,
+            estudioApi.eco2Ubicacion, estudioApi.eco2Normoincerto, estudioApi.eco2Ectopico, estudioApi.eco2HMR, estudioApi.labFecha, estudioApi.labGB,
             estudioApi.labGR, estudioApi.labHb,estudioApi.labHto,estudioApi.labGrupo,estudioApi.labFactor, estudioApi.consejeriaId, estudioApi.fecha);
         }else return null;
     }
 
     adaptToApi(estudioComplementario: EstudioComplementario) :EstudioApi {
-        return new EstudioApi(estudioComplementario.id, estudioComplementario.eco1Observacion, this.parseJsonDate(estudioComplementario.eco1Fecha), estudioComplementario.eco1EG,  estudioComplementario.eco1LFC,
+        return new EstudioApi(estudioComplementario.id, estudioComplementario.eco1Observacion, estudioComplementario.eco1Fecha, estudioComplementario.eco1EG,  estudioComplementario.eco1LFC,
         estudioComplementario.eco1Embrion, estudioComplementario.eco1Saco, estudioComplementario.eco1Ubicacion, estudioComplementario.eco1Normoincerto, estudioComplementario.eco1Ectopico, estudioComplementario.eco1HMR,
-        estudioComplementario.eco2Observacion, this.parseJsonDate(estudioComplementario.eco2Fecha), estudioComplementario.eco2EG,  estudioComplementario.eco2LFC, estudioComplementario.eco2Embrion, estudioComplementario.eco2Saco,
-        estudioComplementario.eco2Ubicacion, estudioComplementario.eco2Normoincerto, estudioComplementario.eco2Ectopico, estudioComplementario.eco2HMR, this.parseJsonDate(estudioComplementario.labFecha), estudioComplementario.labGB,
+        estudioComplementario.eco2Observacion, estudioComplementario.eco2Fecha, estudioComplementario.eco2EG,  estudioComplementario.eco2LFC, estudioComplementario.eco2Embrion, estudioComplementario.eco2Saco,
+        estudioComplementario.eco2Ubicacion, estudioComplementario.eco2Normoincerto, estudioComplementario.eco2Ectopico, estudioComplementario.eco2HMR, estudioComplementario.labFecha, estudioComplementario.labGB,
         estudioComplementario.labGR, estudioComplementario.labHb,estudioComplementario.labHto,estudioComplementario.labGrupo,estudioComplementario.labFactor, estudioComplementario.consejeriaId, estudioComplementario.fecha);
     }
 

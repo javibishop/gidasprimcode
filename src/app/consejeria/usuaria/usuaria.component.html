@@ -41,9 +41,9 @@
 
         <mat-grid-tile>
             <mat-form-field class="all-width">
-                <mat-select placeholder="Debe ingresar el Estado de Nivel de Instruccion"
-                    [(ngModel)]="usuaria.nivelInstruccionEstado" name="nivelInstruccionEstado">
-                    <mat-option *ngFor="let estado of estadoEstudios" [value]="estado.id">
+                <mat-select placeholder="Debe ingresar el Nivel de Instruccion"
+                    [(ngModel)]="usuaria.nivelInstruccion" name="nivelInstruccion">
+                    <mat-option *ngFor="let estado of nivelEstudios" [value]="estado.id">
                         {{estado.descripcion}}
                     </mat-option>
                 </mat-select>
@@ -51,9 +51,9 @@
         </mat-grid-tile>
         <mat-grid-tile>
             <mat-form-field class="all-width">
-                <mat-select placeholder="Debe ingresar el Nivel de Instruccion" [(ngModel)]="usuaria.nivelInstruccion"
-                    name="nivelInstruccion">
-                    <mat-option *ngFor="let nin of nivelEstudios" [value]="nin.id">
+                <mat-select placeholder="Debe ingresar el Estado de Nivel de Instruccion" [(ngModel)]="usuaria.nivelInstruccionEstado"
+                    name="nivelInstruccionEstado">
+                    <mat-option *ngFor="let nin of estadoEstudios" [value]="nin.id">
                         {{nin.descripcion}}
                     </mat-option>
                 </mat-select>
@@ -137,7 +137,7 @@
     </mat-grid-list>
     <mat-grid-list cols="1" rowHeight="50">
         <mat-grid-tile>
-            <mat-form-field>
+            <mat-form-field class="all-width">
                 <input  matInput
                 name="barrio"
                 placeholder="Barrio"
@@ -196,11 +196,6 @@
         </mat-grid-tile>
     </mat-grid-list>
     <mat-grid-list cols="1" rowHeight="60">
-        <mat-grid-tile>
-            <mat-checkbox [(ngModel)]="usuaria.conocePorOtro" name="conocePorOtro">
-                Conoce por Otro
-            </mat-checkbox>
-        </mat-grid-tile>
         <mat-grid-tile>
             <mat-form-field class="all-width">
                 <textarea matInput name="observacion" placeholder="Otra observacion"

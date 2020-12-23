@@ -7,8 +7,8 @@
             <mat-form-field>
                 <input matInput [matDatepicker]="picker" placeholder="Fecha del ultimo Parto" name="fecha"
                     [(ngModel)]="antecedente.fecha">
-                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-                <mat-datepicker #picker startView="month" [startAt]="startDate"></mat-datepicker>
+                <mat-datepicker-toggle matSuffix [for]="pickeran"></mat-datepicker-toggle>
+                <mat-datepicker #pickeran startView="month" [startAt]="startDate"></mat-datepicker>
             </mat-form-field>
         </mat-grid-tile>
         <mat-grid-tile>
@@ -72,7 +72,7 @@
           </mat-checkbox>
       </mat-grid-tile>
       <mat-grid-tile>
-          <mat-checkbox [(ngModel)]="antecedente.mACPreservativo" name="mACPreservativo" > 
+          <mat-checkbox [(ngModel)]="antecedente.mCPreservativo" name="mCPreservativo" > 
               MAC Preservativo   
             </mat-checkbox>
       </mat-grid-tile>

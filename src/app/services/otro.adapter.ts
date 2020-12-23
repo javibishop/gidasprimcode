@@ -39,7 +39,7 @@ export class OtrosAdapter {
         return new Otro(otroApi.id, otroApi.violenciaDG, otroApi.violenciaDGTipo, otroApi.violenciaDGObservaciones, 
             otroApi.violenciaI, otroApi.violenciaIDeQuien, otroApi.violenciaIComo, otroApi.acompaniamiento, otroApi.acompaniamientoLugar,
             otroApi.acompaniamientoDispositivo, otroApi.abusoSexual, otroApi.abusoSexualDJurada, otroApi.abusoSexualDPenal, otroApi.circuitoActual, otroApi.circuitoAnterior,
-            otroApi.circuitoObservaciones, otroApi.consejeriaId, this.parseJsonDate(otroApi.fecha));
+            otroApi.circuitoObservaciones, otroApi.consejeriaId, otroApi.fecha);
         }else return null;
     }
 

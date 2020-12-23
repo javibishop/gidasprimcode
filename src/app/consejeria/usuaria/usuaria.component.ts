@@ -37,8 +37,8 @@ export class UsuariaComponent implements OnInit, OnDestroy {
     { }
 
   ngOnInit() {
-    this.nivelEstudios = this.estadoEstudioListService.list;
-    this.estadoEstudios = this.nivelEstudioListService.list;
+    this.estadoEstudios = this.estadoEstudioListService.list;
+    this.nivelEstudios = this.nivelEstudioListService.list;
     this.paisHttpService.getAll();
     this.subscripciones.push(this.provinciaHttpService.getTodas().subscribe(provs => this.provincias = provs));
     

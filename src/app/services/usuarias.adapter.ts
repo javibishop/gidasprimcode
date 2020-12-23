@@ -45,7 +45,7 @@ export class UsuariasAdapter {
     adapt(usuariaApi: UsuariaApi) :Usuaria {
         if(usuariaApi){
             return new Usuaria(usuariaApi.id, usuariaApi.nombre, usuariaApi.apellido, usuariaApi.edad, usuariaApi.activo, 
-            this.parseJsonDate(usuariaApi.fechaNacimiento), usuariaApi.nacionalidadId, usuariaApi.documento, usuariaApi.provinciaId, usuariaApi.partidoId,usuariaApi.telefono, usuariaApi.direccion, usuariaApi.conocePorParejaX,
+            usuariaApi.fechaNacimiento, usuariaApi.nacionalidadId, usuariaApi.documento, usuariaApi.provinciaId, usuariaApi.partidoId,usuariaApi.telefono, usuariaApi.direccion, usuariaApi.conocePorParejaX,
             usuariaApi.conocePorUS, usuariaApi.conocePorOrganizacion, usuariaApi.conocePorMedios, usuariaApi.conocePorUsuarioConsejeria, usuariaApi.conocePorUsuarioConsejeria, usuariaApi.conocePorReferente,
              usuariaApi.conocePorInsititucionSaludObs, usuariaApi.conocePorOtro, usuariaApi.nivelInstruccion, usuariaApi.nivelInstruccionEstado, usuariaApi.localidadId, usuariaApi.barrio);
         }else return null;
@@ -53,7 +53,7 @@ export class UsuariasAdapter {
 
     adaptToApi(usuaria: Usuaria) :UsuariaApi {
         return new UsuariaApi (usuaria.id, usuaria.nombre, usuaria.apellido, usuaria.edad, usuaria.activo, 
-            this.parseJsonDate(usuaria.fechaNacimiento), usuaria.nacionalidadId, usuaria.telefono, usuaria.direccion, usuaria.documento, usuaria.provinciaId, usuaria.partidoId,usuaria.conocePorParejaX,
+            usuaria.fechaNacimiento, usuaria.nacionalidadId, usuaria.telefono, usuaria.direccion, usuaria.documento, usuaria.provinciaId, usuaria.partidoId,usuaria.conocePorParejaX,
             usuaria.conocePorUS, usuaria.conocePorOrganizacion, usuaria.conocePorMedios, usuaria.conocePorUsuarioConsejeria, usuaria.conocePorUsuarioConsejeria, usuaria.conocePorReferente, usuaria.conocePorInsititucionSaludObs, usuaria.conocePorOtro,
             usuaria.nivelInstruccion, usuaria.nivelInstruccionEstado, usuaria.localidadId, usuaria.barrio);
     }
