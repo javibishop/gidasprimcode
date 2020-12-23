@@ -85,7 +85,7 @@ app.post('/entrevistapostaborto', verificaToken,  (req, res) => {
             ecografiaPostFecha: req.body.ecografiaPostFecha,
             ecografiaPostNoRealizo :req.body.ecografiaPostNoRealizo,
             ecografiaPostAbortoCompleto :req.body.ecografiaPostAbortoCompleto,
-            ecografiaPostAbortoIncompleto :req.body.ecografiaPostAbortoCompleto,
+            ecografiaPostAbortoIncompleto :req.body.ecografiaPostAbortoIncompleto,
             ecografiaPostAbortoHMyR :req.body.ecografiaPostAbortoHMyR,
             ecografiaPostEmbrionViable :req.body.ecografiaPostEmbrionViable,
             ecografiaPostNuevaConsejeria :req.body.ecografiaPostNuevaConsejeria,

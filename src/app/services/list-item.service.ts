@@ -11,7 +11,7 @@ export class NivelEstudioListService extends GenericList{
     super();
     this.list = [
       new ListItem( 1, 'Primario'),
-      new ListItem( 1, 'Secundario'),
+      new ListItem( 2, 'Secundario'),
       new ListItem( 3, 'Terciario'),
       new ListItem( 4, 'Universitario')
     ];
