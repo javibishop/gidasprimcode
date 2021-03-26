@@ -29,7 +29,7 @@ export class GestaActualApi {
         public factorRiesgoCardiovascular :boolean,
         public factorRiesgoCorticoterapia :boolean,
         public factorRiesgoOtros :string,
-        public factorRiesgoNinguno :string,
+        public factorRiesgoNinguno :boolean,
         public consejeriaId :string
     ){
     }

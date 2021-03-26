@@ -63,6 +63,8 @@ import { InstitucionEditComponent } from './institucion/institucion-edit/institu
 import { InstitucionListComponent } from './institucion/institucion-list/institucion-list.component';
 import { TextboxModalComponent } from './textbox.modal/textbox.modal.component';
 import { SeguimientoComponent } from './consejeria/seguimiento/seguimiento.component';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatSortModule } from '@angular/material/sort';
 
 @NgModule({
   declarations: [
@@ -125,6 +127,8 @@ import { SeguimientoComponent } from './consejeria/seguimiento/seguimiento.compo
     MatGridListModule, 
     MatProgressSpinnerModule,
     MatDialogModule,
+    MatPaginatorModule,
+    MatSortModule,
     // MatDialog, 
     // MatDialogRef,
     RouterModule.forRoot([

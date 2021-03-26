@@ -35,7 +35,7 @@ export class GestaActualComponent implements OnInit , OnDestroy {
   }
 
   inicializar(consejeriaId: string){
-    this.gestaActual = new GestaActual('',false,'',new Date(),new Date(),'',false,'',false,'',false,false,false,false,'',false,false,false,false,false,false,false,false,false,false,'', '', consejeriaId);
+    this.gestaActual = new GestaActual('',false,'',new Date(),new Date(),'',false,'',false,'',false,false,false,false,'',false,false,false,false,false,false,false,false,false,false,'', false, consejeriaId);
   }
 
   guardarGestaActual(form: any) {

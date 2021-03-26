@@ -5,11 +5,13 @@
     <mat-grid-list cols="6" rowHeight="50" [style.background]="red">
         <mat-grid-tile>
             <mat-form-field>
-                <input matInput [matDatepicker]="picker" placeholder="Fecha del ultimo Parto" name="fecha"
+                <input matInput [matDatepicker]="pickeran" placeholder="Fecha del ultimo Parto" name="fecha"
                     [(ngModel)]="antecedente.fecha">
                 <mat-datepicker-toggle matSuffix [for]="pickeran"></mat-datepicker-toggle>
                 <mat-datepicker #pickeran startView="month" [startAt]="startDate"></mat-datepicker>
             </mat-form-field>
+
+
         </mat-grid-tile>
         <mat-grid-tile>
             <mat-form-field>

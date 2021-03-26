@@ -36,6 +36,7 @@ app.get('/consejeria', verificaToken, (req, res)  => {
     .populate('usuariaId')
     .populate('usuarie1Id')
     .populate('usuarie2Id')
+    .sort({ fechaIngreso: 'desc' })
     .skip(desde) /* salta los 5 registros por get */
     .limit(hasta) /* 5 registros por get */
     .exec((err, consejeria) => {
