@@ -135,73 +135,26 @@
             </mat-form-field>
       </mat-grid-tile>
       <mat-grid-tile>
-          <mat-form-field>
-                  <input  matInput
-                    type="text"
-                    name="labGB"
-                    placeholder="G.B."
-                    [(ngModel)]="estudioComplementario.labGB">
-                  <mat-error>G.B.</mat-error>
-          </mat-form-field>
-        </mat-grid-tile>
-        <mat-grid-tile>
-            <mat-form-field>
-                    <input  matInput
-                      type="text"
-                      name="labGR"
-                      placeholder="G.R."
-                      [(ngModel)]="estudioComplementario.labGR">
-                    <mat-error>G.R.</mat-error>
-            </mat-form-field>
-          </mat-grid-tile>
-    </mat-grid-list>
-    <mat-grid-list cols="3" rowHeight="50" >
-      <mat-grid-tile>
-          <mat-form-field>
-                <input  matInput
-                  type="number"
-                  name="labGrupo"
-                  placeholder="Grupo"
-                  [(ngModel)]="estudioComplementario.labGrupo">
-                <mat-error>Grupo</mat-error>
-        </mat-form-field>
-      </mat-grid-tile>
-      <mat-grid-tile>
-          <mat-form-field>
-                  <input  matInput
-                    type="number"
-                    name="labHb"
-                    placeholder="Hb"
-                    [(ngModel)]="estudioComplementario.labHb">
-                  <mat-error>Hb</mat-error>
-          </mat-form-field>
-        </mat-grid-tile>
-        <mat-grid-tile>
-            <mat-form-field>
-                    <input  matInput
-                      type="number"
-                      name="labHto"
-                      placeholder="Hto"
-                      [(ngModel)]="estudioComplementario.labHto">
-                    <mat-error>Hto</mat-error>
-            </mat-form-field>
-          </mat-grid-tile>
-    </mat-grid-list>
-    <mat-grid-list cols="3" rowHeight="50" >
-      <mat-grid-tile>
         <mat-form-field>
-                <input  matInput
-                  name="labFactor"
-                  placeholder="Factor"
-                  [(ngModel)]="estudioComplementario.labFactor">
-                <mat-error>Factor</mat-error>
-        </mat-form-field>
-      </mat-grid-tile>
-      <mat-grid-tile>
-      </mat-grid-tile>
-      <mat-grid-tile>
-      </mat-grid-tile>
+          <input  matInput
+            type="number"
+            name="labGrupo"
+            placeholder="Grupo"
+            [(ngModel)]="estudioComplementario.labGrupo">
+          <mat-error>Grupo</mat-error>
+  </mat-form-field>
+        </mat-grid-tile>
+        <mat-grid-tile>
+          <mat-form-field>
+                  <input  matInput
+                    name="labFactor"
+                    placeholder="Factor"
+                    [(ngModel)]="estudioComplementario.labFactor">
+                  <mat-error>Factor</mat-error>
+          </mat-form-field>
+        </mat-grid-tile>
     </mat-grid-list>
+
     <mat-grid-tile-footer>
         <div class="action-buttons">
             <button  mat-button

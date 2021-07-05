@@ -3,13 +3,13 @@
         <h5 class="hsubtitulo">Gesta Actual</h5>
      </mat-grid-tile-header>
      <mat-grid-list cols="3" rowHeight="50" [style.background]="red">
-        <mat-grid-tile>
+        <!-- <mat-grid-tile>
             <mat-form-field>
                 <input matInput [matDatepicker]="picker" placeholder="Fecha que se entero" name="Fecha que se Entero" [(ngModel)]="gestaActual.enteroFecha">
                 <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
                 <mat-datepicker #picker startView="month" [startAt]="startDate"></mat-datepicker>
             </mat-form-field>
-        </mat-grid-tile>
+        </mat-grid-tile> -->
         <mat-grid-tile>
           <mat-form-field>
               <input matInput [matDatepicker]="picker1" placeholder="FUM" name="fum" [(ngModel)]="gestaActual.fum">
@@ -35,7 +35,7 @@
     </mat-grid-list>
     <mat-grid-list cols="5" rowHeight="50" [style.background]="red">
         <mat-grid-tile colspan=1>
-            <mat-checkbox [(ngModel)]="gestaActual.enteroPorTestOrina" name="enteroPorTestOrina" >Se entero por Test Orina</mat-checkbox>
+            <mat-checkbox [(ngModel)]="gestaActual.enteroPorTestOrina" name="enteroPorTestOrina" >Se entero por Test rápido de embarazo</mat-checkbox>
         </mat-grid-tile>
         <mat-grid-tile colspan=4>
             <mat-form-field>
@@ -79,7 +79,7 @@
         </mat-grid-tile>
     </mat-grid-list>
     <mat-grid-tile-header> 
-        <h5 class="hsubtitulo">ILE</h5>
+        <h5 class="hsubtitulo">Interrupcion legal del embarazo (ILE)</h5>
      </mat-grid-tile-header>
      <mat-grid-list cols="4" rowHeight="50" [style.background]="red">
         <mat-grid-tile>
